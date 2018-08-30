@@ -1,12 +1,12 @@
 import Taro, { Component } from '@tarojs/taro';
 import Index from './pages/index';
-import { set as setGlobalData, get as getGlobalData } from './global_data';
+import { set as setGlobalData } from './global_data';
 
 import './app.scss';
 
 class App extends Component {
 	config = {
-		pages: [ 'pages/index/index' ],
+		pages: [ 'pages/body/index', 'pages/index/index', 'pages/list/index', 'pages/type/index' ],
 		window: {
 			backgroundTextStyle: 'light',
 			navigationBarBackgroundColor: '#fff',
@@ -26,25 +26,25 @@ class App extends Component {
 					selectedIconPath: './icons/1.1.png'
 				},
 				{
-					pagePath: 'pages/index/index',
+					pagePath: 'pages/list/index',
 					text: '栏目',
 					iconPath: './icons/2.png',
 					selectedIconPath: './icons/2.1.png'
 				},
 				{
-					pagePath: 'pages/index/index',
+					pagePath: 'pages/list/index',
 					text: '电视剧',
 					iconPath: './icons/3.png',
 					selectedIconPath: './icons/3.1.png'
 				},
 				{
-					pagePath: 'pages/index/index',
+					pagePath: 'pages/list/index',
 					text: '刊例',
 					iconPath: './icons/4.png',
 					selectedIconPath: './icons/4.1.png'
 				},
 				{
-					pagePath: 'pages/index/index',
+					pagePath: 'pages/list/index',
 					text: '团队',
 					iconPath: './icons/5.png',
 					selectedIconPath: './icons/5.1.png'
