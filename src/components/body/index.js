@@ -56,6 +56,19 @@ export default class BodyCont extends Component {
 
 					<Text className='title'>{title}</Text>
 				</View>
+				<View className='content-wrap'>
+					<View className='title-wrap'>
+						<Text className='title'>这是活动标题这是活动标题这是活动标题这是活动标题这是活动标题</Text>
+					</View>
+					<View className='info-wrap'>
+						<Text className='time'>2018年08月24日</Text>
+						<Text className='from-wrap'>
+							<Text className='from-text'>来源：</Text>
+							<Text className='from-name'>都市频道</Text>
+						</Text>
+					</View>
+					<View className='body-wrap'>正文</View>
+				</View>
 			</View>
 		);
 	}

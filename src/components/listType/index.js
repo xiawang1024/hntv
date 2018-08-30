@@ -31,9 +31,8 @@ export default class Index extends Component {
 
 	componentDidHide() {}
 	clickHandler = () => {
-		Taro.showToast({
-			title: 'click',
-			icon: 'success'
+		Taro.navigateTo({
+			url: '/pages/body/index'
 		});
 	};
 	goBackHome = () => {

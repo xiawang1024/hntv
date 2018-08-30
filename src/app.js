@@ -6,7 +6,7 @@ import './app.scss';
 
 class App extends Component {
 	config = {
-		pages: [ 'pages/body/index', 'pages/index/index', 'pages/list/index', 'pages/type/index' ],
+		pages: [ 'pages/index/index', 'pages/list/index', 'pages/type/index', 'pages/body/index' ],
 		window: {
 			backgroundTextStyle: 'light',
 			navigationBarBackgroundColor: '#fff',

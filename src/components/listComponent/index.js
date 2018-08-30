@@ -31,13 +31,14 @@ export default class Index extends Component {
 
 	componentDidHide() {}
 	clickHandler = () => {
-		Taro.showToast({
-			title: 'click',
-			icon: 'success'
+		Taro.navigateTo({
+			url: '/pages/body/index'
 		});
 	};
 	goBackHome = () => {
-		Taro.navigateBack();
+		Taro.switchTab({
+			url: '/pages/index/index'
+		});
 	};
 	render() {
 		let titleBarHeight = this.state.titleBarHeight;
@@ -52,9 +53,9 @@ export default class Index extends Component {
 					className='title-wrap'
 					style={{ height: `${titleBarHeight}px`, marginTop: `${statusBarHeight}px` }}
 				>
-					{/* <View className='icon-back-wrap' onClick={this.goBackHome}>
+					<View className='icon-back-wrap' onClick={this.goBackHome}>
 						<Image className='icon-back' src={require('./icon-back.png')} />
-					</View> */}
+					</View>
 
 					<Text className='title'>{title}</Text>
 				</View>

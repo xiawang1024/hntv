@@ -23,4 +23,32 @@
 			height: 37px;
 		}
 	}
+	.content-wrap {
+		width: 100%;
+		padding: 20px;
+		box-sizing: border-box;
+		.title-wrap {
+			.title {
+				line-height: 1.8;
+				font-size: 40px;
+				text-align: left;
+				font-weight: bold;
+				color: #333;
+			}
+		}
+		.info-wrap {
+			margin-top: 40px;
+			font-size: 24px;
+			color: #999;
+			.from-wrap {
+				margin-left: 20px;
+				.from-name {
+					color: #ff339d;
+				}
+			}
+		}
+		.body-wrap {
+			margin-top: 65px;
+		}
+	}
 }
