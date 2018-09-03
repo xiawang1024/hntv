@@ -134,6 +134,16 @@
     vinyl "^2.1.0"
     vinyl-fs "^3.0.2"
 
+"@tarojs/components@1.0.0-beta.21":
+  version "1.0.0-beta.21"
+  resolved "http://registry.npm.taobao.org/@tarojs/components/download/@tarojs/components-1.0.0-beta.21.tgz#4d70fd6026aa032dd08551bd0932fbda66545d72"
+  dependencies:
+    classnames "^2.2.5"
+    nervjs "^1.3.0"
+    omit.js "^1.0.0"
+    react "16.3.0"
+    weui "^1.1.2"
+
 "@tarojs/components@^1.0.0-beta.17":
   version "1.0.0-beta.17"
   resolved "http://registry.npm.taobao.org/@tarojs/components/download/@tarojs/components-1.0.0-beta.17.tgz#85a5c497b16a5d174bdfbb7af55c581919ac2407"
@@ -168,6 +178,12 @@
   dependencies:
     uglify-js "^3.3.24"
 
+"@tarojs/router@1.0.0-beta.21":
+  version "1.0.0-beta.21"
+  resolved "http://registry.npm.taobao.org/@tarojs/router/download/@tarojs/router-1.0.0-beta.21.tgz#19e0b6026bda4c1ae001e22057b723d8bf970693"
+  dependencies:
+    "@tarojs/taro-h5" "1.0.0-beta.21"
+
 "@tarojs/router@^1.0.0-beta.17":
   version "1.0.0-beta.17"
   resolved "http://registry.npm.taobao.org/@tarojs/router/download/@tarojs/router-1.0.0-beta.17.tgz#65915b91cc802ece219148b9b2ed114f748fdb4e"
@@ -183,6 +199,24 @@
     mobile-detect "^1.4.2"
     whatwg-fetch "^2.0.4"
 
+"@tarojs/taro-h5@1.0.0-beta.21":
+  version "1.0.0-beta.21"
+  resolved "http://registry.npm.taobao.org/@tarojs/taro-h5/download/@tarojs/taro-h5-1.0.0-beta.21.tgz#7aea70d22bb7d065e9b57464c86829e7a746eb5f"
+  dependencies:
+    "@tarojs/taro" "1.0.0-beta.21"
+    jsonp-retry "^1.0.3"
+    mobile-detect "^1.4.2"
+    whatwg-fetch "^2.0.4"
+
+"@tarojs/taro-weapp@1.0.0-beta.21":
+  version "1.0.0-beta.21"
+  resolved "http://registry.npm.taobao.org/@tarojs/taro-weapp/download/@tarojs/taro-weapp-1.0.0-beta.21.tgz#3f8bf8e2b06a12954dcde624ccfec587dcd6a0b7"
+  dependencies:
+    "@tarojs/taro" "1.0.0-beta.21"
+    "@tarojs/utils" "1.0.0-beta.21"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
 "@tarojs/taro-weapp@^1.0.0-beta.17":
   version "1.0.0-beta.17"
   resolved "http://registry.npm.taobao.org/@tarojs/taro-weapp/download/@tarojs/taro-weapp-1.0.0-beta.17.tgz#b54c074f7ae83f80e43127b4fe77c59f86085832"
@@ -195,6 +229,10 @@
 "@tarojs/taro@1.0.0-beta.17", "@tarojs/taro@^1.0.0-beta.17":
   version "1.0.0-beta.17"
   resolved "http://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-1.0.0-beta.17.tgz#c297aca02568adbced3fc85c620ba7b125f05fc2"
+
+"@tarojs/taro@1.0.0-beta.21":
+  version "1.0.0-beta.21"
+  resolved "http://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-1.0.0-beta.21.tgz#d379e52bb3374f5e47f149ae6e2401c4f375f0df"
 
 "@tarojs/transformer-wx@1.0.0-beta.17":
   version "1.0.0-beta.17"
@@ -215,6 +253,10 @@
 "@tarojs/utils@1.0.0-beta.17":
   version "1.0.0-beta.17"
   resolved "http://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-1.0.0-beta.17.tgz#2885581548c783bf635fc43a111e5f18a9cdcf78"
+
+"@tarojs/utils@1.0.0-beta.21":
+  version "1.0.0-beta.21"
+  resolved "http://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-1.0.0-beta.21.tgz#c543900df90cb53726b55dc697307e0dae49c56e"
 
 "@tarojs/webpack-runner@^1.0.0-beta.17":
   version "1.0.0-beta.17"
@@ -4461,6 +4503,13 @@ neo-async@^2.5.0:
   version "2.5.2"
   resolved "http://registry.npm.taobao.org/neo-async/download/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
 
+nerv-server@^1.3.2:
+  version "1.3.2"
+  resolved "http://registry.npm.taobao.org/nerv-server/download/nerv-server-1.3.2.tgz#edf6e6087cafa4f67e964f4fc0909f3132b773e6"
+  dependencies:
+    nerv-shared "1.3.2"
+    nerv-utils "1.3.2-beta.0"
+
 nerv-shared@1.3.2:
   version "1.3.2"
   resolved "http://registry.npm.taobao.org/nerv-shared/download/nerv-shared-1.3.2.tgz#a389c2dcce35940577009e9da9ab63b5ffb06a61"
@@ -6305,6 +6354,20 @@ tar@^4:
     mkdirp "^0.5.0"
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
+
+taro-ui@^1.1.0:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/taro-ui/download/taro-ui-1.1.0.tgz#6ce6c79c690a02cf54d429b955c72ef3890b31fd"
+  dependencies:
+    "@tarojs/components" "1.0.0-beta.21"
+    "@tarojs/router" "1.0.0-beta.21"
+    "@tarojs/taro" "1.0.0-beta.21"
+    "@tarojs/taro-h5" "1.0.0-beta.21"
+    "@tarojs/taro-weapp" "1.0.0-beta.21"
+    lodash "^4.17.10"
+    nerv-server "^1.3.2"
+    nervjs "^1.3.0"
+    prop-types "^15.6.2"
 
 text-table@~0.2.0:
   version "0.2.0"

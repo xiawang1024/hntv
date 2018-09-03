@@ -1,0 +1,134 @@
+.player {
+	position: relative;
+	.title-wrap {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-size: 34px;
+		.icon-back-wrap {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			position: absolute;
+			left: 0px;
+			top: 0;
+			width: 60px;
+			height: 100%;
+			text-align: left;
+			.icon-back {
+				margin-left: 20px;
+				width: 21px;
+				height: 37px;
+			}
+		}
+		.title {
+			color: #fff;
+		}
+	}
+	.player-info {
+		position: absolute;
+		right: 30px;
+		bottom: 300px;
+		color: #fff;
+		text-align: center;
+		.player-zan,
+		.player-msg,
+		.player-more {
+			// display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 120px;
+			text-align: center;
+			margin-top: 42px;
+		}
+		.icon-zan,
+		.icon-msg,
+		.icon-more {
+			margin-bottom: 16px;
+			margin-left: 32px;
+			font-size: 16px;
+		}
+		.icon-zan {
+			width: 57px;
+			height: 55px;
+		}
+		.icon-msg {
+			width: 56px;
+			height: 56px;
+		}
+		.icon-more {
+			width: 55px;
+			height: 55px;
+		}
+	}
+	.comment-list {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: 30px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		overflow: scroll;
+		background: #fff;
+		box-sizing: border-box;
+		.head-wrap {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			.title {
+				width: 300px;
+				font-size: 24px;
+			}
+			.icon-close {
+				position: absolute;
+				right: 0px;
+				top: 4px;
+				width: 22px;
+				height: 22px;
+			}
+		}
+		.list-wrap {
+			margin-top: 40px;
+			width: 100%;
+			overflow: auto;
+			box-sizing: border-box;
+			.item {
+				display: flex;
+				width: 100%;
+				box-sizing: border-box;
+				font-size: 25px;
+				margin-bottom: 30px;
+				.avatar {
+					flex: 0 0 75px;
+					width: 75px;
+					height: 75px;
+					border-radius: 50%;
+				}
+				.text-wrap {
+					margin-left: 20px;
+					.nickname {
+						margin-bottom: 10px;
+					}
+					.text {
+						margin-bottom: 16px;
+						line-height: 1.4125;
+						word-break: break-all;
+						word-wrap: break-word;
+						white-space: pre-line;
+					}
+					.time {
+						color: #999;
+					}
+				}
+			}
+		}
+	}
+}

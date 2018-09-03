@@ -6,7 +6,14 @@ import './app.scss';
 
 class App extends Component {
 	config = {
-		pages: [ 'pages/index/index', 'pages/list/index', 'pages/type/index', 'pages/body/index' ],
+		pages: [
+			'pages/videos/index',
+			'pages/player/index',
+			'pages/index/index',
+			'pages/list/index',
+			'pages/type/index',
+			'pages/body/index'
+		],
 		window: {
 			backgroundTextStyle: 'light',
 			navigationBarBackgroundColor: '#fff',
@@ -61,8 +68,11 @@ class App extends Component {
 		} else if (data.model.indexOf('iPhone') !== -1) {
 			totalTopHeight = 64;
 		}
+		let { screenHeight, screenWidth } = data;
 		setGlobalData('statusBarHeight', data.statusBarHeight);
 		setGlobalData('titleBarHeight', totalTopHeight - data.statusBarHeight);
+		setGlobalData('screenHeight', screenHeight);
+		setGlobalData('screenWidth', screenWidth);
 	}
 	componentDidMount() {}
 

@@ -22,8 +22,8 @@ export default class type extends Component {
 
 	render() {
 		return (
-			<View className='list-wrap'>
-				<ListType title='内容制造者' />
+			<View className="list-wrap">
+				<ListType title="内容制造者" />
 			</View>
 		);
 	}

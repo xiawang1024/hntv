@@ -69,6 +69,11 @@ export default class Index extends Component {
 			url: '/pages/type/index'
 		});
 	};
+	onGoToPlayer = () => {
+		Taro.navigateTo({
+			url: '/pages/player/index'
+		});
+	};
 	render() {
 		let titleBarHeight = this.state.titleBarHeight;
 		let statusBarHeight = this.state.statusBarHeight;
@@ -124,7 +129,11 @@ export default class Index extends Component {
 				</View>
 				<View className='line-h' />
 				<ScrollView className='scrollview' scrollX lowerThreshold='20' upperThreshold='20'>
-					<Image className='item' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
+					<Image
+						className='item'
+						onClick={this.onGoToPlayer}
+						src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg'
+					/>
 					<Image className='item' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
 					<Image className='item' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
 					<Image className='item' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />

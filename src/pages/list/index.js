@@ -22,8 +22,8 @@ export default class list extends Component {
 
 	render() {
 		return (
-			<View className='list-wrap'>
-				<ListComponent title='栏目' />
+			<View className="list-wrap">
+				<ListComponent title="栏目" />
 			</View>
 		);
 	}

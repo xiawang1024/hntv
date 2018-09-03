@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components';
-import { set as setGlobalData, get as getGlobalData } from '../../global_data';
+import { View, Text, Image } from '@tarojs/components';
+import { get as getGlobalData } from '../../global_data';
 import './index.scss';
 
 export default class Index extends Component {
@@ -36,9 +36,18 @@ export default class Index extends Component {
 		});
 	};
 	goBackHome = () => {
-		Taro.switchTab({
-			url: '/pages/index/index'
-		});
+		let { WEAPP, WEB } = Taro.ENV_TYPE;
+
+		if (WEB === 'WEB') {
+			Taro.navigateTo({
+				url: '/pages/index/index'
+			});
+		}
+		if (WEAPP === 'WEAPP') {
+			Taro.switchTab({
+				url: '/pages/index/index'
+			});
+		}
 	};
 	render() {
 		let titleBarHeight = this.state.titleBarHeight;
@@ -48,24 +57,24 @@ export default class Index extends Component {
 		const numbers = [ 1, 2, 3, 4, 5 ];
 
 		return (
-			<View className='list-content'>
+			<View className="list-content">
 				<View
-					className='title-wrap'
+					className="title-wrap"
 					style={{ height: `${titleBarHeight}px`, marginTop: `${statusBarHeight}px` }}
 				>
-					<View className='icon-back-wrap' onClick={this.goBackHome}>
-						<Image className='icon-back' src={require('./icon-back.png')} />
+					<View className="icon-back-wrap" onClick={this.goBackHome}>
+						<Image className="icon-back" src={require('./icon-back.png')} />
 					</View>
 
-					<Text className='title'>{title}</Text>
+					<Text className="title">{title}</Text>
 				</View>
-				<View className='list-wrap'>
+				<View className="list-wrap">
 					{numbers.map((number) => {
 						return (
-							<View className='item' onClick={this.clickHandler} key={number.toString()}>
+							<View className="item" onClick={this.clickHandler} key={number.toString()}>
 								<Image
-									className='img'
-									src='http://www.hndt.com/brand/612/res/pi3F3ZID.jpg?1497345245233'
+									className="img"
+									src="http://www.hndt.com/brand/612/res/pi3F3ZID.jpg?1497345245233"
 								/>
 							</View>
 						);
