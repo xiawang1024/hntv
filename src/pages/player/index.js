@@ -31,6 +31,9 @@ export default class Index extends Component {
 			screenHeight,
 			screenWidth
 		});
+		console.log('------------------------------------');
+		console.log(this.$router.params);
+		console.log('------------------------------------');
 	}
 
 	componentWillUnmount() {}
@@ -57,6 +60,44 @@ export default class Index extends Component {
 	onClickZan = () => {
 		Taro.showToast('yes');
 	};
+	goToVideos = () => {
+		Taro.navigateTo({
+			url: '/pages/videos/index'
+		});
+	};
+	touchStartHandler = (e) => {
+		console.log(e);
+		this.start = e.changedTouches[0];
+	};
+	touchMoveHandler = (e) => {};
+	touchEndHandler = (e) => {
+		this.getDirect(this.start, e.changedTouches[0]);
+	};
+	pre = () => {
+		Taro.navigateBack();
+	};
+	next = () => {
+		let id = 1;
+		id++;
+		Taro.navigateTo({
+			url: `/pages/player/index?id=${id}`
+		});
+	};
+	getDirect(start, end) {
+		var X = end.pageX - start.pageX,
+			Y = end.pageY - start.pageY;
+		if (Math.abs(X) > Math.abs(Y) && X > 0) {
+			console.log('right');
+			this.pre();
+		} else if (Math.abs(X) > Math.abs(Y) && X < 0) {
+			console.log('left');
+			this.next();
+		} else if (Math.abs(Y) > Math.abs(X) && Y > 0) {
+			console.log('bottom');
+		} else if (Math.abs(Y) > Math.abs(X) && Y < 0) {
+			console.log('top');
+		}
+	}
 	render() {
 		let { titleBarHeight, statusBarHeight, screenHeight, screenWidth } = this.state;
 		let commentHeight = screenHeight / 1.5;
@@ -91,7 +132,7 @@ export default class Index extends Component {
 						<CoverImage className='icon-msg' src={require('./icon-msg.png')} />
 						<CoverView className='num-msg'>987600</CoverView>
 					</CoverView>
-					<CoverView className='player-more'>
+					<CoverView className='player-more' onClick={this.goToVideos}>
 						<CoverImage className='icon-more' src={require('./icon-more.png')} />
 						<CoverView className='num-more'>更多</CoverView>
 					</CoverView>
@@ -171,6 +212,12 @@ export default class Index extends Component {
 						</CoverView>
 					</CoverView>
 				)}
+				<CoverView
+					className='touch-mark'
+					onTouchStart={this.touchStartHandler}
+					onTouchMove={this.touchMoveHandler}
+					onTouchEnd={this.touchEndHandler}
+				/>
 			</Video>
 		);
 	}

@@ -7,12 +7,12 @@ import './app.scss';
 class App extends Component {
 	config = {
 		pages: [
-			'pages/videos/index',
-			'pages/player/index',
 			'pages/index/index',
 			'pages/list/index',
 			'pages/type/index',
-			'pages/body/index'
+			'pages/body/index',
+			'pages/player/index',
+			'pages/videos/index'
 		],
 		window: {
 			backgroundTextStyle: 'light',

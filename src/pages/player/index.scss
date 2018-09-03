@@ -29,6 +29,7 @@
 	}
 	.player-info {
 		position: absolute;
+		z-index: 1024;
 		right: 30px;
 		bottom: 300px;
 		color: #fff;
@@ -130,5 +131,12 @@
 				}
 			}
 		}
+	}
+	.touch-mark {
+		position: absolute;
+		top: 15%;
+		left: 20%;
+		width: 60%;
+		height: 70%;
 	}
 }

@@ -40,6 +40,11 @@ export default class BodyCont extends Component {
 	goBackHome = () => {
 		Taro.navigateBack();
 	};
+	goToPlayer = () => {
+		Taro.navigateTo({
+			url: '/pages/player/index'
+		});
+	};
 	render() {
 		let titleBarHeight = this.state.titleBarHeight;
 		let statusBarHeight = this.state.statusBarHeight;
@@ -68,7 +73,7 @@ export default class BodyCont extends Component {
 				</View>
 				<View className='numbers'>视频（9）</View>
 				<View className='list-wrap'>
-					<View className='item'>
+					<View className='item' onClick={this.goToPlayer}>
 						<Image className='img' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
 					</View>
 					<View className='item'>
