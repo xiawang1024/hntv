@@ -10,6 +10,7 @@ export default class list extends Component {
 	constructor(props) {
 		super(props);
 	}
+	onShareAppMessage = () => {};
 	componentWillMount() {}
 
 	componentDidMount() {}

@@ -45,12 +45,13 @@ export default class type extends Component {
 		let titleArr = TITLELIST.filter((item) => {
 			return item.id == typeIndex;
 		});
-		// let title = titleArr[0].text;
-		let title = '列表';
+		let title = titleArr[0].text;
+		// let title = '列表';
 		this.setState({
 			title
 		});
 	}
+	onShareAppMessage = () => {};
 
 	componentDidMount() {}
 

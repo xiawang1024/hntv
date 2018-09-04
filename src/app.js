@@ -7,9 +7,9 @@ import './app.scss';
 class App extends Component {
 	config = {
 		pages: [
+			'pages/index/index',
 			'pages/player/index',
 			'pages/type/index',
-			'pages/index/index',
 			'pages/tab1/index',
 			'pages/tab2/index',
 			'pages/tab3/index',

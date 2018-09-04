@@ -20,7 +20,7 @@ export default class list extends Component {
 	componentDidShow() {}
 
 	componentDidHide() {}
-
+	onShareAppMessage = () => {};
 	render() {
 		return (
 			<View className='list-wrap'>

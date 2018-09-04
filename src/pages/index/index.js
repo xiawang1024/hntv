@@ -48,6 +48,7 @@ export default class Index extends Component {
 			titleBarHeight: 0
 		};
 	}
+	onShareAppMessage = () => {};
 	componentWillMount() {}
 
 	componentDidMount() {

@@ -17,7 +17,7 @@ export default class Index extends Component {
 		};
 	}
 	componentWillMount() {}
-
+	onShareAppMessage = () => {};
 	componentDidMount() {
 		let screenHeight = getGlobalData('screenHeight');
 		let screenWidth = getGlobalData('screenWidth');

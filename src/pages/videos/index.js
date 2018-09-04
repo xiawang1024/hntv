@@ -25,7 +25,7 @@ export default class BodyCont extends Component {
 			titleBarHeight
 		});
 	}
-
+	onShareAppMessage = () => {};
 	componentWillUnmount() {}
 
 	componentDidShow() {}
