@@ -79,6 +79,17 @@
 			}
 		}
 	}
+	.m-more {
+		position: absolute;
+		z-index: 10240;
+		left: 50px;
+		bottom: 200px;
+		height: 80px;
+		line-height: 80px;
+		padding: 40px 20px;
+		font-size: 32px;
+		color: #ffffff;
+	}
 	.comment-list {
 		position: absolute;
 		bottom: 0;

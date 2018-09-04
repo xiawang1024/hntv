@@ -15,7 +15,9 @@ export default class Index extends Component {
 			statusBarHeight: 0,
 			titleBarHeight: 0,
 			screenHeight: 0,
-			screenWidth: 0
+			screenWidth: 0,
+			index: 0,
+			src: 'http://yun.it7090.com/video/XHLaunchAd/video02.mp4'
 		};
 	}
 	componentWillMount() {}
@@ -47,13 +49,13 @@ export default class Index extends Component {
 		});
 	};
 	goBackHome = () => {
-		let { WEAPP, WEB } = Taro.ENV_TYPE;
-		if (WEB === 'WEB') {
+		let TYPE = Taro.getEnv();
+		if (TYPE === 'WEB') {
 			Taro.navigateTo({
 				url: '/pages/index/index'
 			});
 		}
-		if (WEAPP === 'WEAPP') {
+		if (TYPE === 'WEAPP') {
 			Taro.navigateBack();
 		}
 	};
@@ -74,14 +76,40 @@ export default class Index extends Component {
 		this.getDirect(this.start, e.changedTouches[0]);
 	};
 	pre = () => {
-		Taro.navigateBack();
+		let { index } = this.state;
+		index--;
+		this.setState(
+			{
+				index
+			},
+			() => {
+				console.log('------------------------------------');
+				console.log(this.state.index);
+				console.log('------------------------------------');
+				this.setState({
+					src: 'http://yun.it7090.com/video/XHLaunchAd/video02.mp4'
+				});
+			}
+		);
+		// Taro.navigateBack();
 	};
 	next = () => {
-		let id = 1;
-		id++;
-		Taro.navigateTo({
-			url: `/pages/player/index?id=${id}`
-		});
+		let { index } = this.state;
+		index++;
+		this.setState(
+			{
+				index,
+				src: 'http://yun.it7090.com/video/XHLaunchAd/video01.mp4'
+			},
+			() => {
+				console.log('------------------------------------');
+				console.log(this.state.index);
+				console.log('------------------------------------');
+			}
+		);
+		// Taro.navigateTo({
+		// 	url: `/pages/player/index?id=${id}`
+		// });
 	};
 	getDirect(start, end) {
 		var X = end.pageX - start.pageX,
@@ -98,6 +126,11 @@ export default class Index extends Component {
 			console.log('top');
 		}
 	}
+	goToMore = () => {
+		Taro.navigateTo({
+			url: '/pages/videos/index'
+		});
+	};
 	render() {
 		let { titleBarHeight, statusBarHeight, screenHeight, screenWidth } = this.state;
 		let commentHeight = screenHeight / 1.5;
@@ -111,7 +144,7 @@ export default class Index extends Component {
 				direction={0}
 				objectFit={'cover'}
 				loop
-				src='http://yun.it7090.com/video/XHLaunchAd/video02.mp4'
+				src={this.state.src}
 			>
 				<CoverView
 					className='title-wrap'
@@ -121,7 +154,7 @@ export default class Index extends Component {
 						<CoverImage className='icon-back' src={require('./icon-back.png')} />
 					</CoverView>
 
-					<CoverView className='title'>视频</CoverView>
+					<CoverView className='title'>{this.state.index}</CoverView>
 				</CoverView>
 				<CoverView className='player-info'>
 					<CoverView className='player-zan'>
@@ -139,6 +172,9 @@ export default class Index extends Component {
 						<CoverImage className='icon-more' src={require('./icon-more.png')} />
 						<CoverView className='num-more'>详情</CoverView>
 					</CoverView>
+				</CoverView>
+				<CoverView className='m-more' onClick={this.goToMore}>
+					#案例合集
 				</CoverView>
 				{isShowCommentList && (
 					<CoverView className='comment-list' style={{ height: `${commentHeight}px`, overflow: 'auto' }}>

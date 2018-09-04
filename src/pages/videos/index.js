@@ -67,7 +67,7 @@ export default class BodyCont extends Component {
 						<Text className='title'>{title}</Text>
 						<View className='info-wrap' style={{ marginTop: `${marginTop}px` }}>
 							<View className='name'>名称</View>
-							<View className='desc'>这是一段描述，这是一段描述，这是一段描述，这是一段描述，这是一段描述，这是一段描述，</View>
+							<View className='desc'>这是一段描述，这是一段描述</View>
 						</View>
 					</View>
 				</View>
