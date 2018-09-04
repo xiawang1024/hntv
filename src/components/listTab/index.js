@@ -57,24 +57,24 @@ export default class Index extends Component {
 		const numbers = [ 1, 2, 3, 4, 5 ];
 
 		return (
-			<View className="list-content">
+			<View className='list-content'>
 				<View
-					className="title-wrap"
+					className='title-wrap'
 					style={{ height: `${titleBarHeight}px`, marginTop: `${statusBarHeight}px` }}
 				>
-					<View className="icon-back-wrap" onClick={this.goBackHome}>
-						<Image className="icon-back" src={require('./icon-back.png')} />
+					<View className='icon-back-wrap' onClick={this.goBackHome}>
+						<Image className='icon-back' src={require('./icon-back.png')} />
 					</View>
 
-					<Text className="title">{title}</Text>
+					<Text className='title'>{title}</Text>
 				</View>
-				<View className="list-wrap">
+				<View className='list-wrap'>
 					{numbers.map((number) => {
 						return (
-							<View className="item" onClick={this.clickHandler} key={number.toString()}>
+							<View className='item' onClick={this.clickHandler} key={number.toString()}>
 								<Image
-									className="img"
-									src="http://www.hndt.com/brand/612/res/pi3F3ZID.jpg?1497345245233"
+									className='img'
+									src='http://www.hndt.com/brand/612/res/pi3F3ZID.jpg?1497345245233'
 								/>
 							</View>
 						);

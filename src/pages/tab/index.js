@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import ListComponent from '../../components/listComponent/index';
+import ListTab from '../../components/listTab/index';
 import './index.scss';
 
 export default class list extends Component {
@@ -22,8 +22,8 @@ export default class list extends Component {
 
 	render() {
 		return (
-			<View className="list-wrap">
-				<ListComponent title="栏目" />
+			<View className='list-wrap'>
+				<ListTab title='栏目' />
 			</View>
 		);
 	}
