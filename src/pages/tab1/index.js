@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import ListTab from '../../components/listTab/index';
+import List from '../../components/list/index';
+import Head from '../../components/head/index';
 import './index.scss';
 
 export default class list extends Component {
@@ -23,7 +24,8 @@ export default class list extends Component {
 	render() {
 		return (
 			<View className='list-wrap'>
-				<ListTab title='栏目' />
+				<Head title='刊例' type='tab' />
+				<List />
 			</View>
 		);
 	}

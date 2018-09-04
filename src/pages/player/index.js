@@ -35,7 +35,7 @@ export default class Index extends Component {
 		console.log(this.$router.params);
 		console.log('------------------------------------');
 	}
-
+	onShareAppMessage = () => {};
 	componentWillUnmount() {}
 
 	componentDidShow() {}
@@ -60,9 +60,9 @@ export default class Index extends Component {
 	onClickZan = () => {
 		Taro.showToast('yes');
 	};
-	goToVideos = () => {
+	goToBody = () => {
 		Taro.navigateTo({
-			url: '/pages/videos/index'
+			url: '/pages/body/index'
 		});
 	};
 	touchStartHandler = (e) => {
@@ -126,15 +126,18 @@ export default class Index extends Component {
 				<CoverView className='player-info'>
 					<CoverView className='player-zan'>
 						<CoverImage className='icon-zan' onClick={this.onClickZan} src={require('./icon-zan.png')} />
-						<CoverView className='num-zan'>987600</CoverView>
+						<CoverView className='num-zan'>点赞</CoverView>
 					</CoverView>
 					<CoverView className='player-msg'>
 						<CoverImage className='icon-msg' src={require('./icon-msg.png')} />
-						<CoverView className='num-msg'>987600</CoverView>
+						<Button openType='share' className='icon-share'>
+							0
+						</Button>
+						<CoverView className='num-msg'>转发</CoverView>
 					</CoverView>
-					<CoverView className='player-more' onClick={this.goToVideos}>
+					<CoverView className='player-more' onClick={this.goToBody}>
 						<CoverImage className='icon-more' src={require('./icon-more.png')} />
-						<CoverView className='num-more'>更多</CoverView>
+						<CoverView className='num-more'>详情</CoverView>
 					</CoverView>
 				</CoverView>
 				{isShowCommentList && (

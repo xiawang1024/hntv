@@ -1,0 +1,34 @@
+.list-content {
+	.list-wrap {
+		width: 100%;
+		padding: 20px;
+		box-sizing: border-box;
+		.item {
+			display: flex;
+			width: 100%;
+			height: 228px;
+			margin-bottom: 20px;
+
+			.img {
+				flex: 0 0 228px;
+				width: 228px;
+				height: 228px;
+				border-radius: 10px;
+			}
+			.text-wrap {
+				margin-left: 20px;
+				.title {
+					margin-top: 10px;
+					font-size: 29px;
+					color: #000;
+				}
+				.desc {
+					margin-top: 16px;
+					line-height: 1.84;
+					font-size: 25px;
+					color: #666666;
+				}
+			}
+		}
+	}
+}

@@ -7,12 +7,14 @@ import './app.scss';
 class App extends Component {
 	config = {
 		pages: [
-			'pages/tab/index',
-			'pages/start/index',
-			'pages/index/index',
-			'pages/type/index',
-			'pages/body/index',
 			'pages/player/index',
+			'pages/type/index',
+			'pages/index/index',
+			'pages/tab1/index',
+			'pages/tab2/index',
+			'pages/tab3/index',
+			'pages/start/index',
+			'pages/body/index',
 			'pages/videos/index'
 		],
 		window: {
@@ -34,28 +36,23 @@ class App extends Component {
 					selectedIconPath: './icons/1.1.png'
 				},
 				{
-					pagePath: 'pages/list/index',
-					text: '栏目',
-					iconPath: './icons/2.png',
-					selectedIconPath: './icons/2.1.png'
-				},
-				{
-					pagePath: 'pages/list/index',
-					text: '电视剧',
-					iconPath: './icons/3.png',
-					selectedIconPath: './icons/3.1.png'
-				},
-				{
-					pagePath: 'pages/list/index',
+					pagePath: 'pages/tab1/index',
 					text: '刊例',
 					iconPath: './icons/4.png',
 					selectedIconPath: './icons/4.1.png'
 				},
+
 				{
-					pagePath: 'pages/list/index',
+					pagePath: 'pages/tab2/index',
 					text: '团队',
 					iconPath: './icons/5.png',
 					selectedIconPath: './icons/5.1.png'
+				},
+				{
+					pagePath: 'pages/tab3/index',
+					text: '搜索',
+					iconPath: './icons/2.png',
+					selectedIconPath: './icons/2.1.png'
 				}
 			]
 		}

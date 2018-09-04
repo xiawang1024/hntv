@@ -1,0 +1,24 @@
+.title-wrap {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 34px;
+	.icon-back-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		position: absolute;
+		left: 0px;
+		top: 0;
+		width: 60px;
+		height: 100%;
+		text-align: left;
+	}
+	.icon-back {
+		margin-left: 20px;
+		width: 21px;
+		height: 37px;
+	}
+}

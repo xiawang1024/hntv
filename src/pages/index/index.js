@@ -64,10 +64,10 @@ export default class Index extends Component {
 	componentDidShow() {}
 
 	componentDidHide() {}
-	onClickHandler = () => {
-		// Taro.showToast('click');
+	onClickHandler = (typeIndex) => {
+		let url = `/pages/type/index?typeIndex=${typeIndex}`;
 		Taro.navigateTo({
-			url: '/pages/type/index'
+			url
 		});
 	};
 	onGoToPlayer = () => {
@@ -119,7 +119,11 @@ export default class Index extends Component {
 				<View className='model-wrap'>
 					{modelData.map((item) => {
 						return (
-							<View className='item' onClick={this.onClickHandler} key={item.id.toString()}>
+							<View
+								className='item'
+								onClick={this.onClickHandler.bind(this, item.id)}
+								key={item.id.toString()}
+							>
 								<Image className='icon' src={item.icon} />
 								<Text className='text'>{item.text}</Text>
 							</View>
