@@ -7,6 +7,7 @@ import './app.scss';
 class App extends Component {
 	config = {
 		pages: [
+			'pages/body/index',
 			'pages/index/index',
 			'pages/player/index',
 			'pages/type/index',
@@ -14,7 +15,6 @@ class App extends Component {
 			'pages/tab2/index',
 			'pages/tab3/index',
 			'pages/start/index',
-			'pages/body/index',
 			'pages/videos/index'
 		],
 		window: {

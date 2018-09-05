@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text, Image } from '@tarojs/components';
+import { View, Text, Image, RichText } from '@tarojs/components';
 import { get as getGlobalData } from '../../global_data';
+import WxParse from '../wxParse/wxParse';
 import './index.scss';
 
 export default class BodyCont extends Component {
@@ -23,6 +24,8 @@ export default class BodyCont extends Component {
 			statusBarHeight,
 			titleBarHeight
 		});
+		const article = this.props.article;
+		WxParse.wxParse('article', 'html', article, this.$scope, 5);
 	}
 
 	componentWillUnmount() {}
@@ -54,9 +57,13 @@ export default class BodyCont extends Component {
 						<Image className='icon-back' src={require('./icon-back.png')} />
 					</View>
 
-					<Text className='title'>{title}</Text>
+					<Text className='title'>正文</Text>
 				</View>
 				<View className='content-wrap'>
+					<import src='../wxParse/wxParse.wxml' />
+					<template is='wxParse' data='{{ wxParseData: article.nodes }}' />
+				</View>
+				{/* <View className='content-wrap'>
 					<View className='title-wrap'>
 						<Text className='title'>这是活动标题这是活动标题这是活动标题这是活动标题这是活动标题</Text>
 					</View>
@@ -68,7 +75,7 @@ export default class BodyCont extends Component {
 						</Text>
 					</View>
 					<View className='body-wrap'>正文</View>
-				</View>
+				</View> */}
 			</View>
 		);
 	}
