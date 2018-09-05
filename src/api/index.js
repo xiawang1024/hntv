@@ -7,29 +7,27 @@ const Base_URL = 'https://a.weixin.hndt.com/ktvcms/api?';
  * @param {*} page 页码
  * @param {*} pagesize 每页数量
  */
-const getSwipeData = (pagesize = 4, id = 4, page = 1) => {
+const getSwipeData = (pagesize = 4, id = 4, page = 1) =>
 	Taro.request({
 		url: `${Base_URL}method=queryContentByCategory&id=${id}&page=${page}&pagesize=${pagesize}`
 	});
-};
 /**
  * 首页展示的单篇文章(视频列表)：
  * @param {*} pagesize 每页数量
  * @param {*} id 分类id
  * @param {*} page 页码
  */
-const getVideosList = (pagesize = 4, id = 15, page = 1) => {
+const getVideosList = (pagesize = 4, id = 15, page = 1) =>
 	Taro.request({
 		url: `${Base_URL}method=queryContentByCategory&id=${id}&page=${page}&pagesize=${pagesize}`
 	});
-};
 /**
  * 搜索
  * @param {*} keywords 经过base64编码
  */
 const getSearchList = (keywords) => {
 	let base64KeyWord = Base64.encode(keywords);
-	Taro.request({
+	return Taro.request({
 		url: `${Base_URL}method=queryContentByKeywords&keywords=${base64KeyWord}`
 	});
 };
@@ -37,21 +35,18 @@ const getSearchList = (keywords) => {
  * 根据文章ID查询正文
  * @param {*} id
  */
-const getArticleData = (id) => {
+const getArticleData = (id) =>
 	Taro.request({
 		url: `${Base_URL}method=queryContent&id=${id}`
 	});
-};
-
 /**
  * 根据文章分类查询正文列表
  * @param {*} id
  */
-const getArticleList = (id) => {
+const getArticleList = (id) =>
 	Taro.request({
 		url: `${Base_URL}method=queryContentByCategory&id=${id}`
 	});
-};
 /**
  * 根据父类ID查询子分类
  * @param {*} id 父级分类ID
@@ -67,21 +62,18 @@ const getArticleList = (id) => {
   45 刊例
   46 团队
  */
-const getTypeList = (id) => {
+const getTypeList = (id) =>
 	Taro.request({
 		url: `${Base_URL}method=queryTaxonomyByParent&id=${id}`
 	});
-};
 /**
  * 点赞接口
  * @param {*} id 文章id
  */
-const actionLove = (id) => {
+const actionLove = (id) =>
 	Taro.request({
 		url: `http://a.weixin.hndt.com/action/api?method=actionContentViewCount&id=${id}`
 	});
-};
-
 export { getSwipeData, getVideosList, getSearchList, getArticleData, getArticleList, getTypeList, actionLove };
 
 /**

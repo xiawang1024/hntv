@@ -2,6 +2,7 @@ import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import List from '../../components/list/index';
 import Head from '../../components/head/index';
+import { getTypeList } from '../../api/index';
 import './index.scss';
 
 const TITLELIST = [
@@ -30,6 +31,7 @@ const TITLELIST = [
 		text: '体育'
 	}
 ];
+
 export default class type extends Component {
 	config = {
 		navigationBarTitleText: '河南都市频道广告推广'
@@ -37,7 +39,8 @@ export default class type extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: ''
+			title: '',
+			dataList: []
 		};
 	}
 	componentWillMount() {
@@ -46,26 +49,38 @@ export default class type extends Component {
 			return item.id == typeIndex;
 		});
 		let title = titleArr[0].text;
-		// let title = '列表';
 		this.setState({
 			title
 		});
 	}
 	onShareAppMessage = () => {};
 
-	componentDidMount() {}
+	componentDidMount() {
+		let { typeIndex } = this.$router.params;
+		let idArr = [ 1, 1, 6, 9, 7, 5, 10 ];
+		let typeId = idArr[typeIndex];
+		this.fetchGetTypeList(typeId);
+	}
 
 	componentWillUnmount() {}
 
 	componentDidShow() {}
 
 	componentDidHide() {}
-
+	fetchGetTypeList = (typeId) => {
+		getTypeList(typeId).then((res) => {
+			let { errorCode, data } = res.data;
+			if (errorCode === 0) {
+				this.setState({ dataList: data });
+			}
+		});
+	};
 	render() {
+		let dataList = this.state.dataList;
 		return (
 			<View className='list-wrap'>
 				<Head title={this.state.title} type='type' />
-				<List title='栏目' />
+				<List dataList={dataList} />
 			</View>
 		);
 	}

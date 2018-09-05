@@ -7,6 +7,9 @@ export default class list extends Component {
 	config = {
 		navigationBarTitleText: '河南都市频道广告推广'
 	};
+	static defaultProps = {
+		dataList: []
+	};
 	constructor(props) {
 		super(props);
 	}
@@ -25,21 +28,19 @@ export default class list extends Component {
 		});
 	};
 	render() {
-		const numbers = [ 1, 2, 3, 4, 5 ];
-
 		return (
 			<View className='list-content'>
 				<View className='list-wrap'>
-					{numbers.map((number) => {
+					{this.props.dataList.map((item) => {
 						return (
-							<View className='item' onClick={this.clickHandler} key={number.toString()}>
+							<View className='item' onClick={this.clickHandler} key={item.id.toString()}>
 								<Image
 									className='img'
 									src='http://www.hndt.com/podcast/976/1131/res/EEghUGNE.jpg?1511506999379'
 								/>
 								<View className='text-wrap'>
-									<View className='title'>新闻矩阵介绍</View>
-									<View className='desc'>包含都市报道、孟子约、都市1直播、都 市再报道栏目简单介绍、定位</View>
+									<View className='title'>{item.title}</View>
+									<View className='desc'>{item.text}</View>
 								</View>
 							</View>
 						);
