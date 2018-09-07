@@ -1,1 +1,13 @@
-
+.list-box {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px;
+	box-sizing: border-box;
+	.item {
+		flex: 0 0 235px;
+		margin: 5px;
+		background: #f08;
+		box-sizing: border-box;
+	}
+}

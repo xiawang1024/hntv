@@ -34,7 +34,13 @@ export default class list extends Component {
 		return (
 			<View className='list-wrap'>
 				<Head title='刊例' type='tab' />
-				<Button onClick={this.downLoadFile}>下载</Button>
+				{/* <Button onClick={this.downLoadFile}>下载</Button> */}
+				<View className='list-box'>
+					<View className='item'>123</View>
+					<View className='item'>123</View>
+					<View className='item'>123</View>
+					<View className='item'>123</View>
+				</View>
 				<List />
 			</View>
 		);
