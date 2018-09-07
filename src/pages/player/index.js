@@ -1,8 +1,8 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text, Image, Video, CoverImage } from '@tarojs/components';
-import { AtFloatLayout } from 'taro-ui';
+import { Video, CoverImage } from '@tarojs/components';
 import { get as getGlobalData } from '../../global_data';
 import './index.scss';
+import videoList from './videos';
 
 export default class Index extends Component {
 	config = {
@@ -16,8 +16,10 @@ export default class Index extends Component {
 			titleBarHeight: 0,
 			screenHeight: 0,
 			screenWidth: 0,
-			index: 0,
-			src: 'http://yun.it7090.com/video/XHLaunchAd/video02.mp4'
+			videoList: videoList,
+			isPlayInfo: videoList[0],
+			isPlayIndex: 0,
+			src: 'http://vfx.mtime.cn/Video/2018/09/05/mp4/180905134907179704.mp4'
 		};
 	}
 	componentWillMount() {}
@@ -33,11 +35,25 @@ export default class Index extends Component {
 			screenHeight,
 			screenWidth
 		});
-		console.log('------------------------------------');
-		console.log(this.$router.params);
-		console.log('------------------------------------');
+		let { isPlayIndex } = this.$router.params;
+		this.initVideoInfo(isPlayIndex);
 	}
-	onShareAppMessage = () => {};
+	initVideoInfo = (isPlayIndex = 0) => {
+		let { videoList } = this.state;
+		let isPlayInfo = videoList[isPlayIndex];
+		this.setState({
+			isPlayInfo,
+			isPlayIndex
+		});
+	};
+	onShareAppMessage = () => {
+		let { isPlayIndex, isPlayInfo } = this.state;
+		return {
+			title: '自定义转发标题',
+			imageUrl: isPlayInfo.coverImg,
+			path: `/pages/player/index?isPlayIndex=${isPlayIndex}`
+		};
+	};
 	componentWillUnmount() {}
 
 	componentDidShow() {}
@@ -76,40 +92,34 @@ export default class Index extends Component {
 		this.getDirect(this.start, e.changedTouches[0]);
 	};
 	pre = () => {
-		let { index } = this.state;
-		index--;
-		this.setState(
-			{
-				index
-			},
-			() => {
-				console.log('------------------------------------');
-				console.log(this.state.index);
-				console.log('------------------------------------');
-				this.setState({
-					src: 'http://yun.it7090.com/video/XHLaunchAd/video02.mp4'
-				});
-			}
-		);
-		// Taro.navigateBack();
+		let { isPlayIndex, videoList, isPlayInfo } = this.state;
+		let len = videoList.length;
+		if (isPlayIndex === 0) {
+			Taro.showToast({ title: '到头了' });
+			return;
+		} else {
+			isPlayIndex--;
+			isPlayInfo = videoList[isPlayIndex];
+			this.setState({
+				isPlayInfo,
+				isPlayIndex
+			});
+		}
 	};
 	next = () => {
-		let { index } = this.state;
-		index++;
-		this.setState(
-			{
-				index,
-				src: 'http://yun.it7090.com/video/XHLaunchAd/video01.mp4'
-			},
-			() => {
-				console.log('------------------------------------');
-				console.log(this.state.index);
-				console.log('------------------------------------');
-			}
-		);
-		// Taro.navigateTo({
-		// 	url: `/pages/player/index?id=${id}`
-		// });
+		let { isPlayIndex, videoList, isPlayInfo } = this.state;
+		let len = videoList.length;
+		if (isPlayIndex === len - 1) {
+			Taro.showToast({ title: '到头了' });
+			return;
+		} else {
+			isPlayIndex++;
+			isPlayInfo = videoList[isPlayIndex];
+			this.setState({
+				isPlayInfo,
+				isPlayIndex
+			});
+		}
 	};
 	getDirect(start, end) {
 		var X = end.pageX - start.pageX,
@@ -135,6 +145,7 @@ export default class Index extends Component {
 		let { titleBarHeight, statusBarHeight, screenHeight, screenWidth } = this.state;
 		let commentHeight = screenHeight / 1.5;
 		let isShowCommentList = false;
+		let { isPlayInfo } = this.state;
 		return (
 			<Video
 				style={{ height: `${screenHeight}px`, width: `${screenWidth}px` }}
@@ -142,10 +153,16 @@ export default class Index extends Component {
 				controls={false}
 				autoplay
 				direction={0}
-				objectFit={'cover'}
+				objectFit={'contain'}
 				loop
-				src={this.state.src}
+				src={isPlayInfo.url}
 			>
+				<CoverView
+					className='touch-mark'
+					onTouchStart={this.touchStartHandler}
+					onTouchMove={this.touchMoveHandler}
+					onTouchEnd={this.touchEndHandler}
+				/>
 				<CoverView
 					className='title-wrap'
 					style={{ height: `${titleBarHeight}px`, marginTop: `${statusBarHeight}px` }}
@@ -154,7 +171,7 @@ export default class Index extends Component {
 						<CoverImage className='icon-back' src={require('./icon-back.png')} />
 					</CoverView>
 
-					<CoverView className='title'>{this.state.index}</CoverView>
+					<CoverView className='title'>{isPlayInfo.videoTitle}</CoverView>
 				</CoverView>
 				<CoverView className='player-info'>
 					<CoverView className='player-zan'>
