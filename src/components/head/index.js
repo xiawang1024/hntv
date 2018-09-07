@@ -52,16 +52,20 @@ export default class head extends Component {
 	};
 	render() {
 		let { titleBarHeight, statusBarHeight } = this.state;
-		let { title } = this.props;
+		let { title, type } = this.props;
 		return (
 			<View className='list-wrap'>
 				<View
 					className='title-wrap'
 					style={{ height: `${titleBarHeight}px`, marginTop: `${statusBarHeight}px` }}
 				>
-					<View className='icon-back-wrap' onClick={this.goBackHome}>
-						<Image className='icon-back' src={require('../../icons/icon-back.png')} />
-					</View>
+					{type === 'tab' ? (
+						<View />
+					) : (
+						<View className='icon-back-wrap' onClick={this.goBackHome}>
+							<Image className='icon-back' src={require('../../icons/icon-back.png')} />
+						</View>
+					)}
 
 					<Text className='title'>{title}</Text>
 				</View>
