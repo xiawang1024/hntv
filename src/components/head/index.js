@@ -41,13 +41,16 @@ export default class head extends Component {
 			});
 		}
 		if (APP_TYPE === 'WEAPP') {
-			if (type === 'tab') {
-				Taro.switchTab({
-					url: '/pages/index/index'
-				});
-			} else {
-				Taro.navigateBack();
-			}
+			// if (type === 'tab') {
+			// 	Taro.switchTab({
+			// 		url: '/pages/index/index'
+			// 	});
+			// } else {
+			// 	Taro.navigateBack();
+			// }
+			Taro.switchTab({
+				url: '/pages/index/index'
+			});
 		}
 	};
 	render() {

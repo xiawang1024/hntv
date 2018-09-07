@@ -72,7 +72,9 @@ export default class Index extends Component {
 			});
 		}
 		if (TYPE === 'WEAPP') {
-			Taro.navigateBack();
+			Taro.switchTab({
+				url: '/pages/index/index'
+			});
 		}
 	};
 	onClickZan = () => {
