@@ -17,7 +17,7 @@ const getSwipeData = (pagesize = 4, id = 4, page = 1) =>
  * @param {*} id 分类id
  * @param {*} page 页码
  */
-const getVideosList = (pagesize = 4, id = 15, page = 1) =>
+const getVideosList = (pagesize = 10, id = 15, page = 1) =>
 	Taro.request({
 		url: `${Base_URL}method=queryContentByCategory&id=${id}&page=${page}&pagesize=${pagesize}`
 	});

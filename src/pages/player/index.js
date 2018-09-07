@@ -16,8 +16,8 @@ export default class Index extends Component {
 			titleBarHeight: 0,
 			screenHeight: 0,
 			screenWidth: 0,
-			videoList: videoList,
-			isPlayInfo: videoList[0],
+			videoList: [],
+			isPlayInfo: {},
 			isPlayIndex: 0,
 			src: 'http://vfx.mtime.cn/Video/2018/09/05/mp4/180905134907179704.mp4'
 		};
@@ -35,6 +35,16 @@ export default class Index extends Component {
 			screenHeight,
 			screenWidth
 		});
+		Taro.getStorage({key:'videosList'}).then(res => {
+			let {data} = res 
+			let videoList = JSON.parse(data)
+			this.setState({
+				videoList,
+				isPlayInfo:videoList[0]
+			})
+			console.log(JSON.parse(data))
+		})
+		
 		let { isPlayIndex } = this.$router.params;
 		this.initVideoInfo(isPlayIndex);
 	}

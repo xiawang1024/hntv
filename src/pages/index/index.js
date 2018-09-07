@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components';
-import { AtTabBar } from 'taro-ui';
+import {getVideosList} from '../../api/index.js'
 import { get as getGlobalData } from '../../global_data';
 import './index.scss';
 
@@ -45,7 +45,8 @@ export default class Index extends Component {
 		super(props);
 		this.state = {
 			statusBarHeight: 0,
-			titleBarHeight: 0
+			titleBarHeight: 0,
+			videosList:[]
 		};
 	}
 	onShareAppMessage = () => {};
@@ -58,8 +59,22 @@ export default class Index extends Component {
 			statusBarHeight,
 			titleBarHeight
 		});
+		this.fetchVideoList()
 	}
-
+	fetchVideoList = () => {
+		getVideosList().then(res => {
+			let {data,errorCode} = res.data
+			if(errorCode===0) {
+				this.setState({
+					videosList:data
+				})
+				Taro.setStorage({
+					key:'videosList',
+					data:JSON.stringify(data)
+				})
+			}
+		})
+	}
 	componentWillUnmount() {}
 
 	componentDidShow() {}
@@ -71,9 +86,14 @@ export default class Index extends Component {
 			url
 		});
 	};
-	onGoToPlayer = () => {
+	onGoToPlayer = (id) => {
+		let {videosList} = this.state
+		let isPlayIndex = videosList.findIndex((item,index) => {
+			return item.id === id
+		})
+		console.log(isPlayIndex)
 		Taro.navigateTo({
-			url: '/pages/player/index'
+			url: `/pages/player/index?isPlayIndex=${isPlayIndex}`
 		});
 	};
 
@@ -133,14 +153,18 @@ export default class Index extends Component {
 				</View>
 				<View className='line-h' />
 				<ScrollView className='scrollview' scrollX lowerThreshold='20' upperThreshold='20'>
-					<Image
-						className='item'
-						onClick={this.onGoToPlayer}
-						src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg'
-					/>
-					<Image className='item' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
-					<Image className='item' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
-					<Image className='item' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
+					{
+						this.state.videosList.map((item,index) => {
+							return (
+								<Image
+									className='item'
+									onClick={this.onGoToPlayer.bind(this,item.id)}
+									src={item.flag || 'http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg'}
+									key={item.id.toString()}
+								/>
+							)
+						})
+					}					
 				</ScrollView>
 			</View>
 		);
