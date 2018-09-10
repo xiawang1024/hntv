@@ -22,9 +22,10 @@ export default class list extends Component {
 	componentDidShow() {}
 
 	componentDidHide() {}
-	clickHandler = () => {
+	goToBody = (id) => {
+		let url = `/pages/body/index?articleId=${id}`;
 		Taro.navigateTo({
-			url: '/pages/body/index'
+			url
 		});
 	};
 	render() {
@@ -33,14 +34,11 @@ export default class list extends Component {
 				<View className='list-wrap'>
 					{this.props.dataList.map((item) => {
 						return (
-							<View className='item' onClick={this.clickHandler} key={item.id.toString()}>
-								<Image
-									className='img'
-									src='http://www.hndt.com/podcast/976/1131/res/EEghUGNE.jpg?1511506999379'
-								/>
+							<View className='item' onClick={this.goToBody.bind(this, item.id)} key={item.id.toString()}>
+								<Image className='img' src={item.thumbnail} mode='aspectFit' />
 								<View className='text-wrap'>
 									<View className='title'>{item.title}</View>
-									<View className='desc'>{item.text}</View>
+									<View className='desc'>{item.slug}</View>
 								</View>
 							</View>
 						);

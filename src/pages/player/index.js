@@ -36,16 +36,16 @@ export default class Index extends Component {
 			screenWidth
 		});
 		let { isPlayIndex } = this.$router.params;
-		Taro.getStorage({key:'videosList'}).then(res => {
-			let {data} = res 
-			let videoList = JSON.parse(data)
+		Taro.getStorage({ key: 'videosList' }).then((res) => {
+			let { data } = res;
+			let videoList = JSON.parse(data);
 			this.setState({
 				videoList,
-				isPlayInfo:videoList[isPlayIndex]
-			})
-			console.log(JSON.parse(data))
-		})
-		
+				isPlayInfo: videoList[isPlayIndex]
+			});
+			console.log(JSON.parse(data));
+		});
+
 		this.initVideoInfo(isPlayIndex);
 	}
 	initVideoInfo = (isPlayIndex = 0) => {
@@ -91,7 +91,7 @@ export default class Index extends Component {
 		Taro.showToast('yes');
 	};
 	goToBody = () => {
-		let {id} = this.state.isPlayInfo
+		let { id } = this.state.isPlayInfo;
 		let url = `/pages/body/index?articleId=${id}`;
 		Taro.navigateTo({
 			url
@@ -109,7 +109,7 @@ export default class Index extends Component {
 		let { isPlayIndex, videoList, isPlayInfo } = this.state;
 		let len = videoList.length;
 		if (isPlayIndex === 0) {
-			Taro.showToast({ title: '到头了' });
+			Taro.showToast({ title: '这是第一个', icon: 'none' });
 			return;
 		} else {
 			isPlayIndex--;
@@ -124,7 +124,7 @@ export default class Index extends Component {
 		let { isPlayIndex, videoList, isPlayInfo } = this.state;
 		let len = videoList.length;
 		if (isPlayIndex === len - 1) {
-			Taro.showToast({ title: '到头了' });
+			Taro.showToast({ title: '这是最后一个', icon: 'none' });
 			return;
 		} else {
 			isPlayIndex++;

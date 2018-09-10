@@ -12,7 +12,8 @@ export default class BodyCont extends Component {
 		super(props);
 		this.state = {
 			statusBarHeight: 0,
-			titleBarHeight: 0
+			titleBarHeight: 0,
+			videoList: []
 		};
 	}
 	componentWillMount() {}
@@ -23,6 +24,14 @@ export default class BodyCont extends Component {
 		this.setState({
 			statusBarHeight,
 			titleBarHeight
+		});
+		Taro.getStorage({ key: 'videosList' }).then((res) => {
+			let { data } = res;
+			let videoList = JSON.parse(data);
+			this.setState({
+				videoList
+			});
+			console.log(JSON.parse(data));
 		});
 	}
 	onShareAppMessage = () => {};
@@ -40,9 +49,9 @@ export default class BodyCont extends Component {
 	goBackHome = () => {
 		Taro.navigateBack();
 	};
-	goToPlayer = () => {
+	goToPlayer = (isPlayIndex) => {
 		Taro.navigateTo({
-			url: '/pages/player/index'
+			url: `/pages/player/index?isPlayIndex=${isPlayIndex}`
 		});
 	};
 	render() {
@@ -71,20 +80,15 @@ export default class BodyCont extends Component {
 						</View>
 					</View>
 				</View>
-				<View className='numbers'>视频（9）</View>
+				<View className='numbers'>视频（{this.state.videoList.length}）</View>
 				<View className='list-wrap'>
-					<View className='item' onClick={this.goToPlayer}>
-						<Image className='img' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
-					</View>
-					<View className='item'>
-						<Image className='img' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
-					</View>
-					<View className='item'>
-						<Image className='img' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
-					</View>
-					<View className='item'>
-						<Image className='img' src='http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg' />
-					</View>
+					{this.state.videoList.map((item, index) => {
+						return (
+							<View className='item' onClick={this.goToPlayer.bind(this, index)} key={item.id.toString()}>
+								<Image className='img' src={item.thumbnail} />
+							</View>
+						);
+					})}
 				</View>
 			</View>
 		);
