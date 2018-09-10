@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro';
 import { Video, CoverImage } from '@tarojs/components';
 import { get as getGlobalData } from '../../global_data';
 import './index.scss';
-import videoList from './videos';
+import { actionLove } from '../../api/index';
 
 export default class Index extends Component {
 	config = {
@@ -88,7 +88,15 @@ export default class Index extends Component {
 		}
 	};
 	onClickZan = () => {
-		Taro.showToast('yes');
+		Taro.showToast({ title: '点赞成功' });
+		actionLove().then((res) => {
+			let { data } = res.data;
+			console.log(data);
+		});
+		let { isPlayInfo } = this.state;
+		isPlayInfo.view_count++;
+		console.log(isPlayInfo);
+		this.setState({ isPlayInfo });
 	};
 	goToBody = () => {
 		let { id } = this.state.isPlayInfo;
@@ -190,7 +198,7 @@ export default class Index extends Component {
 				<CoverView className='player-info'>
 					<CoverView className='player-zan'>
 						<CoverImage className='icon-zan' onClick={this.onClickZan} src={require('./icon-zan.png')} />
-						<CoverView className='num-zan'>点赞</CoverView>
+						<CoverView className='num-zan'>{isPlayInfo.view_count}</CoverView>
 					</CoverView>
 					<CoverView className='player-msg'>
 						<CoverImage className='icon-msg' src={require('./icon-msg.png')} />

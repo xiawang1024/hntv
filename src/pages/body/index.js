@@ -12,7 +12,8 @@ export default class list extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			html:null
+			title: '',
+			html: null
 		};
 	}
 	onShareAppMessage = () => {};
@@ -26,11 +27,11 @@ export default class list extends Component {
 		getArticleData(id).then((res) => {
 			let { data } = res.data;
 			this.setState({
-        html:data.text
-      })      
+				title: data.title,
+				html: data.text
+			});
 		});
 	};
-	
 
 	componentWillUnmount() {}
 
@@ -39,12 +40,10 @@ export default class list extends Component {
 	componentDidHide() {}
 
 	render() {
-    console.log(this.state.html)
+		console.log(this.state.html);
 		return (
 			<View className='body-wrap'>
-      {
-        this.state.html &&　<BodyCont article={this.state.html} />
-      }				
+				{this.state.html && this.state.title && <BodyCont article={this.state.html} title={this.state.title} />}
 			</View>
 		);
 	}

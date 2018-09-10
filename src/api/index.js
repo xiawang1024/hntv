@@ -72,7 +72,7 @@ const getTypeList = (id) =>
  */
 const actionLove = (id) =>
 	Taro.request({
-		url: `http://a.weixin.hndt.com/action/api?method=actionContentViewCount&id=${id}`
+		url: `https://a.weixin.hndt.com/action/api?method=actionContentViewCount&id=${id}`
 	});
 export { getSwipeData, getVideosList, getSearchList, getArticleData, getArticleList, getTypeList, actionLove };
 

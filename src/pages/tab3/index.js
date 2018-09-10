@@ -4,6 +4,7 @@ import { AtIcon } from 'taro-ui';
 import List from '../../components/list/index';
 import Head from '../../components/head/index';
 import './index.scss';
+import { getSearchList } from '../../api/index';
 
 export default class list extends Component {
 	config = {
@@ -12,7 +13,8 @@ export default class list extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			inputValue: ''
+			inputValue: '',
+			schList: []
 		};
 	}
 	componentWillMount() {}
@@ -30,6 +32,7 @@ export default class list extends Component {
 			title: this.state.inputValue,
 			icon: 'success'
 		});
+		this.fetchSchList();
 	};
 	inputHandler = (e) => {
 		let inputValue = e.detail.value;
@@ -44,6 +47,18 @@ export default class list extends Component {
 		});
 		this.setState({
 			inputValue: ''
+		});
+	};
+	fetchSchList = () => {
+		getSearchList(this.state.inputValue).then((res) => {
+			let { data, errorCode } = res.data;
+			if (errorCode === 0) {
+				this.setState({
+					schList: data
+				});
+			} else {
+				Taro.showToast({ title: '未查询到相关信息', icon: 'none' });
+			}
 		});
 	};
 	render() {
@@ -66,7 +81,7 @@ export default class list extends Component {
 						<AtIcon value='close-circle' size='16' color='#ccc' className='icon-close' />
 					</View>
 				</View>
-				<List />
+				{this.state.schList.length > 0 && <List dataList={this.state.schList} />}
 			</View>
 		);
 	}

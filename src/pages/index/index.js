@@ -68,7 +68,7 @@ export default class Index extends Component {
 			let { data } = res.data;
 			this.setState({
 				swipeList: data
-			});			
+			});
 		});
 	};
 	fetchVideoList = () => {
@@ -108,7 +108,6 @@ export default class Index extends Component {
 	};
 
 	goToBody = (id) => {
-		
 		let url = `/pages/body/index?articleId=${id}`;
 		Taro.navigateTo({
 			url
@@ -167,7 +166,7 @@ export default class Index extends Component {
 							<Image
 								className='item'
 								onClick={this.onGoToPlayer.bind(this, item.id)}
-								src={item.thumbnail || 'http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg'}
+								src={item.thumbnail}
 								key={item.id.toString()}
 							/>
 						);
