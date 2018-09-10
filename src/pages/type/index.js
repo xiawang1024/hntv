@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import List from '../../components/list/index';
 import Head from '../../components/head/index';
-import { getTypeList } from '../../api/index';
+import { getArticleList } from '../../api/index';
 import './index.scss';
 
 const TITLELIST = [
@@ -68,7 +68,7 @@ export default class type extends Component {
 
 	componentDidHide() {}
 	fetchGetTypeList = (typeId) => {
-		getTypeList(typeId).then((res) => {
+		getArticleList(typeId).then((res) => {
 			let { errorCode, data } = res.data;
 			if (errorCode === 0) {
 				this.setState({ dataList: data });

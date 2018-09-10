@@ -8,6 +8,9 @@ export default class BodyCont extends Component {
 	config = {
 		navigationBarTitleText: '河南都市频道广告推广'
 	};
+	static defaultProps  = {
+		article:''
+	}
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -25,6 +28,7 @@ export default class BodyCont extends Component {
 			titleBarHeight
 		});
 		const article = this.props.article;
+		console.log()
 		WxParse.wxParse('article', 'html', article, this.$scope, 5);
 	}
 
@@ -46,7 +50,7 @@ export default class BodyCont extends Component {
 		let titleBarHeight = this.state.titleBarHeight;
 		let statusBarHeight = this.state.statusBarHeight;
 		let title = this.props.title;
-
+		console.log(this.props.article)
 		return (
 			<View className='body-content'>
 				<View

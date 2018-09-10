@@ -35,17 +35,17 @@ export default class Index extends Component {
 			screenHeight,
 			screenWidth
 		});
+		let { isPlayIndex } = this.$router.params;
 		Taro.getStorage({key:'videosList'}).then(res => {
 			let {data} = res 
 			let videoList = JSON.parse(data)
 			this.setState({
 				videoList,
-				isPlayInfo:videoList[0]
+				isPlayInfo:videoList[isPlayIndex]
 			})
 			console.log(JSON.parse(data))
 		})
 		
-		let { isPlayIndex } = this.$router.params;
 		this.initVideoInfo(isPlayIndex);
 	}
 	initVideoInfo = (isPlayIndex = 0) => {
@@ -59,8 +59,8 @@ export default class Index extends Component {
 	onShareAppMessage = () => {
 		let { isPlayIndex, isPlayInfo } = this.state;
 		return {
-			title: '自定义转发标题',
-			imageUrl: isPlayInfo.coverImg,
+			title: isPlayInfo.title,
+			imageUrl: isPlayInfo.thumbnail,
 			path: `/pages/player/index?isPlayIndex=${isPlayIndex}`
 		};
 	};
@@ -91,8 +91,10 @@ export default class Index extends Component {
 		Taro.showToast('yes');
 	};
 	goToBody = () => {
+		let {id} = this.state.isPlayInfo
+		let url = `/pages/body/index?articleId=${id}`;
 		Taro.navigateTo({
-			url: '/pages/body/index'
+			url
 		});
 	};
 	touchStartHandler = (e) => {
@@ -167,7 +169,7 @@ export default class Index extends Component {
 				direction={0}
 				objectFit={'contain'}
 				loop
-				src={isPlayInfo.url}
+				src={isPlayInfo.flag}
 			>
 				<CoverView
 					className='touch-mark'
@@ -183,7 +185,7 @@ export default class Index extends Component {
 						<CoverImage className='icon-back' src={require('./icon-back.png')} />
 					</CoverView>
 
-					<CoverView className='title'>{isPlayInfo.videoTitle}</CoverView>
+					<CoverView className='title'>{isPlayInfo.title}</CoverView>
 				</CoverView>
 				<CoverView className='player-info'>
 					<CoverView className='player-zan'>

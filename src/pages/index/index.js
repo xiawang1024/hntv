@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components';
-import {getVideosList} from '../../api/index.js'
+import { getVideosList, getSwipeData } from '../../api/index.js';
 import { get as getGlobalData } from '../../global_data';
 import './index.scss';
 
@@ -46,7 +46,8 @@ export default class Index extends Component {
 		this.state = {
 			statusBarHeight: 0,
 			titleBarHeight: 0,
-			videosList:[]
+			videosList: [],
+			swipeList: []
 		};
 	}
 	onShareAppMessage = () => {};
@@ -59,22 +60,31 @@ export default class Index extends Component {
 			statusBarHeight,
 			titleBarHeight
 		});
-		this.fetchVideoList()
+		this.fetchVideoList();
+		this.fetchSwipeData();
 	}
+	fetchSwipeData = () => {
+		getSwipeData().then((res) => {
+			let { data } = res.data;
+			this.setState({
+				swipeList: data
+			});			
+		});
+	};
 	fetchVideoList = () => {
-		getVideosList().then(res => {
-			let {data,errorCode} = res.data
-			if(errorCode===0) {
+		getVideosList().then((res) => {
+			let { data, errorCode } = res.data;
+			if (errorCode === 0) {
 				this.setState({
-					videosList:data
-				})
+					videosList: data
+				});
 				Taro.setStorage({
-					key:'videosList',
-					data:JSON.stringify(data)
-				})
+					key: 'videosList',
+					data: JSON.stringify(data)
+				});
 			}
-		})
-	}
+		});
+	};
 	componentWillUnmount() {}
 
 	componentDidShow() {}
@@ -87,13 +97,21 @@ export default class Index extends Component {
 		});
 	};
 	onGoToPlayer = (id) => {
-		let {videosList} = this.state
-		let isPlayIndex = videosList.findIndex((item,index) => {
-			return item.id === id
-		})
-		console.log(isPlayIndex)
+		let { videosList } = this.state;
+		let isPlayIndex = videosList.findIndex((item, index) => {
+			return item.id === id;
+		});
+		console.log(isPlayIndex);
 		Taro.navigateTo({
 			url: `/pages/player/index?isPlayIndex=${isPlayIndex}`
+		});
+	};
+
+	goToBody = (id) => {
+		
+		let url = `/pages/body/index?articleId=${id}`;
+		Taro.navigateTo({
+			url
 		});
 	};
 
@@ -103,7 +121,7 @@ export default class Index extends Component {
 		return (
 			<View className='index'>
 				<View className='title-wrap' style={{ height: `${titleBarHeight}px`, top: `${statusBarHeight}px` }}>
-					<Text className='title'>河南都市丨垂直创新2019攻略</Text>
+					{/* <Text className='title'>河南都市丨垂直创新2019攻略</Text> */}
 				</View>
 				<View className='swiper-wrap'>
 					<Swiper
@@ -114,27 +132,18 @@ export default class Index extends Component {
 						autoplay
 						duration='300'
 					>
-						<SwiperItem>
-							<Image
-								className='banner'
-								mode='aspectFill'
-								src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-							/>
-						</SwiperItem>
-						<SwiperItem>
-							<Image
-								className='banner'
-								mode='aspectFill'
-								src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-							/>
-						</SwiperItem>
-						<SwiperItem>
-							<Image
-								className='banner'
-								mode='aspectFill'
-								src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-							/>
-						</SwiperItem>
+						{this.state.swipeList.map((item, index) => {
+							return (
+								<SwiperItem onClick={this.goToBody.bind(this, item.id)}>
+									<Image
+										key={item.id.toString()}
+										className='banner'
+										mode='aspectFill'
+										src={item.thumbnail}
+									/>
+								</SwiperItem>
+							);
+						})}
 					</Swiper>
 				</View>
 				<View className='model-wrap'>
@@ -153,18 +162,16 @@ export default class Index extends Component {
 				</View>
 				<View className='line-h' />
 				<ScrollView className='scrollview' scrollX lowerThreshold='20' upperThreshold='20'>
-					{
-						this.state.videosList.map((item,index) => {
-							return (
-								<Image
-									className='item'
-									onClick={this.onGoToPlayer.bind(this,item.id)}
-									src={item.flag || 'http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg'}
-									key={item.id.toString()}
-								/>
-							)
-						})
-					}					
+					{this.state.videosList.map((item, index) => {
+						return (
+							<Image
+								className='item'
+								onClick={this.onGoToPlayer.bind(this, item.id)}
+								src={item.thumbnail || 'http://www.hndt.com/carrier/20180827/20/18432942701451894168.jpg'}
+								key={item.id.toString()}
+							/>
+						);
+					})}
 				</ScrollView>
 			</View>
 		);
