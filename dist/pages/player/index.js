@@ -74,14 +74,14 @@ var Index = function (_BaseComponent) {
         });
       }
     }, _this.onClickZan = function () {
+      var isPlayInfo = _this.state.isPlayInfo;
+
       _index2.default.showToast({ title: '点赞成功' });
-      (0, _index3.actionLove)().then(function (res) {
+      (0, _index3.actionLove)(isPlayInfo.id).then(function (res) {
         var data = res.data.data;
 
         console.log(data);
       });
-      var isPlayInfo = _this.state.isPlayInfo;
-
       isPlayInfo.view_count++;
       console.log(isPlayInfo);
       _this.setState({ isPlayInfo: isPlayInfo });

@@ -88,12 +88,12 @@ export default class Index extends Component {
 		}
 	};
 	onClickZan = () => {
+		let { isPlayInfo } = this.state;
 		Taro.showToast({ title: '点赞成功' });
-		actionLove().then((res) => {
+		actionLove(isPlayInfo.id).then((res) => {
 			let { data } = res.data;
 			console.log(data);
 		});
-		let { isPlayInfo } = this.state;
 		isPlayInfo.view_count++;
 		console.log(isPlayInfo);
 		this.setState({ isPlayInfo });

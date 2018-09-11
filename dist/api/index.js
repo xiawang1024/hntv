@@ -96,7 +96,7 @@ var getTypeList = function getTypeList(id) {
  */
 var actionLove = function actionLove(id) {
   return _index2.default.request({
-    url: "https://a.weixin.hndt.com/action/api?method=actionContentViewCount&id=" + id
+    url: "https://a.weixin.hndt.com/ktvcms/action/api?method=actionContentViewCount&id=" + id
   });
 };
 exports.getSwipeData = getSwipeData;
