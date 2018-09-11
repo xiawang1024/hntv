@@ -4,7 +4,11 @@
 		width: 100%;
   }
   .wxParse-p .wxParse-inline{
-    text-align:left
+	text-align:left;
+	padding:10px;
+	box-sizing:border-box;
+	font-size:28px;
+	line-height:1.8;
   }
 	.title-wrap {
 		position: relative;
@@ -41,6 +45,8 @@
 	.content-wrap {
 		width: 100%;
 		// padding: 20px;
+		margin-top:20px;
+		padding-bottom:60px;
 		box-sizing: border-box;
 		.title-wrap {
 			.title {

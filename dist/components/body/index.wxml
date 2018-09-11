@@ -1,0 +1,15 @@
+<block>
+    <view class="body-content">
+        <view class="title-wrap" style="{{anonymousState__temp}}">
+            <view class="icon-back-wrap" bindtap="goBackHome">
+                <image class="icon-back" src="{{anonymousState__temp2}}" />
+            </view>
+            <view class="title">{{title || '正文'}}</view>
+        </view>
+        <view class="content-wrap">
+            <import src="../wxParse/wxParse.wxml" __triggerObserer="{{ _triggerObserer }}"
+            />
+            <template is="wxParse" __triggerObserer="{{ _triggerObserer }}" data="{{ wxParseData: article.nodes }}"></template>
+        </view>
+    </view>
+</block>

@@ -1,0 +1,15 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "%E6%B2%B3%E5%8D%97%E9%83%BD%E5%B8%82",
+  "description": "河南都市丨垂直创新2019攻略",
+  "appid": "wx6b6d2350307c78be",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false,
+    "newFeature": true
+  },
+  "compileType": "miniprogram",
+  "condition": {}
+}

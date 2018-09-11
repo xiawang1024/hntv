@@ -1,0 +1,7 @@
+<block>
+    <view class="start" style="{{anonymousState__temp}}">
+        <image class="start-cover" mode="aspectFill" src="https://photo.16pic.com/00/54/82/16pic_5482852_b.jpg"
+        />
+        <view class="timeAgo">{{timeAgo}}s</view>
+    </view>
+</block>

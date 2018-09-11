@@ -1,0 +1,8 @@
+<block>
+    <view class="body-wrap">
+        <block wx:if="{{html && title}}">
+            <body-cont article="{{html}}" __triggerObserer="{{ _triggerObserer }}"
+            title="{{title}}"></body-cont>
+        </block>
+    </view>
+</block>

@@ -1,0 +1,13 @@
+<block>
+    <view class="list-wrap">
+        
+        <head title="刊例" __triggerObserer="{{ _triggerObserer }}" type="tab"></head>
+        <view class="list-box">
+            <view class="item">123</view>
+            <view class="item">123</view>
+            <view class="item">123</view>
+            <view class="item">123</view>
+        </view>
+        <list __triggerObserer="{{ _triggerObserer }}"></list>
+    </view>
+</block>

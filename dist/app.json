@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/body/index",
+    "pages/player/index",
+    "pages/tab1/index",
+    "pages/start/index",
+    "pages/tab3/index",
+    "pages/type/index",
+    "pages/tab2/index",
+    "pages/videos/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#4f546a",
+    "selectedColor": "#ff4fbb",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./icons/1.png",
+        "selectedIconPath": "./icons/1.1.png"
+      },
+      {
+        "pagePath": "pages/tab1/index",
+        "text": "刊例",
+        "iconPath": "./icons/4.png",
+        "selectedIconPath": "./icons/4.1.png"
+      },
+      {
+        "pagePath": "pages/tab2/index",
+        "text": "团队",
+        "iconPath": "./icons/5.png",
+        "selectedIconPath": "./icons/5.1.png"
+      },
+      {
+        "pagePath": "pages/tab3/index",
+        "text": "搜索",
+        "iconPath": "./icons/2.png",
+        "selectedIconPath": "./icons/2.1.png"
+      }
+    ]
+  }
+}

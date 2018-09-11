@@ -28,10 +28,6 @@ export default class list extends Component {
 	componentDidHide() {}
 	onShareAppMessage = () => {};
 	inputConfirm = () => {
-		Taro.showToast({
-			title: this.state.inputValue,
-			icon: 'success'
-		});
 		this.fetchSchList();
 	};
 	inputHandler = (e) => {
@@ -53,9 +49,17 @@ export default class list extends Component {
 		getSearchList(this.state.inputValue).then((res) => {
 			let { data, errorCode } = res.data;
 			if (errorCode === 0) {
-				this.setState({
-					schList: data
-				});
+				if (data && data.length > 0) {
+					Taro.showToast({
+						title: '搜索成功',
+						icon: 'success'
+					});
+					this.setState({
+						schList: data
+					});
+				} else {
+					Taro.showToast({ title: '未查询到相关信息', icon: 'none' });
+				}
 			} else {
 				Taro.showToast({ title: '未查询到相关信息', icon: 'none' });
 			}

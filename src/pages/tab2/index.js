@@ -21,10 +21,24 @@ export default class list extends Component {
 
 	componentDidHide() {}
 	onShareAppMessage = () => {};
+	goToBody = (articleId) => {
+		let url = `pages/body/index${articleId}`;
+		Taro.navigateTo({
+			url
+		});
+	};
 	render() {
 		return (
 			<View className='list-wrap'>
 				<Head title='团队' type='tab' />
+				<View className='list-box'>
+					<View className='item' onClick={this.goToBody.bind(this)}>
+						123
+					</View>
+					<View className='item'>123</View>
+					<View className='item'>123</View>
+					<View className='item'>123</View>
+				</View>
 				<List />
 			</View>
 		);

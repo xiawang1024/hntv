@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "body-cont": "../../components/body/index"
+  },
+  "navigationBarTitleText": "河南都市频道广告推广"
+}

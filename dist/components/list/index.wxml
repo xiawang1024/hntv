@@ -1,0 +1,14 @@
+<block>
+    <view class="list-content">
+        <view class="list-wrap">
+            <view class="item" bindtap="goToBody" wx:key="{{item.$loopState__temp2}}"
+            wx:for="{{loopArray0}}" wx:for-item="item" data-e-goToBody-so="this" data-e-goToBody-a-a="{{item.id}}">
+                <image class="img" src="{{item.thumbnail}}" mode="aspectFit" />
+                <view class="text-wrap">
+                    <view class="title">{{item.title}}</view>
+                    <view class="desc">{{item.slug}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>

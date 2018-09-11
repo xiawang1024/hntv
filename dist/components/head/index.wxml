@@ -1,0 +1,17 @@
+<block>
+    <view class="list-wrap">
+        <view class="title-wrap" style="{{anonymousState__temp}}">
+            <block>
+                <block wx:if="{{type === 'tab'}}">
+                    <view></view>
+                </block>
+                <block wx:else>
+                    <view class="icon-back-wrap" bindtap="goBackHome">
+                        <image class="icon-back" src="{{anonymousState__temp2}}" />
+                    </view>
+                </block>
+            </block>
+            <text class="title">{{title}}</text>
+        </view>
+    </view>
+</block>

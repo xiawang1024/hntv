@@ -1,0 +1,82 @@
+
+.body-content .wxParse-p {
+  text-align: center;
+  width: 100%; }
+
+.body-content .wxParse-p .wxParse-inline {
+  text-align: left;
+  padding: 10rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 1.8; }
+
+.body-content .title-wrap {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 34rpx; }
+  .body-content .title-wrap .icon-back-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60rpx;
+    height: 100%;
+    text-align: left; }
+    .body-content .title-wrap .icon-back-wrap .icon-back {
+      margin-left: 20rpx;
+      width: 21rpx;
+      height: 37rpx; }
+  .body-content .title-wrap .title {
+    width: 500rpx;
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.5;
+    color: #000; }
+
+.body-content .content-wrap {
+  width: 100%;
+  margin-top: 20rpx;
+  padding-bottom: 60rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+  .body-content .content-wrap .title-wrap .title {
+    width: 500rpx;
+    line-height: 1.8;
+    font-size: 40rpx;
+    text-align: left;
+    font-weight: bold;
+    color: #333; }
+  .body-content .content-wrap .info-wrap {
+    margin-top: 40rpx;
+    font-size: 24rpx;
+    color: #999; }
+    .body-content .content-wrap .info-wrap .from-wrap {
+      margin-left: 20rpx; }
+      .body-content .content-wrap .info-wrap .from-wrap .from-name {
+        color: #ff339d; }
+  .body-content .content-wrap .body-wrap {
+    margin-top: 65rpx; }
