@@ -18,8 +18,7 @@ export default class Index extends Component {
 			screenWidth: 0,
 			videoList: [],
 			isPlayInfo: {},
-			isPlayIndex: 0,
-			src: 'http://vfx.mtime.cn/Video/2018/09/05/mp4/180905134907179704.mp4'
+			isPlayIndex: 0
 		};
 	}
 	componentWillMount() {}

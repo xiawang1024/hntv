@@ -3,11 +3,10 @@
         
         <head title="团队" __triggerObserer="{{ _triggerObserer }}" type="tab"></head>
         <view class="list-box">
-            <view class="item" bindtap="goToBody" data-e-goToBody-so="this">123</view>
-            <view class="item">123</view>
-            <view class="item">123</view>
-            <view class="item">123</view>
+            <view class="item" wx:key="{{item.$loopState__temp2}}" bindtap="goToBody"
+            wx:for="{{loopArray0}}" wx:for-item="item" data-e-goToBody-so="this" data-e-goToBody-a-a="{{item.id}}">
+                <image class="cover" src="{{item.thumbnail}}" />
+            </view>
         </view>
-        <list __triggerObserer="{{ _triggerObserer }}"></list>
     </view>
 </block>

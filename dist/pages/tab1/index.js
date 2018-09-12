@@ -1,16 +1,20 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _index = require('../../npm/@tarojs/taro-weapp/index.js');
+var _index = require("../../npm/@tarojs/taro-weapp/index.js");
 
 var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../../api/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34,7 +38,17 @@ var list = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = [], _this.onShareAppMessage = function () {}, _this.downLoadFile = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray0", "dataList"], _this.onShareAppMessage = function () {}, _this.fetchGetTypeList = function () {
+      (0, _index3.getArticleList)(45).then(function (res) {
+        var _res$data = res.data,
+            errorCode = _res$data.errorCode,
+            data = _res$data.data;
+
+        if (errorCode === 0) {
+          _this.setState({ dataList: data });
+        }
+      });
+    }, _this.downLoadFile = function () {
       _index2.default.downloadFile({ url: 'https://a.weixin.hndt.com/h5/test/20180905.docx' }).then(function (res) {
         var tempFilePath = res.tempFilePath;
 
@@ -44,35 +58,55 @@ var list = function (_BaseComponent) {
           _index2.default.openDocument({ filePath: savedFilePath });
         });
       });
+    }, _this.goToBody = function (articleId) {
+      var url = "pages/body/index" + articleId;
+      _index2.default.navigateTo({
+        url: url
+      });
     }, _this.$$refs = [], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(list, [{
-    key: '_constructor',
+    key: "_constructor",
     value: function _constructor(props) {
-      _get(list.prototype.__proto__ || Object.getPrototypeOf(list.prototype), '_constructor', this).call(this, props);
+      _get(list.prototype.__proto__ || Object.getPrototypeOf(list.prototype), "_constructor", this).call(this, props);
+      this.state = {
+        dataList: []
+      };
     }
   }, {
-    key: 'componentWillMount',
+    key: "componentWillMount",
     value: function componentWillMount() {}
   }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.fetchGetTypeList();
+    }
   }, {
-    key: 'componentWillUnmount',
+    key: "componentWillUnmount",
     value: function componentWillUnmount() {}
   }, {
-    key: 'componentDidShow',
+    key: "componentDidShow",
     value: function componentDidShow() {}
   }, {
-    key: 'componentDidHide',
+    key: "componentDidHide",
     value: function componentDidHide() {}
   }, {
-    key: '_createData',
+    key: "_createData",
     value: function _createData() {
       this.__state = arguments[0] || this.state || {};
       this.__props = arguments[1] || this.props || {};
-      Object.assign(this.__state, {});
+
+      var loopArray0 = this.__state.dataList.map(function (item) {
+        var $loopState__temp2 = item.id.toString();
+        return _extends({}, item, {
+          $loopState__temp2: $loopState__temp2
+        });
+      });
+
+      Object.assign(this.__state, {
+        loopArray0: loopArray0
+      });
       return this.__state;
     }
   }]);
@@ -81,7 +115,7 @@ var list = function (_BaseComponent) {
 }(_index.Component);
 
 list.properties = {};
-list.$$events = [];
+list.$$events = ["goToBody"];
 exports.default = list;
 
 Component(require('../../npm/@tarojs/taro-weapp/index.js').default.createComponent(list, true));

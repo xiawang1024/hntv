@@ -38,7 +38,7 @@ var Index = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "anonymousState__temp4", "anonymousState__temp5", "anonymousState__temp6", "anonymousState__temp7", "anonymousState__temp8", "isPlayInfo", "isShowCommentList", "statusBarHeight", "titleBarHeight", "screenHeight", "screenWidth", "videoList", "isPlayIndex", "src"], _this.initVideoInfo = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "anonymousState__temp4", "anonymousState__temp5", "anonymousState__temp6", "anonymousState__temp7", "anonymousState__temp8", "isPlayInfo", "isShowCommentList", "statusBarHeight", "titleBarHeight", "screenHeight", "screenWidth", "videoList", "isPlayIndex"], _this.initVideoInfo = function () {
       var isPlayIndex = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
       var videoList = _this.state.videoList;
 
@@ -151,8 +151,7 @@ var Index = function (_BaseComponent) {
         screenWidth: 0,
         videoList: [],
         isPlayInfo: {},
-        isPlayIndex: 0,
-        src: 'http://vfx.mtime.cn/Video/2018/09/05/mp4/180905134907179704.mp4'
+        isPlayIndex: 0
       };
     }
   }, {
