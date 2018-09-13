@@ -46,20 +46,14 @@ export default class list extends Component {
 			<View className='list-wrap'>
 				<Head title='团队' type='tab' />
 				<View className='list-box'>
-					<View className='item' onClick={this.goToBody.bind(this)}>
+					{/* <View className='item' onClick={this.goToBody.bind(this)}>
 						<Image
 							className='cover'
 							mode='aspectFit'
 							src='http://www.hndt.com/fm/1074/201809/10/2237401/res/ZZiIXqaE.gif'
 						/>
-					</View>
-					<View className='item' onClick={this.goToBody.bind(this)}>
-						<Image
-							className='cover'
-							mode='aspectFit'
-							src='http://www.hndt.com/fm/1074/201809/10/2237401/res/ZZiIXqaE.gif'
-						/>
-					</View>
+					</View> */}
+
 					{this.state.dataList.map((item) => {
 						return (
 							<View className='item' key={item.id.toString()} onClick={this.goToBody.bind(this, item.id)}>
