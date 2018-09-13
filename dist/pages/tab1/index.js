@@ -59,7 +59,7 @@ var list = function (_BaseComponent) {
         });
       });
     }, _this.goToBody = function (articleId) {
-      var url = "pages/body/index" + articleId;
+      var url = "/pages/body/index?articleId=" + articleId;
       _index2.default.navigateTo({
         url: url
       });

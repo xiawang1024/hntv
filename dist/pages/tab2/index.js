@@ -39,7 +39,7 @@ var list = function (_BaseComponent) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray0", "dataList"], _this.onShareAppMessage = function () {}, _this.goToBody = function (articleId) {
-      var url = "pages/body/index" + articleId;
+      var url = "/pages/body/index?articleId=" + articleId;
       _index2.default.navigateTo({
         url: url
       });

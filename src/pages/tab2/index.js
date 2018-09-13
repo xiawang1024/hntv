@@ -28,7 +28,7 @@ export default class list extends Component {
 	componentDidHide() {}
 	onShareAppMessage = () => {};
 	goToBody = (articleId) => {
-		let url = `pages/body/index${articleId}`;
+		let url = `/pages/body/index?articleId=${articleId}`;
 		Taro.navigateTo({
 			url
 		});
