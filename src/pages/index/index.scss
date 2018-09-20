@@ -14,7 +14,7 @@
 	}
 	.swiper-wrap {
 		width: 750px;
-		height: 360px;
+		height: 860px;
 		.swiper {
 			width: 100%;
 			height: 100%;
@@ -25,11 +25,15 @@
 		}
 	}
 	.model-wrap {
+		position:absolute;
+		top:360px;
 		display: flex;
 		flex-wrap: wrap;
 		width: 100%;
 		padding: 0 38px;
 		box-sizing: border-box;
+		background:#fff;
+		opacity:0.95;
 		.item {
 			flex: 1 1 33.33%;
 			display: flex;
@@ -52,6 +56,8 @@
 		background: #ccc;
 	}
 	.scrollview {
+		position:absolute;
+		top:560px;
 		width: 100%;
 		height: 650px;
 		padding: 20px;
@@ -62,6 +68,8 @@
 			margin-right: 20px;
 			width: 450px;
 			height: 610px;
+			border-top-left-radius:12px;
+			border-top-right-radius:12px;
 			&:last-child {
 				margin-right: 0;
 			}

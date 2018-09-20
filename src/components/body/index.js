@@ -30,7 +30,7 @@ export default class BodyCont extends Component {
 		const article = this.props.article;
 		setTimeout(() => {
 			WxParse.wxParse('article', 'html', article, this.$scope, 5);
-		},20)
+		}, 20);
 	}
 
 	componentWillUnmount() {}
@@ -54,16 +54,16 @@ export default class BodyCont extends Component {
 		console.log(this.props.article);
 		return (
 			<View className='body-content'>
-				<View
+				{/* <View
 					className='title-wrap'
 					style={{ height: `${titleBarHeight}px`, marginTop: `${statusBarHeight}px` }}
-				>
-					<View className='icon-back-wrap' onClick={this.goBackHome}>
-						<Image className='icon-back' src={require('./icon-back.png')} />
-					</View>
-
-					<View className='title'>{title || '正文'}</View>
+				> */}
+				<View className='icon-back-wrap' onClick={this.goBackHome} style={{ height: `${titleBarHeight}px`,top: `${statusBarHeight}px` }}>
+					<Image className='icon-back' src={require('./icon-back.png')} />
 				</View>
+
+				{/* <View className='title'>{title || '正文'}</View> */}
+				{/* </View> */}
 				<View className='content-wrap'>
 					<import src='../wxParse/wxParse.wxml' />
 					<template is='wxParse' data='{{ wxParseData: article.nodes }}' />

@@ -1,14 +1,20 @@
 .body-content {
-	.wxParse-p  {
-		text-align: center;
-		width: 100%;
-  }
-  .wxParse-p .wxParse-inline{
-	text-align:left;
-	padding:10px;
-	box-sizing:border-box;
-	font-size:28px;
-	line-height:1.8;
+  .icon-back-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    left: 0px;
+    width: 60px;
+    height:60px;
+    border-radius:50%;
+    // background:rgba(255,255,255,0.6);
+    text-align: left;
+    .icon-back {
+      margin-left: 20px;
+      width: 21px;
+      height: 37px;
+    }
   }
 	.title-wrap {
 		position: relative;
@@ -17,40 +23,24 @@
 		justify-content: center;
 		text-align: center;
 		font-size: 34px;
-		.icon-back-wrap {
-			display: flex;
-			align-items: center;
-			justify-content: flex-start;
-			position: absolute;
-			left: 0px;
-			top: 0;
-			width: 60px;
-			height: 100%;
-			text-align: left;
-			.icon-back {
-				margin-left: 20px;
-				width: 21px;
-				height: 37px;
-			}
-		}
-		.title{
+		
+		.title {
 			width: 500px;
 			white-space: pre-wrap;
 			word-break: break-all;
 			line-height: 1.5;
 			color: #000;
 		}
-		
 	}
 	.content-wrap {
 		width: 100%;
 		// padding: 20px;
-		margin-top:20px;
-		padding-bottom:60px;
+		// margin-top: 20px;
+		padding-bottom: 60px;
 		box-sizing: border-box;
 		.title-wrap {
 			.title {
-				width:500px;
+				width: 500px;
 				line-height: 1.8;
 				font-size: 40px;
 				text-align: left;

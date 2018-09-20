@@ -13,12 +13,12 @@
 <template name="wxParseVideo">
   <!--增加video标签支持，并循环添加-->
   <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-    <video class="{{item.classStr}} wxParse-{{item.tag}}-video" src="https://a.weixin.hndt.com{{item.attr.src}}" style="width:100%"></video>
+    <video class="{{item.classStr}} wxParse-{{item.tag}}-video" src="https://a.weixin.hndt.com{{item.attr.src}}" ></video>
   </view>
 </template>
 
 <template name="wxParseImg">
-  <image class="{{item.classStr}} wxParse-{{item.tag}}" data-from="{{item.from}}" data-src="https://a.weixin.hndt.com{{item.attr.src}}" data-idx="{{item.imgIndex}}" src="https://a.weixin.hndt.com{{item.attr.src}}" mode="aspectFit" bindload="wxParseImgLoad" bindtap="wxParseImgTap" mode="widthFix" style="width:100%"
+  <image class="{{item.classStr}} wxParse-{{item.tag}}" data-from="{{item.from}}" data-src="https://a.weixin.hndt.com{{item.attr.src}}" data-idx="{{item.imgIndex}}" src="https://a.weixin.hndt.com{{item.attr.src}}" mode="aspectFit" bindload="wxParseImgLoad" bindtap="wxParseImgTap" mode="widthFix" style="width:{{item.width}}px;"
   />
 </template>
 
