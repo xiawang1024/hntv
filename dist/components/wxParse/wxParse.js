@@ -74,13 +74,10 @@ function wxParseImgTap(e) {
   var that = this;
   var nowImgUrl = e.target.dataset.src;
   var tagFrom = e.target.dataset.from;
-  var urls = that.data[tagFrom].imageUrls.map(item => {
-    return `https://a.weixin.hndt.com${item}`
-  })
   if (typeof tagFrom != 'undefined' && tagFrom.length > 0) {
     wx.previewImage({
       current: nowImgUrl, // 当前显示图片的http链接
-      urls: urls // 需要预览的图片http链接列表
+      urls: that.data[tagFrom].imageUrls // 需要预览的图片http链接列表
     });
   }
 }
