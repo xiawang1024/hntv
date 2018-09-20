@@ -28,13 +28,13 @@ const modelData = [
 	{
 		id: 5,
 		icon: require('../../icons/model-5.png'),
-		text: '教育服务'
-	},
-	{
-		id: 6,
-		icon: require('../../icons/model-6.png'),
-		text: '体育'
+		text: '教育&体育'
 	}
+	// {
+	// 	id: 6,
+	// 	icon: require('../../icons/model-6.png'),
+	// 	text: '体育'
+	// }
 ];
 
 export default class Index extends Component {
@@ -120,17 +120,10 @@ export default class Index extends Component {
 		return (
 			<View className='index'>
 				<View className='title-wrap' style={{ height: `${titleBarHeight}px`, top: `${statusBarHeight}px` }}>
-					{/* <Text className='title'>河南都市丨垂直创新2019攻略</Text> */}
+					<Text className='title'>河南都市丨垂直创新2019攻略</Text>
 				</View>
 				<View className='swiper-wrap'>
-					<Swiper
-						className='swiper'
-						indicatorActiveColor='#ff2399'
-						circular
-						indicatorDots
-						autoplay
-						duration='300'
-					>
+					<Swiper className='swiper' indicatorActiveColor='#ff2399' circular autoplay duration='300'>
 						{this.state.swipeList.map((item, index) => {
 							return (
 								<SwiperItem onClick={this.goToBody.bind(this, item.id)}>
@@ -138,40 +131,46 @@ export default class Index extends Component {
 										key={item.id.toString()}
 										className='banner'
 										mode='aspectFill'
-										src={item.thumbnail}
+										// src={item.thumbnail}
+										src={require('./banner.png')}
 									/>
 								</SwiperItem>
 							);
 						})}
 					</Swiper>
 				</View>
-				<View className='model-wrap'>
-					{modelData.map((item) => {
-						return (
-							<View
-								className='item'
-								onClick={this.onClickHandler.bind(this, item.id)}
-								key={item.id.toString()}
-							>
-								<Image className='icon' src={item.icon} />
-								<Text className='text'>{item.text}</Text>
-							</View>
-						);
-					})}
+				<View className='body-wrap'>
+					<View>
+						<Image className='border-radius' src={require('./border-radius.png')} mode='aspectFit' />
+					</View>
+					<View className='model-wrap'>
+						{modelData.map((item) => {
+							return (
+								<View
+									className='item'
+									onClick={this.onClickHandler.bind(this, item.id)}
+									key={item.id.toString()}
+								>
+									<Image className='icon' src={item.icon} />
+									<Text className='text'>{item.text}</Text>
+								</View>
+							);
+						})}
+					</View>
+					<View className='line-h' />
+					<ScrollView className='scrollview' scrollX lowerThreshold='20' upperThreshold='20'>
+						{this.state.videosList.map((item, index) => {
+							return (
+								<Image
+									className='item'
+									onClick={this.onGoToPlayer.bind(this, item.id)}
+									src={item.thumbnail}
+									key={item.id.toString()}
+								/>
+							);
+						})}
+					</ScrollView>
 				</View>
-				<View className='line-h' />
-				<ScrollView className='scrollview' scrollX lowerThreshold='20' upperThreshold='20'>
-					{this.state.videosList.map((item, index) => {
-						return (
-							<Image
-								className='item'
-								onClick={this.onGoToPlayer.bind(this, item.id)}
-								src={item.thumbnail}
-								key={item.id.toString()}
-							/>
-						);
-					})}
-				</ScrollView>
 			</View>
 		);
 	}

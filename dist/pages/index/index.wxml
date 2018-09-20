@@ -1,30 +1,38 @@
 <block>
     <view class="index">
-        <view class="title-wrap" style="{{anonymousState__temp}}"></view>
+        <view class="title-wrap" style="{{anonymousState__temp}}">
+            <text class="title">河南都市丨垂直创新2019攻略</text>
+        </view>
         <view class="swiper-wrap">
             <swiper class="swiper" indicator-active-color="#ff2399" circular="{{true}}"
-            indicator-dots="{{true}}" autoplay="{{true}}" duration="300">
+            autoplay="{{true}}" duration="300">
                 <swiper-item bindtap="goToBody" wx:for="{{loopArray0}}" wx:for-item="item"
                 wx:for-index="index" data-e-goToBody-so="this" data-e-goToBody-a-a="{{item.id}}">
                     <image wx:key="{{item.$loopState__temp3}}" class="banner" mode="aspectFill"
-                    src="{{item.thumbnail}}" />
+                    src="{{item.$loopState__temp5}}" />
                 </swiper-item>
             </swiper>
         </view>
-        <view class="model-wrap">
-            <view class="item" bindtap="onClickHandler" wx:key="{{item.$loopState__temp5}}"
-            wx:for="{{loopArray1}}" wx:for-item="item" data-e-onClickHandler-so="this"
-            data-e-onClickHandler-a-a="{{item.id}}">
-                <image class="icon" src="{{item.icon}}" />
-                <text class="text">{{item.text}}</text>
+        <view class="body-wrap">
+            <view>
+                <image class="border-radius" src="{{anonymousState__temp6}}" mode="aspectFit"
+                />
             </view>
+            <view class="model-wrap">
+                <view class="item" bindtap="onClickHandler" wx:key="{{item.$loopState__temp8}}"
+                wx:for="{{loopArray1}}" wx:for-item="item" data-e-onClickHandler-so="this"
+                data-e-onClickHandler-a-a="{{item.id}}">
+                    <image class="icon" src="{{item.icon}}" />
+                    <text class="text">{{item.text}}</text>
+                </view>
+            </view>
+            <view class="line-h"></view>
+            <scroll-view class="scrollview" scroll-x="{{true}}" lower-threshold="20"
+            upper-threshold="20">
+                <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp10}}"
+                wx:for="{{loopArray2}}" wx:for-item="item" wx:for-index="index" data-e-onGoToPlayer-so="this"
+                data-e-onGoToPlayer-a-a="{{item.id}}" />
+            </scroll-view>
         </view>
-        <view class="line-h"></view>
-        <scroll-view class="scrollview" scroll-x="{{true}}" lower-threshold="20"
-        upper-threshold="20">
-            <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp7}}"
-            wx:for="{{loopArray2}}" wx:for-item="item" wx:for-index="index" data-e-onGoToPlayer-so="this"
-            data-e-onGoToPlayer-a-a="{{item.id}}" />
-        </scroll-view>
     </view>
 </block>

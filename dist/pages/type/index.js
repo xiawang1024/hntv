@@ -36,10 +36,11 @@ var TITLELIST = [{
   text: '大健康'
 }, {
   id: 5,
-  text: '教育服务'
-}, {
-  id: 6,
-  text: '体育'
+  text: '教育&体育'
+  // {
+  // 	id: 6,
+  // 	text: '体育'
+  // }
 }];
 
 var type = function (_BaseComponent) {

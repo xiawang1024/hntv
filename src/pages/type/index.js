@@ -24,12 +24,12 @@ const TITLELIST = [
 	},
 	{
 		id: 5,
-		text: '教育服务'
-	},
-	{
-		id: 6,
-		text: '体育'
+		text: '教育&体育'
 	}
+	// {
+	// 	id: 6,
+	// 	text: '体育'
+	// }
 ];
 
 export default class type extends Component {

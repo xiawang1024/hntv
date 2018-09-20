@@ -1,21 +1,24 @@
 .body-content {
-  .icon-back-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: fixed;
-    left: 0px;
-    width: 60px;
-    height:60px;
-    border-radius:50%;
-    // background:rgba(255,255,255,0.6);
-    text-align: left;
-    .icon-back {
-      margin-left: 20px;
-      width: 21px;
-      height: 37px;
-    }
-  }
+	.wxParse-p>.wxParse-inline  {
+		padding: 0 2em;
+	}
+	.icon-back-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		position: fixed;
+		left: 0px;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		// background:rgba(255,255,255,0.6);
+		text-align: left;
+		.icon-back {
+			margin-left: 20px;
+			width: 21px;
+			height: 37px;
+		}
+	}
 	.title-wrap {
 		position: relative;
 		display: flex;
@@ -23,7 +26,7 @@
 		justify-content: center;
 		text-align: center;
 		font-size: 34px;
-		
+
 		.title {
 			width: 500px;
 			white-space: pre-wrap;

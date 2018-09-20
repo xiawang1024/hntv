@@ -45,11 +45,12 @@ var modelData = [{
 }, {
   id: 5,
   icon: "/icons/model-5.png",
-  text: '教育服务'
-}, {
-  id: 6,
-  icon: "/icons/model-6.png",
-  text: '体育'
+  text: '教育&体育'
+  // {
+  // 	id: 6,
+  // 	icon: require('../../icons/model-6.png'),
+  // 	text: '体育'
+  // }
 }];
 
 var Index = function (_BaseComponent) {
@@ -66,7 +67,7 @@ var Index = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "loopArray0", "loopArray1", "loopArray2", "modelData", "statusBarHeight", "titleBarHeight", "videosList", "swipeList"], _this.onShareAppMessage = function () {}, _this.fetchSwipeData = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp6", "loopArray0", "loopArray1", "loopArray2", "modelData", "statusBarHeight", "titleBarHeight", "videosList", "swipeList"], _this.onShareAppMessage = function () {}, _this.fetchSwipeData = function () {
       (0, _index3.getSwipeData)().then(function (res) {
         var data = res.data.data;
 
@@ -157,30 +158,34 @@ var Index = function (_BaseComponent) {
       var titleBarHeight = this.__state.titleBarHeight;
       var statusBarHeight = this.__state.statusBarHeight;
       var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", top: statusBarHeight + "px" });
+      var anonymousState__temp6 = "/pages/index/border-radius.png";
 
       var loopArray0 = this.__state.swipeList.map(function (item, index) {
         var $loopState__temp3 = item.id.toString();
+        var $loopState__temp5 = "/pages/index/banner.png";
         return _extends({}, item, {
-          $loopState__temp3: $loopState__temp3
-        });
-      });
-
-      var loopArray1 = modelData.map(function (item) {
-        var $loopState__temp5 = item.id.toString();
-        return _extends({}, item, {
+          $loopState__temp3: $loopState__temp3,
           $loopState__temp5: $loopState__temp5
         });
       });
 
-      var loopArray2 = this.__state.videosList.map(function (item, index) {
-        var $loopState__temp7 = item.id.toString();
+      var loopArray1 = modelData.map(function (item) {
+        var $loopState__temp8 = item.id.toString();
         return _extends({}, item, {
-          $loopState__temp7: $loopState__temp7
+          $loopState__temp8: $loopState__temp8
+        });
+      });
+
+      var loopArray2 = this.__state.videosList.map(function (item, index) {
+        var $loopState__temp10 = item.id.toString();
+        return _extends({}, item, {
+          $loopState__temp10: $loopState__temp10
         });
       });
 
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp,
+        anonymousState__temp6: anonymousState__temp6,
         loopArray0: loopArray0,
         loopArray1: loopArray1,
         loopArray2: loopArray2,
