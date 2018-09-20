@@ -1,6 +1,11 @@
 
-.body-content .wxParse-p > .wxParse-inline {
-  padding: 0 2em; }
+.body-content .wxParse-p {
+  padding: 0 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.body-content .wxParse-p {
+  min-height: 1em; }
 
 .body-content .icon-back-wrap {
   display: -webkit-box;
@@ -25,6 +30,9 @@
     margin-left: 20rpx;
     width: 21rpx;
     height: 37rpx; }
+
+.body-content .toutu {
+  height: 421rpx; }
 
 .body-content .title-wrap {
   position: relative;

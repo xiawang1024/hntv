@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "head": "../../components/head/index",
     "at-icon": "../../../npm/taro-ui/dist/weapp/components/icon/index",
     "list": "../../components/list/index"
   },

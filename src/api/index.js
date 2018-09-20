@@ -74,7 +74,13 @@ const actionLove = (id) =>
 	Taro.request({
 		url: `https://a.weixin.hndt.com/ktvcms/action/api?method=actionContentViewCount&id=${id}`
 	});
-export { getSwipeData, getVideosList, getSearchList, getArticleData, getArticleList, getTypeList, actionLove };
+/**
+ * 开机图
+ */
+const getStartImg = () => Taro.request({
+	url:'https://a.weixin.hndt.com/ktvcms/api?method=queryContent&id=54'
+})
+export { getSwipeData, getVideosList, getSearchList, getArticleData, getArticleList, getTypeList, actionLove,getStartImg };
 
 /**
  * 文章字段说明：

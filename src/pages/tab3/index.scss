@@ -1,15 +1,18 @@
 .sch-wrap {
 	width: 90%;
-	height: 60px;
-	line-height: 60px;
+	height: 70px;
+	line-height: 70px;
 	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	border: 1px solid #ccc;
-	border-radius: 8px;
+	border-radius: 35px;
 	padding: 8px 10px;
 	box-sizing: border-box;
+	.title{
+		font-size:34px;
+	}
 	.icon-sch {
 		width: 30px;
 		flex: 0 0 30px;

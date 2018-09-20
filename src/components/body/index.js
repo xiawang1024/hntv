@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text, Image, RichText } from '@tarojs/components';
+import { View, Text, Image, RichText, WebView } from '@tarojs/components';
 import { get as getGlobalData } from '../../global_data';
 import WxParse from '../wxParse/wxParse';
 import './index.scss';
@@ -50,7 +50,7 @@ export default class BodyCont extends Component {
 	render() {
 		let titleBarHeight = this.state.titleBarHeight;
 		let statusBarHeight = this.state.statusBarHeight;
-		let title = this.props.title;
+		let { title, cover } = this.props;
 		console.log(this.props.article);
 		return (
 			<View className='body-content'>
@@ -58,15 +58,23 @@ export default class BodyCont extends Component {
 					className='title-wrap'
 					style={{ height: `${titleBarHeight}px`, marginTop: `${statusBarHeight}px` }}
 				> */}
-				<View className='icon-back-wrap' onClick={this.goBackHome} style={{ height: `${titleBarHeight}px`,top: `${statusBarHeight}px` }}>
+				<View
+					className='icon-back-wrap'
+					onClick={this.goBackHome}
+					style={{ height: `${titleBarHeight}px`, top: `${statusBarHeight}px` }}
+				>
 					<Image className='icon-back' src={require('./icon-back.png')} />
 				</View>
 
 				{/* <View className='title'>{title || '正文'}</View> */}
 				{/* </View> */}
+				<View>
+					<Image className='toutu' src={cover} style={{ width: '100%'}} mode='aspectFill'/>
+				</View>
 				<View className='content-wrap'>
 					<import src='../wxParse/wxParse.wxml' />
 					<template is='wxParse' data='{{ wxParseData: article.nodes }}' />
+					{/* <WebView src='https://a.weixin.hndt.com/ktvcms/20180905/3.html' /> */}
 				</View>
 				{/* <View className='content-wrap'>
 					<View className='title-wrap'>

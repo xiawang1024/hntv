@@ -88,7 +88,14 @@ var list = function (_BaseComponent) {
           statusBarHeight = _state.statusBarHeight;
 
       var height = parseInt(titleBarHeight) + parseInt(statusBarHeight);
-      var anonymousState__temp = (0, _index.internal_inline_style)({ paddingTop: height + "px" });
+      var type = this.__props.type;
+      var style = {
+        paddingTop: height + "px"
+      };
+      if (type === 'sch') {
+        style = {};
+      }
+      var anonymousState__temp = (0, _index.internal_inline_style)(style);
 
       var loopArray0 = this.__props.dataList.map(function (item) {
         var $loopState__temp3 = item.id.toString();
@@ -109,6 +116,7 @@ var list = function (_BaseComponent) {
 }(_index.Component);
 
 list.properties = {
+  "type": null,
   "dataList": null
 };
 list.$$events = ["goToBody"];

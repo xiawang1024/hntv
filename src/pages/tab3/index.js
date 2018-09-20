@@ -80,8 +80,12 @@ export default class list extends Component {
 		let height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10
 		return (
 			<View className='list-wrap'>
-				<Head title='搜索' type='tab' />
-				<View className='sch-wrap' style={{marginTop:`${height}px`}}>
+				{/* <Head title='搜索' type='tab' /> */}
+				<View style={{ height: `${titleBarHeight}px`, paddingTop: `${statusBarHeight}px`,display:'flex',justifyContent: 'center',alignItems: 'center' }} className='title'>
+					<Text>搜索</Text>
+				</View>
+				
+				<View className='sch-wrap'>
 					<AtIcon value='search' size='16' color='#ccc' className='icon-sch' />
 					<Input
 						value={this.state.inputValue}
@@ -97,7 +101,7 @@ export default class list extends Component {
 						<AtIcon value='close-circle' size='16' color='#ccc' className='icon-close' />
 					</View>
 				</View>
-				{this.state.schList.length > 0 && <List dataList={this.state.schList} />}
+				{this.state.schList.length > 0 && <List type='sch' dataList={this.state.schList} />}
 			</View>
 		);
 	}

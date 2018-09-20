@@ -13,7 +13,8 @@ export default class list extends Component {
 		super(props);
 		this.state = {
 			title: '',
-			html: null
+			html: null,
+			cover: ''
 		};
 	}
 	onShareAppMessage = () => {};
@@ -28,7 +29,8 @@ export default class list extends Component {
 			let { data } = res.data;
 			this.setState({
 				title: data.title,
-				html: data.text
+				html: data.text,
+				cover: data.author
 			});
 		});
 	};
@@ -43,7 +45,10 @@ export default class list extends Component {
 		console.log(this.state.html);
 		return (
 			<View className='body-wrap'>
-				{this.state.html && this.state.title && <BodyCont article={this.state.html} title={this.state.title} />}
+				{this.state.html &&
+				this.state.title && (
+					<BodyCont article={this.state.html} title={this.state.title} cover={this.state.cover} />
+				)}
 			</View>
 		);
 	}

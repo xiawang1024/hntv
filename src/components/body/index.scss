@@ -1,6 +1,13 @@
 .body-content {
-	.wxParse-p>.wxParse-inline  {
-		padding: 0 2em;
+	.wxParse-p {
+		padding: 0 1em;
+		box-sizing:border-box;
+	}
+	// .wxParse-p > .wxParse-img {
+	// 	padding: 0 1em;
+	// }
+	.wxParse-p{
+		min-height:1em;
 	}
 	.icon-back-wrap {
 		display: flex;
@@ -18,6 +25,9 @@
 			width: 21px;
 			height: 37px;
 		}
+	}
+	.toutu{
+		height:421px;
 	}
 	.title-wrap {
 		position: relative;

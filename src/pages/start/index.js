@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
 import { get as getGlobalData } from '../../global_data';
+import { getStartImg } from '../../api/index.js';
 import './index.scss';
 
 export default class Index extends Component {
@@ -13,7 +14,8 @@ export default class Index extends Component {
 		this.state = {
 			screenHeight: 0,
 			screenWidth: 0,
-			timeAgo: 3
+			timeAgo: 3,
+			src:''
 		};
 	}
 	componentWillMount() {}
@@ -25,9 +27,25 @@ export default class Index extends Component {
 			screenHeight,
 			screenWidth
 		});
-		this.timerId = setInterval(() => {
-			this.tick();
-		}, 1000);
+		getStartImg().then(res => {
+			let {data} = res.data
+			let src = data.thumbnail
+			if(!src){
+				Taro.switchTab({
+					url: '/pages/index/index'
+				});
+				return 
+				
+			}else {
+				this.setState({
+					src
+				})
+				this.timerId = setInterval(() => {
+					this.tick();
+				}, 1000);
+			}
+		})
+		
 	}
 	tick = () => {
 		let { timeAgo } = this.state;
@@ -57,9 +75,9 @@ export default class Index extends Component {
 				<Image
 					className='start-cover'
 					mode={'aspectFill'}
-					src='https://photo.16pic.com/00/54/82/16pic_5482852_b.jpg'
+					src={this.state.src}
 				/>
-				<View className='timeAgo'>{timeAgo}s</View>
+				<View className='timeAgo'v style={{display:'none'}}>{timeAgo}s</View>
 			</View>
 		);
 	}

@@ -122,7 +122,7 @@ var list = function (_BaseComponent) {
           statusBarHeight = _state.statusBarHeight;
 
       var height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10;
-      var anonymousState__temp = (0, _index.internal_inline_style)({ marginTop: height + "px" });
+      var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", paddingTop: statusBarHeight + "px", display: 'flex', justifyContent: 'center', alignItems: 'center' });
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp
       });

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.actionLove = exports.getTypeList = exports.getArticleList = exports.getArticleData = exports.getSearchList = exports.getVideosList = exports.getSwipeData = undefined;
+exports.getStartImg = exports.actionLove = exports.getTypeList = exports.getArticleList = exports.getArticleData = exports.getSearchList = exports.getVideosList = exports.getSwipeData = undefined;
 
 var _index = require("../npm/@tarojs/taro-weapp/index.js");
 
@@ -99,6 +99,14 @@ var actionLove = function actionLove(id) {
     url: "https://a.weixin.hndt.com/ktvcms/action/api?method=actionContentViewCount&id=" + id
   });
 };
+/**
+ * 开机图
+ */
+var getStartImg = function getStartImg() {
+  return _index2.default.request({
+    url: 'https://a.weixin.hndt.com/ktvcms/api?method=queryContent&id=54'
+  });
+};
 exports.getSwipeData = getSwipeData;
 exports.getVideosList = getVideosList;
 exports.getSearchList = getSearchList;
@@ -106,6 +114,7 @@ exports.getArticleData = getArticleData;
 exports.getArticleList = getArticleList;
 exports.getTypeList = getTypeList;
 exports.actionLove = actionLove;
+exports.getStartImg = getStartImg;
 
 /**
  * 文章字段说明：

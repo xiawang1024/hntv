@@ -14,6 +14,8 @@ var _index2 = _interopRequireDefault(_index);
 
 var _global_data = require("../../global_data.js");
 
+var _index3 = require("../../api/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36,7 +38,7 @@ var Index = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "timeAgo", "screenHeight", "screenWidth"], _this.onShareAppMessage = function () {}, _this.tick = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "timeAgo", "screenHeight", "screenWidth", "src"], _this.onShareAppMessage = function () {}, _this.tick = function () {
       var timeAgo = _this.state.timeAgo;
 
       timeAgo--;
@@ -59,7 +61,8 @@ var Index = function (_BaseComponent) {
       this.state = {
         screenHeight: 0,
         screenWidth: 0,
-        timeAgo: 3
+        timeAgo: 3,
+        src: ''
       };
     }
   }, {
@@ -76,9 +79,24 @@ var Index = function (_BaseComponent) {
         screenHeight: screenHeight,
         screenWidth: screenWidth
       });
-      this.timerId = setInterval(function () {
-        _this2.tick();
-      }, 1000);
+      (0, _index3.getStartImg)().then(function (res) {
+        var data = res.data.data;
+
+        var src = data.thumbnail;
+        if (!src) {
+          _index2.default.switchTab({
+            url: '/pages/index/index'
+          });
+          return;
+        } else {
+          _this2.setState({
+            src: src
+          });
+          _this2.timerId = setInterval(function () {
+            _this2.tick();
+          }, 1000);
+        }
+      });
     }
   }, {
     key: "componentWillUnmount",
@@ -103,8 +121,10 @@ var Index = function (_BaseComponent) {
           timeAgo = _state.timeAgo;
 
       var anonymousState__temp = (0, _index.internal_inline_style)({ height: screenHeight + "px", width: screenWidth + "px" });
+      var anonymousState__temp2 = (0, _index.internal_inline_style)({ display: 'none' });
       Object.assign(this.__state, {
-        anonymousState__temp: anonymousState__temp
+        anonymousState__temp: anonymousState__temp,
+        anonymousState__temp2: anonymousState__temp2
       });
       return this.__state;
     }

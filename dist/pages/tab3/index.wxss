@@ -1,8 +1,8 @@
 
 .sch-wrap {
   width: 90%;
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 70rpx;
+  line-height: 70rpx;
   margin: 0 auto;
   display: -webkit-box;
   display: -webkit-flex;
@@ -16,10 +16,12 @@
       -ms-flex-pack: distribute;
           justify-content: space-around;
   border: 1rpx solid #ccc;
-  border-radius: 8rpx;
+  border-radius: 35rpx;
   padding: 8rpx 10rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+  .sch-wrap .title {
+    font-size: 34rpx; }
   .sch-wrap .icon-sch {
     width: 30rpx;
     -webkit-box-flex: 0;

@@ -40,7 +40,7 @@ var BodyCont = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BodyCont.__proto__ || Object.getPrototypeOf(BodyCont)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "statusBarHeight", "titleBarHeight"], _this.clickHandler = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BodyCont.__proto__ || Object.getPrototypeOf(BodyCont)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "cover", "statusBarHeight", "titleBarHeight"], _this.clickHandler = function () {
       _index2.default.showToast({
         title: 'click',
         icon: 'success'
@@ -95,13 +95,19 @@ var BodyCont = function (_BaseComponent) {
 
       var titleBarHeight = this.__state.titleBarHeight;
       var statusBarHeight = this.__state.statusBarHeight;
-      var title = this.__props.title;
+      var _props = this.__props,
+          title = _props.title,
+          cover = _props.cover;
+
       console.log(this.__props.article);
       var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", top: statusBarHeight + "px" });
       var anonymousState__temp2 = "/components/body/icon-back.png";
+      var anonymousState__temp3 = (0, _index.internal_inline_style)({ width: '100%' });
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp,
-        anonymousState__temp2: anonymousState__temp2
+        anonymousState__temp2: anonymousState__temp2,
+        anonymousState__temp3: anonymousState__temp3,
+        cover: cover
       });
       return this.__state;
     }
@@ -112,7 +118,8 @@ var BodyCont = function (_BaseComponent) {
 
 BodyCont.properties = {
   "article": null,
-  "title": null
+  "title": null,
+  "cover": null
 };
 BodyCont.$$events = ["goBackHome"];
 BodyCont.defaultProps = {

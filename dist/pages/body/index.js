@@ -36,13 +36,14 @@ var list = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["title", "html"], _this.onShareAppMessage = function () {}, _this.fetchArticle = function (id) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["title", "html", "cover"], _this.onShareAppMessage = function () {}, _this.fetchArticle = function (id) {
       (0, _index3.getArticleData)(id).then(function (res) {
         var data = res.data.data;
 
         _this.setState({
           title: data.title,
-          html: data.text
+          html: data.text,
+          cover: data.author
         });
       });
     }, _this.$$refs = [], _temp), _possibleConstructorReturn(_this, _ret);
@@ -54,7 +55,8 @@ var list = function (_BaseComponent) {
       _get(list.prototype.__proto__ || Object.getPrototypeOf(list.prototype), "_constructor", this).call(this, props);
       this.state = {
         title: '',
-        html: null
+        html: null,
+        cover: ''
       };
     }
   }, {

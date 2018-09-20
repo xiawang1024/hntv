@@ -43,8 +43,15 @@ export default class list extends Component {
 	render() {
 		let { titleBarHeight, statusBarHeight } = this.state;
 		let height = parseInt(titleBarHeight) + parseInt(statusBarHeight)
+		let type = this.props.type
+		let style = {
+			paddingTop:`${height}px`
+		}
+		if(type === 'sch') {
+			style = {}
+		}
 		return (
-			<View className='list-content' style={{paddingTop:`${height}px`}}>
+			<View className='list-content' style={style}>
 				<View className='list-wrap'>
 					{this.props.dataList.map((item) => {
 						return (
@@ -52,7 +59,7 @@ export default class list extends Component {
 								<Image className='img' src={item.thumbnail} mode='aspectFit' />
 								<View className='text-wrap'>
 									<View className='title'>{item.title}</View>
-									<View className='desc'>{item.slug}</View>
+									<View className='desc'>{item.remarks || item.title}</View>
 								</View>
 							</View>
 						);
