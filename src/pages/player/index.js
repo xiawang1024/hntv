@@ -192,7 +192,7 @@ export default class Index extends Component {
 						<CoverImage className='icon-back' src={require('./icon-back.png')} />
 					</CoverView>
 
-					<CoverView className='title'>{isPlayInfo.title}</CoverView>
+					{/* <CoverView className='title'>{isPlayInfo.title}</CoverView> */}
 				</CoverView>
 				<CoverView className='player-info'>
 					<CoverView className='player-zan'>
@@ -211,8 +211,14 @@ export default class Index extends Component {
 						<CoverView className='num-more'>详情</CoverView>
 					</CoverView>
 				</CoverView>
-				<CoverView className='m-more' onClick={this.goToMore}>
-					#案例合集
+				<CoverView className='m-more' >
+					<CoverView className='title'>
+						{isPlayInfo.title}
+					</CoverView>
+					<CoverView className='avatar-wrap' onClick={this.goToMore}>
+						<CoverImage className='icon-logo' src={require('./logo.png')} />
+						<CoverView className='icon-list'># 案例合集</CoverView>
+					</CoverView>
 				</CoverView>
 				{isShowCommentList && (
 					<CoverView className='comment-list' style={{ height: `${commentHeight}px`, overflow: 'auto' }}>

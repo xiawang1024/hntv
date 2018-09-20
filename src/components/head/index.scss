@@ -1,10 +1,13 @@
 .title-wrap {
-	position: relative;
+	position: fixed;
+	width:100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	font-size: 34px;
+	border-bottom:1px solid #ccc;
+	background:#fff;
 	.icon-back-wrap {
 		display: flex;
 		align-items: center;
@@ -12,8 +15,8 @@
 		position: absolute;
 		left: 0px;
 		top: 0;
-		width: 60px;
-		height: 100%;
+		width: 80px;
+		// height: 100%;
 		text-align: left;
 	}
 	.icon-back {

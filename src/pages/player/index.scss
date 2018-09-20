@@ -34,8 +34,8 @@
 	.player-info {
 		position: absolute;
 		z-index: 1024;
-		right: 30px;
-		bottom: 300px;
+		right: 0;
+		bottom: 178px;
 		color: #fff;
 		text-align: center;
 		.player-zan,
@@ -80,19 +80,40 @@
 				background: rgba(0, 0, 0, 0);
 				color: rgba(0, 0, 0, 0);
 				background-size: 56px 56px;
+				opacity:0;
 			}
 		}
 	}
 	.m-more {
 		position: absolute;
 		z-index: 10240;
-		left: 50px;
-		bottom: 200px;
-		height: 80px;
-		line-height: 80px;
-		padding: 40px 20px;
+		left: 40px;
+		bottom: 163px;
+		// padding: 40px 20px;
 		font-size: 32px;
 		color: #ffffff;
+		.title{
+			width:500px;
+			margin-bottom:20px;
+			white-space: pre-wrap;
+			word-break: break-all;
+			line-height: 1.215;
+			font-size:30px;
+		}
+		.avatar-wrap{
+			display:flex;
+			align-items:center;
+			height:80px;
+			.icon-logo{
+				width:80px;
+				height:80px;
+				border-radius:50%;
+			}
+			.icon-list{
+				margin-left:15px;
+				font-size:32px;
+			}
+		}
 	}
 	.comment-list {
 		position: absolute;
@@ -166,6 +187,6 @@
 		top: 15%;
 		left: 25%;
 		width: 50%;
-		height: 70%;
+		height: 60%;
 	}
 }

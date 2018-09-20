@@ -36,7 +36,7 @@ var head = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = head.__proto__ || Object.getPrototypeOf(head)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "type", "title", "statusBarHeight", "titleBarHeight"], _this.goBackHome = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = head.__proto__ || Object.getPrototypeOf(head)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "type", "title", "statusBarHeight", "titleBarHeight"], _this.goBackHome = function () {
       var type = _this.props.type;
 
 
@@ -106,11 +106,13 @@ var head = function (_BaseComponent) {
           title = _props.title,
           type = _props.type;
 
-      var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", marginTop: statusBarHeight + "px" });
-      var anonymousState__temp2 = "/icons/icon-back.png";
+      var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", paddingTop: statusBarHeight + "px" });
+      var anonymousState__temp2 = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", marginTop: statusBarHeight + "px" });
+      var anonymousState__temp3 = "/icons/icon-back.png";
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp,
         anonymousState__temp2: anonymousState__temp2,
+        anonymousState__temp3: anonymousState__temp3,
         type: type,
         title: title
       });

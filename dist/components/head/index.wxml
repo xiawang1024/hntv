@@ -6,8 +6,8 @@
                     <view></view>
                 </block>
                 <block wx:else>
-                    <view class="icon-back-wrap" bindtap="goBackHome">
-                        <image class="icon-back" src="{{anonymousState__temp2}}" />
+                    <view class="icon-back-wrap" style="{{anonymousState__temp2}}" bindtap="goBackHome">
+                        <image class="icon-back" src="{{anonymousState__temp3}}" />
                     </view>
                 </block>
             </block>

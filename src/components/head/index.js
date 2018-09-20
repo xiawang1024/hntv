@@ -60,12 +60,12 @@ export default class head extends Component {
 			<View className='list-wrap'>
 				<View
 					className='title-wrap'
-					style={{ height: `${titleBarHeight}px`, marginTop: `${statusBarHeight}px` }}
+					style={{ height: `${titleBarHeight}px`, paddingTop: `${statusBarHeight}px` }}
 				>
 					{type === 'tab' ? (
 						<View />
 					) : (
-						<View className='icon-back-wrap' onClick={this.goBackHome}>
+						<View className='icon-back-wrap' style={{height: `${titleBarHeight}px`,marginTop: `${statusBarHeight}px`}} onClick={this.goBackHome}>
 							<Image className='icon-back' src={require('../../icons/icon-back.png')} />
 						</View>
 					)}

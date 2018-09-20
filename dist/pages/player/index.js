@@ -38,7 +38,7 @@ var Index = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "anonymousState__temp4", "anonymousState__temp5", "anonymousState__temp6", "anonymousState__temp7", "anonymousState__temp8", "isPlayInfo", "isShowCommentList", "statusBarHeight", "titleBarHeight", "screenHeight", "screenWidth", "videoList", "isPlayIndex"], _this.initVideoInfo = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "anonymousState__temp4", "anonymousState__temp5", "anonymousState__temp6", "anonymousState__temp7", "anonymousState__temp8", "anonymousState__temp9", "isPlayInfo", "isShowCommentList", "statusBarHeight", "titleBarHeight", "screenHeight", "screenWidth", "videoList", "isPlayIndex"], _this.initVideoInfo = function () {
       var isPlayIndex = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
       var videoList = _this.state.videoList;
 
@@ -235,8 +235,9 @@ var Index = function (_BaseComponent) {
       var anonymousState__temp4 = "/pages/player/icon-zan.png";
       var anonymousState__temp5 = "/pages/player/icon-msg.png";
       var anonymousState__temp6 = "/pages/player/icon-more.png";
-      var anonymousState__temp7 = isShowCommentList ? (0, _index.internal_inline_style)({ height: commentHeight + "px", overflow: 'auto' }) : null;
-      var anonymousState__temp8 = isShowCommentList ? "/pages/player/icon-close.png" : null;
+      var anonymousState__temp7 = "/pages/player/logo.png";
+      var anonymousState__temp8 = isShowCommentList ? (0, _index.internal_inline_style)({ height: commentHeight + "px", overflow: 'auto' }) : null;
+      var anonymousState__temp9 = isShowCommentList ? "/pages/player/icon-close.png" : null;
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp,
         anonymousState__temp2: anonymousState__temp2,
@@ -246,6 +247,7 @@ var Index = function (_BaseComponent) {
         anonymousState__temp6: anonymousState__temp6,
         anonymousState__temp7: anonymousState__temp7,
         anonymousState__temp8: anonymousState__temp8,
+        anonymousState__temp9: anonymousState__temp9,
         isShowCommentList: isShowCommentList
       });
       return this.__state;

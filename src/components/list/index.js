@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
+import { get as getGlobalData } from '../../global_data';
 
 import './index.scss';
 
@@ -12,10 +13,21 @@ export default class list extends Component {
 	};
 	constructor(props) {
 		super(props);
+		this.state = {
+			statusBarHeight: 0,
+			titleBarHeight: 0
+		};
 	}
 	componentWillMount() {}
 
-	componentDidMount() {}
+	componentDidMount() {
+		let statusBarHeight = getGlobalData('statusBarHeight');
+		let titleBarHeight = getGlobalData('titleBarHeight');
+		this.setState({
+			statusBarHeight,
+			titleBarHeight
+		});
+	}
 
 	componentWillUnmount() {}
 
@@ -29,8 +41,10 @@ export default class list extends Component {
 		});
 	};
 	render() {
+		let { titleBarHeight, statusBarHeight } = this.state;
+		let height = parseInt(titleBarHeight) + parseInt(statusBarHeight)
 		return (
-			<View className='list-content'>
+			<View className='list-content' style={{paddingTop:`${height}px`}}>
 				<View className='list-wrap'>
 					{this.props.dataList.map((item) => {
 						return (

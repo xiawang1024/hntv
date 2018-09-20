@@ -8,7 +8,6 @@
             <cover-view class="icon-back-wrap" bindtap="goBackHome">
                 <cover-image class="icon-back" src="{{anonymousState__temp3}}"></cover-image>
             </cover-view>
-            <cover-view class="title">{{isPlayInfo.title}}</cover-view>
         </cover-view>
         <cover-view class="player-info">
             <cover-view class="player-zan">
@@ -25,12 +24,18 @@
                 <cover-view class="num-more">详情</cover-view>
             </cover-view>
         </cover-view>
-        <cover-view class="m-more" bindtap="goToMore">#案例合集</cover-view>
+        <cover-view class="m-more">
+            <cover-view class="title">{{isPlayInfo.title}}</cover-view>
+            <cover-view class="avatar-wrap" bindtap="goToMore">
+                <cover-image class="icon-logo" src="{{anonymousState__temp7}}"></cover-image>
+                <cover-view class="icon-list"># 案例合集</cover-view>
+            </cover-view>
+        </cover-view>
         <block wx:if="{{isShowCommentList}}">
-            <cover-view class="comment-list" style="{{anonymousState__temp7}}">
+            <cover-view class="comment-list" style="{{anonymousState__temp8}}">
                 <cover-view class="head-wrap">
                     <cover-view class="title">9876条评论</cover-view>
-                    <cover-image class="icon-close" src="{{anonymousState__temp8}}"></cover-image>
+                    <cover-image class="icon-close" src="{{anonymousState__temp9}}"></cover-image>
                 </cover-view>
                 <cover-view class="list-wrap">
                     <cover-view class="item">
