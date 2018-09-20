@@ -1,4 +1,7 @@
 
+.list-wrap {
+  overflow: hidden; }
+
 .title-wrap {
   position: fixed;
   width: 100%;

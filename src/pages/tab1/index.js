@@ -3,6 +3,7 @@ import { View, Image } from '@tarojs/components';
 import Head from '../../components/head/index';
 import './index.scss';
 import { getArticleList } from '../../api/index';
+import { get as getGlobalData } from '../../global_data';
 
 export default class list extends Component {
 	config = {
@@ -11,13 +12,21 @@ export default class list extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dataList: []
+			dataList: [],
+			statusBarHeight: 0,
+			titleBarHeight: 0
 		};
 	}
 	componentWillMount() {}
 
 	componentDidMount() {
 		this.fetchGetTypeList();
+		let statusBarHeight = getGlobalData('statusBarHeight');
+		let titleBarHeight = getGlobalData('titleBarHeight');
+		this.setState({
+			statusBarHeight,
+			titleBarHeight
+		});
 	}
 
 	componentWillUnmount() {}
@@ -50,15 +59,18 @@ export default class list extends Component {
 		});
 	};
 	render() {
+		let { titleBarHeight, statusBarHeight } = this.state;
+		let height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10
 		return (
 			<View className='list-wrap'>
 				<Head title='刊例' type='tab' />
 				{/* <Button onClick={this.downLoadFile}>下载</Button> */}
-				<View className='list-box'>
+				<View className='list-box' style={{paddingTop:`${height}px`}}>
 					{this.state.dataList.map((item) => {
 						return (
 							<View className='item' key={item.id.toString()} onClick={this.goToBody.bind(this, item.id)}>
 								<Image className='cover' src={item.thumbnail} />
+								<View className='title'>{item.title}</View>
 							</View>
 						);
 					})}

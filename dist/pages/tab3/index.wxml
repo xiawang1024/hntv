@@ -2,7 +2,7 @@
     <view class="list-wrap">
         
         <head title="搜索" __triggerObserer="{{ _triggerObserer }}" type="tab"></head>
-        <view class="sch-wrap">
+        <view class="sch-wrap" style="{{anonymousState__temp}}">
             <at-icon value="search" __triggerObserer="{{ _triggerObserer }}" size="16"
             color="#ccc" className="icon-sch"></at-icon>
             <input value="{{inputValue}}" type="text" placeholder="搜索" confirm-type="search"

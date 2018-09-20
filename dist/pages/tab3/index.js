@@ -14,6 +14,8 @@ var _index2 = _interopRequireDefault(_index);
 
 var _index3 = require("../../api/index.js");
 
+var _global_data = require("../../global_data.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36,7 +38,7 @@ var list = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["inputValue", "schList"], _this.onShareAppMessage = function () {}, _this.inputConfirm = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "inputValue", "schList", "statusBarHeight", "titleBarHeight"], _this.onShareAppMessage = function () {}, _this.inputConfirm = function () {
       _this.fetchSchList();
     }, _this.inputHandler = function (e) {
       var inputValue = e.detail.value;
@@ -82,7 +84,9 @@ var list = function (_BaseComponent) {
       _get(list.prototype.__proto__ || Object.getPrototypeOf(list.prototype), "_constructor", this).call(this, props);
       this.state = {
         inputValue: '',
-        schList: []
+        schList: [],
+        statusBarHeight: 0,
+        titleBarHeight: 0
       };
     }
   }, {
@@ -90,7 +94,14 @@ var list = function (_BaseComponent) {
     value: function componentWillMount() {}
   }, {
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      var statusBarHeight = (0, _global_data.get)('statusBarHeight');
+      var titleBarHeight = (0, _global_data.get)('titleBarHeight');
+      this.setState({
+        statusBarHeight: statusBarHeight,
+        titleBarHeight: titleBarHeight
+      });
+    }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {}
@@ -105,7 +116,16 @@ var list = function (_BaseComponent) {
     value: function _createData() {
       this.__state = arguments[0] || this.state || {};
       this.__props = arguments[1] || this.props || {};
-      Object.assign(this.__state, {});
+
+      var _state = this.__state,
+          titleBarHeight = _state.titleBarHeight,
+          statusBarHeight = _state.statusBarHeight;
+
+      var height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10;
+      var anonymousState__temp = (0, _index.internal_inline_style)({ marginTop: height + "px" });
+      Object.assign(this.__state, {
+        anonymousState__temp: anonymousState__temp
+      });
       return this.__state;
     }
   }]);

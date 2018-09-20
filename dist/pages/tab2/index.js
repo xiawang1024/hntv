@@ -16,6 +16,8 @@ var _index2 = _interopRequireDefault(_index);
 
 var _index3 = require("../../api/index.js");
 
+var _global_data = require("../../global_data.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38,7 +40,7 @@ var list = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray0", "dataList"], _this.onShareAppMessage = function () {}, _this.goToBody = function (articleId) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "loopArray0", "dataList", "statusBarHeight", "titleBarHeight"], _this.onShareAppMessage = function () {}, _this.goToBody = function (articleId) {
       var url = "/pages/body/index?articleId=" + articleId;
       _index2.default.navigateTo({
         url: url
@@ -61,7 +63,9 @@ var list = function (_BaseComponent) {
     value: function _constructor(props) {
       _get(list.prototype.__proto__ || Object.getPrototypeOf(list.prototype), "_constructor", this).call(this, props);
       this.state = {
-        dataList: []
+        dataList: [],
+        statusBarHeight: 0,
+        titleBarHeight: 0
       };
     }
   }, {
@@ -71,6 +75,12 @@ var list = function (_BaseComponent) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.fetchGetTypeList();
+      var statusBarHeight = (0, _global_data.get)('statusBarHeight');
+      var titleBarHeight = (0, _global_data.get)('titleBarHeight');
+      this.setState({
+        statusBarHeight: statusBarHeight,
+        titleBarHeight: titleBarHeight
+      });
     }
   }, {
     key: "componentWillUnmount",
@@ -87,14 +97,22 @@ var list = function (_BaseComponent) {
       this.__state = arguments[0] || this.state || {};
       this.__props = arguments[1] || this.props || {};
 
+      var _state = this.__state,
+          titleBarHeight = _state.titleBarHeight,
+          statusBarHeight = _state.statusBarHeight;
+
+      var height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10;
+      var anonymousState__temp = (0, _index.internal_inline_style)({ paddingTop: height + "px" });
+
       var loopArray0 = this.__state.dataList.map(function (item) {
-        var $loopState__temp2 = item.id.toString();
+        var $loopState__temp3 = item.id.toString();
         return _extends({}, item, {
-          $loopState__temp2: $loopState__temp2
+          $loopState__temp3: $loopState__temp3
         });
       });
 
       Object.assign(this.__state, {
+        anonymousState__temp: anonymousState__temp,
         loopArray0: loopArray0
       });
       return this.__state;

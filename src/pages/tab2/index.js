@@ -4,6 +4,7 @@ import { View, Image } from '@tarojs/components';
 import Head from '../../components/head/index';
 import './index.scss';
 import { getArticleList } from '../../api/index';
+import { get as getGlobalData } from '../../global_data';
 
 export default class list extends Component {
 	config = {
@@ -12,13 +13,21 @@ export default class list extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dataList: []
+			dataList: [],
+			statusBarHeight: 0,
+			titleBarHeight: 0
 		};
 	}
 	componentWillMount() {}
 
 	componentDidMount() {
 		this.fetchGetTypeList();
+		let statusBarHeight = getGlobalData('statusBarHeight');
+		let titleBarHeight = getGlobalData('titleBarHeight');
+		this.setState({
+			statusBarHeight,
+			titleBarHeight
+		});
 	}
 
 	componentWillUnmount() {}
@@ -42,10 +51,12 @@ export default class list extends Component {
 		});
 	};
 	render() {
+		let { titleBarHeight, statusBarHeight } = this.state;
+		let height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10
 		return (
 			<View className='list-wrap'>
 				<Head title='团队' type='tab' />
-				<View className='list-box'>
+				<View className='list-box' style={{paddingTop:`${height}px`}}>
 					{/* <View className='item' onClick={this.goToBody.bind(this)}>
 						<Image
 							className='cover'

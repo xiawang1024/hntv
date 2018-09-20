@@ -19,15 +19,16 @@
               flex: 0 0 228rpx;
       width: 228rpx;
       height: 228rpx;
-      border-radius: 10rpx; }
+      border-radius: 10rpx;
+      background: #fafafa; }
     .list-content .list-wrap .item .text-wrap {
       margin-left: 20rpx; }
       .list-content .list-wrap .item .text-wrap .title {
         margin-top: 10rpx;
-        font-size: 29rpx;
-        color: #000; }
+        font-size: 30rpx;
+        color: #1c1313; }
       .list-content .list-wrap .item .text-wrap .desc {
         margin-top: 16rpx;
         line-height: 1.84;
-        font-size: 25rpx;
+        font-size: 26rpx;
         color: #666666; }

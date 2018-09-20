@@ -14,19 +14,20 @@
 				width: 228px;
 				height: 228px;
 				border-radius: 10px;
+				background:rgb(250,250,250);
 			}
 			.text-wrap {
 				margin-left: 20px;
 				.title {
 					margin-top: 10px;
-					font-size: 29px;
-					color: #000;
+					font-size: 30px;
+					color: rgba(28,19,19,1);
 				}
 				.desc {
 					margin-top: 16px;
 					line-height: 1.84;
-					font-size: 25px;
-					color: #666666;
+					font-size: 26px;
+					color: rgba(102,102,102,1);
 				}
 			}
 		}

@@ -5,6 +5,7 @@ import List from '../../components/list/index';
 import Head from '../../components/head/index';
 import './index.scss';
 import { getSearchList } from '../../api/index';
+import { get as getGlobalData } from '../../global_data';
 
 export default class list extends Component {
 	config = {
@@ -14,12 +15,21 @@ export default class list extends Component {
 		super(props);
 		this.state = {
 			inputValue: '',
-			schList: []
+			schList: [],
+			statusBarHeight: 0,
+			titleBarHeight: 0
 		};
 	}
 	componentWillMount() {}
 
-	componentDidMount() {}
+	componentDidMount() {
+		let statusBarHeight = getGlobalData('statusBarHeight');
+		let titleBarHeight = getGlobalData('titleBarHeight');
+		this.setState({
+			statusBarHeight,
+			titleBarHeight
+		});
+	}
 
 	componentWillUnmount() {}
 
@@ -66,10 +76,12 @@ export default class list extends Component {
 		});
 	};
 	render() {
+		let { titleBarHeight, statusBarHeight } = this.state;
+		let height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10
 		return (
 			<View className='list-wrap'>
 				<Head title='搜索' type='tab' />
-				<View className='sch-wrap'>
+				<View className='sch-wrap' style={{marginTop:`${height}px`}}>
 					<AtIcon value='search' size='16' color='#ccc' className='icon-sch' />
 					<Input
 						value={this.state.inputValue}
