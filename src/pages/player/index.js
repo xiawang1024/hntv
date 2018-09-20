@@ -176,6 +176,7 @@ export default class Index extends Component {
 				direction={0}
 				objectFit={'contain'}
 				loop
+				customCache='false'
 				src={isPlayInfo.flag}
 			>
 				<CoverView
