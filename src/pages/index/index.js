@@ -39,7 +39,8 @@ const modelData = [
 
 export default class Index extends Component {
 	config = {
-		navigationBarTitleText: '河南都市频道广告推广'
+		navigationBarTitleText: '河南都市频道广告推广',
+		disableScroll:true
 	};
 	constructor(props) {
 		super(props);

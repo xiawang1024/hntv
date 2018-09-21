@@ -88,7 +88,7 @@
           box-sizing: border-box; }
   .videos-list .list-wrap .item {
     width: 230rpx;
-    height: 312rpx;
+    height: 346rpx;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 230rpx;
         -ms-flex: 0 0 230rpx;
