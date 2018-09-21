@@ -8,7 +8,7 @@
             autoplay="{{true}}" duration="300">
                 <swiper-item bindtap="goToBody" wx:for="{{loopArray0}}" wx:for-item="item"
                 wx:for-index="index" data-e-goToBody-so="this" data-e-goToBody-a-a="{{item.id}}">
-                    <image wx:key="{{item.$loopState__temp3}}" class="banner" mode="aspectFill"
+                    <image wx:key="{{item.$loopState__temp3}}" class="banner" mode="aspectFit"
                     src="{{item.thumbnail}}" />
                 </swiper-item>
             </swiper>
@@ -22,11 +22,10 @@
                 <view class="item" bindtap="onClickHandler" wx:key="{{item.$loopState__temp6}}"
                 wx:for="{{loopArray1}}" wx:for-item="item" data-e-onClickHandler-so="this"
                 data-e-onClickHandler-a-a="{{item.id}}">
-                    <image class="icon" src="{{item.icon}}" />
+                    <image class="icon" src="{{item.icon}}" mode="aspectFit" />
                     <text class="text">{{item.text}}</text>
                 </view>
             </view>
-            <view class="line-h"></view>
             <scroll-view class="scrollview" scroll-x="{{true}}" lower-threshold="20"
             upper-threshold="20">
                 <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp8}}"

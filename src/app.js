@@ -25,34 +25,34 @@ class App extends Component {
 			navigationStyle: 'custom'
 		},
 		tabBar: {
-			color: '#4f546a',
-			selectedColor: '#ff4fbb',
+			color: '#858585',
+			selectedColor: '#890012',
 			backgroundColor: '#ffffff',
 			list: [
 				{
 					pagePath: 'pages/index/index',
 					text: '首页',
-					iconPath: './icons/1.png',
-					selectedIconPath: './icons/1.1.png'
+					iconPath: './icons/11.png',
+					selectedIconPath: './icons/12.png'
 				},
 				{
 					pagePath: 'pages/tab1/index',
 					text: '刊例',
-					iconPath: './icons/4.png',
-					selectedIconPath: './icons/4.1.png'
+					iconPath: './icons/21.png',
+					selectedIconPath: './icons/22.png'
 				},
 
 				{
 					pagePath: 'pages/tab2/index',
 					text: '团队',
-					iconPath: './icons/5.png',
-					selectedIconPath: './icons/5.1.png'
+					iconPath: './icons/31.png',
+					selectedIconPath: './icons/32.png'
 				},
 				{
 					pagePath: 'pages/tab3/index',
 					text: '搜索',
-					iconPath: './icons/2.png',
-					selectedIconPath: './icons/2.1.png'
+					iconPath: './icons/41.png',
+					selectedIconPath: './icons/42.png'
 				}
 			]
 		}

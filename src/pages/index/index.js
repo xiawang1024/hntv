@@ -130,7 +130,7 @@ export default class Index extends Component {
 									<Image
 										key={item.id.toString()}
 										className='banner'
-										mode='aspectFill'
+										mode='aspectFit'
 										src={item.thumbnail}
 										// src={require('./banner.png')}
 									/>
@@ -151,13 +151,13 @@ export default class Index extends Component {
 									onClick={this.onClickHandler.bind(this, item.id)}
 									key={item.id.toString()}
 								>
-									<Image className='icon' src={item.icon} />
+									<Image className='icon' src={item.icon} mode='aspectFit'/>
 									<Text className='text'>{item.text}</Text>
 								</View>
 							);
 						})}
 					</View>
-					<View className='line-h' />
+					{/* <View className='line-h' /> */}
 					<ScrollView className='scrollview' scrollX lowerThreshold='20' upperThreshold='20'>
 						{this.state.videosList.map((item, index) => {
 							return (
