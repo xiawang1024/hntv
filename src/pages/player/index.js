@@ -218,7 +218,7 @@ export default class Index extends Component {
 						{isPlayInfo.title}
 					</CoverView>
 					<CoverView className='avatar-wrap' onClick={this.goToMore}>
-						<CoverImage className='icon-logo' src={require('./logo.png')} />
+						<CoverImage className='icon-logo' src={require('./icon-logo.png')} />
 						<CoverView className='icon-list'># 案例合集</CoverView>
 					</CoverView>
 				</CoverView>

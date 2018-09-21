@@ -235,7 +235,7 @@ var Index = function (_BaseComponent) {
       var anonymousState__temp4 = "/pages/player/icon-zan.png";
       var anonymousState__temp5 = "/pages/player/icon-msg.png";
       var anonymousState__temp6 = "/pages/player/icon-more.png";
-      var anonymousState__temp7 = "/pages/player/logo.png";
+      var anonymousState__temp7 = "/pages/player/icon-logo.png";
       var anonymousState__temp8 = isShowCommentList ? (0, _index.internal_inline_style)({ height: commentHeight + "px", overflow: 'auto' }) : null;
       var anonymousState__temp9 = isShowCommentList ? "/pages/player/icon-close.png" : null;
       Object.assign(this.__state, {

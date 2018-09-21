@@ -78,15 +78,15 @@
               align-items: center; }
       .index .model-wrap .item .icon {
         -webkit-box-flex: 0;
-        -webkit-flex: 0 0 50rpx;
-            -ms-flex: 0 0 50rpx;
-                flex: 0 0 50rpx;
-        width: 50rpx;
-        height: 50rpx; }
+        -webkit-flex: 0 0 65rpx;
+            -ms-flex: 0 0 65rpx;
+                flex: 0 0 65rpx;
+        width: 75rpx;
+        height: 65rpx; }
       .index .model-wrap .item .text {
         margin-top: 14rpx;
-        font-size: 24rpx;
-        color: #000; }
+        font-size: 19rpx;
+        color: #595757; }
   .index .line-h {
     width: 100%;
     height: 1rpx;
