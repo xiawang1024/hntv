@@ -1,7 +1,7 @@
 <block>
     <video style="{{anonymousState__temp}}" class="player" controls="{{false}}"
     autoplay="{{true}}" direction="{{0}}" object-fit="contain" loop="{{true}}"
-    custom-cache="false" src="http://p66tqckbc.bkt.clouddn.com/00.mp4">
+    custom-cache="false" src="{{isPlayInfo.flag}}">
         <cover-view class="touch-mark" bindtouchstart="touchStartHandler" bindtouchmove="touchMoveHandler"
         bindtouchend="touchEndHandler"></cover-view>
         <cover-view class="title-wrap" style="{{anonymousState__temp2}}">

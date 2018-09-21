@@ -177,8 +177,8 @@ export default class Index extends Component {
 				objectFit={'contain'}
 				loop
 				customCache='false'
-				// src={isPlayInfo.flag}
-				src='http://p66tqckbc.bkt.clouddn.com/00.mp4'
+				src={isPlayInfo.flag}
+				// src='http://p66tqckbc.bkt.clouddn.com/00.mp4'
 			>
 				<CoverView
 					className='touch-mark'
