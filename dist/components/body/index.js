@@ -40,7 +40,7 @@ var BodyCont = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BodyCont.__proto__ || Object.getPrototypeOf(BodyCont)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "cover", "statusBarHeight", "titleBarHeight"], _this.clickHandler = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BodyCont.__proto__ || Object.getPrototypeOf(BodyCont)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "type", "cover", "statusBarHeight", "titleBarHeight"], _this.clickHandler = function () {
       _index2.default.showToast({
         title: 'click',
         icon: 'success'
@@ -97,16 +97,18 @@ var BodyCont = function (_BaseComponent) {
       var statusBarHeight = this.__state.statusBarHeight;
       var _props = this.__props,
           title = _props.title,
-          cover = _props.cover;
+          cover = _props.cover,
+          type = _props.type;
 
-      console.log(this.__props.article);
+      console.log(type);
       var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", top: statusBarHeight + "px" });
       var anonymousState__temp2 = "/components/body/icon-back.png";
-      var anonymousState__temp3 = (0, _index.internal_inline_style)({ width: '100%' });
+      var anonymousState__temp3 = type !== 'tab1' ? (0, _index.internal_inline_style)({ width: '100%' }) : null;
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp,
         anonymousState__temp2: anonymousState__temp2,
         anonymousState__temp3: anonymousState__temp3,
+        type: type,
         cover: cover
       });
       return this.__state;
@@ -119,7 +121,8 @@ var BodyCont = function (_BaseComponent) {
 BodyCont.properties = {
   "article": null,
   "title": null,
-  "cover": null
+  "cover": null,
+  "type": null
 };
 BodyCont.$$events = ["goBackHome"];
 BodyCont.defaultProps = {

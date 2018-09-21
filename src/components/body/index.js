@@ -50,8 +50,8 @@ export default class BodyCont extends Component {
 	render() {
 		let titleBarHeight = this.state.titleBarHeight;
 		let statusBarHeight = this.state.statusBarHeight;
-		let { title, cover } = this.props;
-		console.log(this.props.article);
+		let { title, cover,type } = this.props;
+		console.log(type);
 		return (
 			<View className='body-content'>
 				{/* <View
@@ -68,9 +68,9 @@ export default class BodyCont extends Component {
 
 				{/* <View className='title'>{title || '正文'}</View> */}
 				{/* </View> */}
-				<View>
+				{type !== 'tab1' && <View>
 					<Image className='toutu' src={cover} style={{ width: '100%'}} mode='aspectFill'/>
-				</View>
+				</View> }
 				<View className='content-wrap'>
 					<import src='../wxParse/wxParse.wxml' />
 					<template is='wxParse' data='{{ wxParseData: article.nodes }}' />

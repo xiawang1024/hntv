@@ -14,23 +14,25 @@ export default class list extends Component {
 		this.state = {
 			title: '',
 			html: null,
-			cover: ''
+			cover: '',
+			type:'body'
 		};
 	}
 	onShareAppMessage = () => {};
 	componentWillMount() {}
 
 	componentDidMount() {
-		let { articleId } = this.$router.params;
-		this.fetchArticle(articleId);
+		let { articleId,type } = this.$router.params;
+		this.fetchArticle(articleId,type);
 	}
-	fetchArticle = (id) => {
+	fetchArticle = (id,type) => {
 		getArticleData(id).then((res) => {
 			let { data } = res.data;
 			this.setState({
 				title: data.title,
 				html: data.text,
-				cover: data.author
+				cover: data.author,
+				type
 			});
 		});
 	};
@@ -47,7 +49,7 @@ export default class list extends Component {
 			<View className='body-wrap'>
 				{this.state.html &&
 				this.state.title && (
-					<BodyCont article={this.state.html} title={this.state.title} cover={this.state.cover} />
+					<BodyCont article={this.state.html} title={this.state.title} cover={this.state.cover} type={this.state.type}/>
 				)}
 			</View>
 		);

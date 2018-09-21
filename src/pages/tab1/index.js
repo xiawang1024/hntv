@@ -53,7 +53,7 @@ export default class list extends Component {
 		});
 	};
 	goToBody = (articleId) => {
-		let url = `/pages/body/index?articleId=${articleId}`;
+		let url = `/pages/body/index?articleId=${articleId}&type=tab1`;
 		Taro.navigateTo({
 			url
 		});

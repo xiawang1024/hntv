@@ -36,14 +36,15 @@ var list = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["title", "html", "cover"], _this.onShareAppMessage = function () {}, _this.fetchArticle = function (id) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["title", "html", "cover", "type"], _this.onShareAppMessage = function () {}, _this.fetchArticle = function (id, type) {
       (0, _index3.getArticleData)(id).then(function (res) {
         var data = res.data.data;
 
         _this.setState({
           title: data.title,
           html: data.text,
-          cover: data.author
+          cover: data.author,
+          type: type
         });
       });
     }, _this.$$refs = [], _temp), _possibleConstructorReturn(_this, _ret);
@@ -56,7 +57,8 @@ var list = function (_BaseComponent) {
       this.state = {
         title: '',
         html: null,
-        cover: ''
+        cover: '',
+        type: 'body'
       };
     }
   }, {
@@ -65,9 +67,11 @@ var list = function (_BaseComponent) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var articleId = this.$router.params.articleId;
+      var _$router$params = this.$router.params,
+          articleId = _$router$params.articleId,
+          type = _$router$params.type;
 
-      this.fetchArticle(articleId);
+      this.fetchArticle(articleId, type);
     }
   }, {
     key: "componentWillUnmount",

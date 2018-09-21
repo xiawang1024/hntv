@@ -40,10 +40,16 @@ var list = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "loopArray0", "dataList", "statusBarHeight", "titleBarHeight"], _this.onShareAppMessage = function () {}, _this.goToBody = function (articleId) {
-      var url = "/pages/body/index?articleId=" + articleId;
-      _index2.default.navigateTo({
-        url: url
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "loopArray0", "dataList", "imgSrcList", "statusBarHeight", "titleBarHeight"], _this.onShareAppMessage = function () {}, _this.goToBody = function (imgSrc) {
+      // let url = `/pages/body/index?articleId=${articleId}`;
+      // Taro.navigateTo({
+      // 	url
+      // });
+      var imgSrcList = _this.state.imgSrcList;
+
+      _index2.default.previewImage({
+        urls: imgSrcList,
+        current: imgSrc
       });
     }, _this.fetchGetTypeList = function () {
       (0, _index3.getArticleList)(46).then(function (res) {
@@ -52,7 +58,10 @@ var list = function (_BaseComponent) {
             data = _res$data.data;
 
         if (errorCode === 0) {
-          _this.setState({ dataList: data });
+          var imgSrcList = data.map(function (item) {
+            return item.thumbnail;
+          });
+          _this.setState({ dataList: data, imgSrcList: imgSrcList });
         }
       });
     }, _this.$$refs = [], _temp), _possibleConstructorReturn(_this, _ret);
@@ -64,6 +73,7 @@ var list = function (_BaseComponent) {
       _get(list.prototype.__proto__ || Object.getPrototypeOf(list.prototype), "_constructor", this).call(this, props);
       this.state = {
         dataList: [],
+        imgSrcList: [],
         statusBarHeight: 0,
         titleBarHeight: 0
       };

@@ -14,6 +14,7 @@ export default class list extends Component {
 		super(props);
 		this.state = {
 			dataList: [],
+			imgSrcList:[],
 			statusBarHeight: 0,
 			titleBarHeight: 0
 		};
@@ -36,17 +37,25 @@ export default class list extends Component {
 
 	componentDidHide() {}
 	onShareAppMessage = () => {};
-	goToBody = (articleId) => {
-		let url = `/pages/body/index?articleId=${articleId}`;
-		Taro.navigateTo({
-			url
-		});
+	goToBody = (imgSrc) => {
+		// let url = `/pages/body/index?articleId=${articleId}`;
+		// Taro.navigateTo({
+		// 	url
+		// });
+		let {imgSrcList} = this.state
+		Taro.previewImage({
+			urls:imgSrcList,
+			current:imgSrc
+		})
 	};
 	fetchGetTypeList = () => {
 		getArticleList(46).then((res) => {
 			let { errorCode, data } = res.data;
 			if (errorCode === 0) {
-				this.setState({ dataList: data });
+				let imgSrcList = data.map(item => {
+					return item.thumbnail
+				})
+				this.setState({ dataList: data,imgSrcList });
 			}
 		});
 	};
@@ -67,7 +76,7 @@ export default class list extends Component {
 
 					{this.state.dataList.map((item) => {
 						return (
-							<View className='item' key={item.id.toString()} onClick={this.goToBody.bind(this, item.id)}>
+							<View className='item' key={item.id.toString()} onClick={this.goToBody.bind(this, item.thumbnail)}>
 								<Image className='cover' src={item.thumbnail}/>								
 							</View>
 						);

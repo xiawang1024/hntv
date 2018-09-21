@@ -3,10 +3,12 @@
         <view class="icon-back-wrap" bindtap="goBackHome" style="{{anonymousState__temp}}">
             <image class="icon-back" src="{{anonymousState__temp2}}" />
         </view>
-        <view>
-            <image class="toutu" src="{{cover}}" style="{{anonymousState__temp3}}"
-            mode="aspectFill" />
-        </view>
+        <block wx:if="{{type !== 'tab1'}}">
+            <view>
+                <image class="toutu" src="{{cover}}" style="{{anonymousState__temp3}}"
+                mode="aspectFill" />
+            </view>
+        </block>
         <view class="content-wrap">
             <import src="../wxParse/wxParse.wxml" __triggerObserer="{{ _triggerObserer }}"
             />
