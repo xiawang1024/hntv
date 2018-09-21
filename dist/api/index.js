@@ -1,15 +1,13 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getStartImg = exports.actionLove = exports.getTypeList = exports.getArticleList = exports.getArticleData = exports.getSearchList = exports.getVideosList = exports.getSwipeData = undefined;
 
-var _index = require("../npm/@tarojs/taro-weapp/index.js");
+var _index = require('../npm/@tarojs/taro-weapp/index.js');
 
 var _index2 = _interopRequireDefault(_index);
-
-var _base = require("../npm/js-base64/base64.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,7 +23,7 @@ var getSwipeData = function getSwipeData() {
   var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 4;
   var page = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
   return _index2.default.request({
-    url: Base_URL + "method=queryContentByCategory&id=" + id + "&page=" + page + "&pagesize=" + pagesize
+    url: Base_URL + 'method=queryContentByCategory&id=' + id + '&page=' + page + '&pagesize=' + pagesize
   });
 };
 /**
@@ -39,7 +37,7 @@ var getVideosList = function getVideosList() {
   var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 15;
   var page = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
   return _index2.default.request({
-    url: Base_URL + "method=queryContentByCategory&id=" + id + "&page=" + page + "&pagesize=" + pagesize
+    url: Base_URL + 'method=queryContentByCategory&id=' + id + '&page=' + page + '&pagesize=' + pagesize
   });
 };
 /**
@@ -47,9 +45,10 @@ var getVideosList = function getVideosList() {
  * @param {*} keywords 经过base64编码
  */
 var getSearchList = function getSearchList(keywords) {
-  var base64KeyWord = _base.Base64.encode(keywords);
+  // let base64KeyWord = Base64.encode(keywords);
+  var base64KeyWord = encodeURI(keywords);
   return _index2.default.request({
-    url: Base_URL + "method=queryContentByKeywords&keywords=" + base64KeyWord
+    url: Base_URL + 'method=queryContentByKeywords&keywords=' + base64KeyWord
   });
 };
 /**
@@ -58,7 +57,7 @@ var getSearchList = function getSearchList(keywords) {
  */
 var getArticleData = function getArticleData(id) {
   return _index2.default.request({
-    url: Base_URL + "method=queryContent&id=" + id
+    url: Base_URL + 'method=queryContent&id=' + id
   });
 };
 /**
@@ -67,7 +66,7 @@ var getArticleData = function getArticleData(id) {
  */
 var getArticleList = function getArticleList(id) {
   return _index2.default.request({
-    url: Base_URL + "method=queryContentByCategory&id=" + id
+    url: Base_URL + 'method=queryContentByCategory&id=' + id
   });
 };
 /**
@@ -87,7 +86,7 @@ var getArticleList = function getArticleList(id) {
  */
 var getTypeList = function getTypeList(id) {
   return _index2.default.request({
-    url: Base_URL + "method=queryTaxonomyByParent&id=" + id
+    url: Base_URL + 'method=queryTaxonomyByParent&id=' + id
   });
 };
 /**
@@ -96,7 +95,7 @@ var getTypeList = function getTypeList(id) {
  */
 var actionLove = function actionLove(id) {
   return _index2.default.request({
-    url: "https://a.weixin.hndt.com/ktvcms/action/api?method=actionContentViewCount&id=" + id
+    url: 'https://a.weixin.hndt.com/ktvcms/action/api?method=actionContentViewCount&id=' + id
   });
 };
 /**

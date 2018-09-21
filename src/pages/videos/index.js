@@ -5,8 +5,8 @@ import './index.scss';
 
 export default class BodyCont extends Component {
 	config = {
-		navigationBarTitleText: '河南都市频道广告推广'
-		// navigationBarTextStyle: 'white'
+		navigationBarTitleText: '河南都市频道广告推广',
+		navigationBarTextStyle: 'white'
 	};
 	constructor(props) {
 		super(props);
@@ -63,7 +63,7 @@ export default class BodyCont extends Component {
 		return (
 			<View className='videos-list'>
 				<View className='title-wrap'>
-					{/* <Image src={require('./icon-bg.png')} className='icon-bg' /> */}
+					<Image src={require('./icon-bg.png')} className='icon-bg' />
 					<View className='text-wrap'>
 						<View
 							className='icon-back-wrap'
@@ -75,8 +75,8 @@ export default class BodyCont extends Component {
 
 						{/* <Text className='title'>{title}</Text> */}
 						<View className='info-wrap' style={{ marginTop: `${marginTop}px` }}>
-							<View className='name'>名称</View>
-							<View className='desc'>这是一段描述，这是一段描述</View>
+							<View className='name'># 案例合集</View>
+							<View className='desc'>河南都市丨垂直创新2019攻略</View>
 						</View>
 					</View>
 				</View>

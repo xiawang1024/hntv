@@ -47,11 +47,12 @@ var list = function (_BaseComponent) {
       });
     }, _this.clearIptValue = function () {
       _index2.default.showToast({
-        title: '清空',
-        icon: 'success'
+        title: '清空搜索',
+        icon: 'none'
       });
       _this.setState({
-        inputValue: ''
+        inputValue: '',
+        schList: []
       });
     }, _this.fetchSchList = function () {
       (0, _index3.getSearchList)(_this.state.inputValue).then(function (res) {

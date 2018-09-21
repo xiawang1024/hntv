@@ -9,17 +9,17 @@
                 <swiper-item bindtap="goToBody" wx:for="{{loopArray0}}" wx:for-item="item"
                 wx:for-index="index" data-e-goToBody-so="this" data-e-goToBody-a-a="{{item.id}}">
                     <image wx:key="{{item.$loopState__temp3}}" class="banner" mode="aspectFill"
-                    src="{{item.$loopState__temp5}}" />
+                    src="{{item.thumbnail}}" />
                 </swiper-item>
             </swiper>
         </view>
         <view class="body-wrap">
             <view>
-                <image class="border-radius" src="{{anonymousState__temp6}}" mode="aspectFit"
+                <image class="border-radius" src="{{anonymousState__temp4}}" mode="aspectFit"
                 />
             </view>
             <view class="model-wrap">
-                <view class="item" bindtap="onClickHandler" wx:key="{{item.$loopState__temp8}}"
+                <view class="item" bindtap="onClickHandler" wx:key="{{item.$loopState__temp6}}"
                 wx:for="{{loopArray1}}" wx:for-item="item" data-e-onClickHandler-so="this"
                 data-e-onClickHandler-a-a="{{item.id}}">
                     <image class="icon" src="{{item.icon}}" />
@@ -29,7 +29,7 @@
             <view class="line-h"></view>
             <scroll-view class="scrollview" scroll-x="{{true}}" lower-threshold="20"
             upper-threshold="20">
-                <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp10}}"
+                <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp8}}"
                 wx:for="{{loopArray2}}" wx:for-item="item" wx:for-index="index" data-e-onGoToPlayer-so="this"
                 data-e-onGoToPlayer-a-a="{{item.id}}" />
             </scroll-view>

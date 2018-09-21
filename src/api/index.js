@@ -26,7 +26,8 @@ const getVideosList = (pagesize = 10, id = 15, page = 1) =>
  * @param {*} keywords 经过base64编码
  */
 const getSearchList = (keywords) => {
-	let base64KeyWord = Base64.encode(keywords);
+	// let base64KeyWord = Base64.encode(keywords);
+	let base64KeyWord = encodeURI(keywords);
 	return Taro.request({
 		url: `${Base_URL}method=queryContentByKeywords&keywords=${base64KeyWord}`
 	});

@@ -48,11 +48,12 @@ export default class list extends Component {
 	};
 	clearIptValue = () => {
 		Taro.showToast({
-			title: '清空',
-			icon: 'success'
+			title: '清空搜索',
+			icon: 'none'
 		});
 		this.setState({
-			inputValue: ''
+			inputValue: '',
+			schList:[]
 		});
 	};
 	fetchSchList = () => {

@@ -1,19 +1,20 @@
 <block>
     <view class="videos-list">
         <view class="title-wrap">
+            <image src="{{anonymousState__temp}}" class="icon-bg" />
             <view class="text-wrap">
-                <view class="icon-back-wrap" bindtap="goBackHome" style="{{anonymousState__temp}}">
-                    <image class="icon-back" src="{{anonymousState__temp2}}" />
+                <view class="icon-back-wrap" bindtap="goBackHome" style="{{anonymousState__temp2}}">
+                    <image class="icon-back" src="{{anonymousState__temp3}}" />
                 </view>
-                <view class="info-wrap" style="{{anonymousState__temp3}}">
-                    <view class="name">名称</view>
-                    <view class="desc">这是一段描述，这是一段描述</view>
+                <view class="info-wrap" style="{{anonymousState__temp4}}">
+                    <view class="name"># 案例合集</view>
+                    <view class="desc">河南都市丨垂直创新2019攻略</view>
                 </view>
             </view>
         </view>
         <view class="numbers">视频（{{videoList.length}}）</view>
         <view class="list-wrap">
-            <view class="item" bindtap="goToPlayer" wx:key="{{item.$loopState__temp5}}"
+            <view class="item" bindtap="goToPlayer" wx:key="{{item.$loopState__temp6}}"
             wx:for="{{loopArray0}}" wx:for-item="item" wx:for-index="index" data-e-goToPlayer-so="this"
             data-e-goToPlayer-a-a="{{index}}">
                 <image class="img" src="{{item.thumbnail}}" />

@@ -49,14 +49,15 @@
       height: 37rpx; }
     .videos-list .title-wrap .text-wrap .info-wrap {
       padding: 30rpx;
-      color: #333;
+      color: #fff;
       text-align: left; }
       .videos-list .title-wrap .text-wrap .info-wrap .name {
         font-size: 34rpx; }
       .videos-list .title-wrap .text-wrap .info-wrap .desc {
         margin-top: 30rpx;
         line-height: 1.6125;
-        font-size: 28rpx; }
+        font-size: 28rpx;
+        color: #c8c8c8; }
 
 .videos-list .numbers {
   width: 100%;

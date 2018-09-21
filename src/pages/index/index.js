@@ -131,8 +131,8 @@ export default class Index extends Component {
 										key={item.id.toString()}
 										className='banner'
 										mode='aspectFill'
-										// src={item.thumbnail}
-										src={require('./banner.png')}
+										src={item.thumbnail}
+										// src={require('./banner.png')}
 									/>
 								</SwiperItem>
 							);

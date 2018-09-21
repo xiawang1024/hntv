@@ -38,7 +38,7 @@ var BodyCont = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BodyCont.__proto__ || Object.getPrototypeOf(BodyCont)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "loopArray0", "statusBarHeight", "titleBarHeight", "videoList"], _this.onShareAppMessage = function () {}, _this.clickHandler = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BodyCont.__proto__ || Object.getPrototypeOf(BodyCont)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "anonymousState__temp4", "loopArray0", "statusBarHeight", "titleBarHeight", "videoList"], _this.onShareAppMessage = function () {}, _this.clickHandler = function () {
       _index2.default.showToast({
         title: 'click',
         icon: 'success'
@@ -106,14 +106,15 @@ var BodyCont = function (_BaseComponent) {
       var marginTop = titleBarHeight + statusBarHeight;
       var title = this.__props.title;
 
-      var anonymousState__temp = (0, _index.internal_inline_style)({ marginTop: statusBarHeight + "px", height: titleBarHeight + "px" });
-      var anonymousState__temp2 = "/pages/videos/icon-back.png";
-      var anonymousState__temp3 = (0, _index.internal_inline_style)({ marginTop: marginTop + "px" });
+      var anonymousState__temp = "/pages/videos/icon-bg.png";
+      var anonymousState__temp2 = (0, _index.internal_inline_style)({ marginTop: statusBarHeight + "px", height: titleBarHeight + "px" });
+      var anonymousState__temp3 = "/pages/videos/icon-back.png";
+      var anonymousState__temp4 = (0, _index.internal_inline_style)({ marginTop: marginTop + "px" });
 
       var loopArray0 = this.__state.videoList.map(function (item, index) {
-        var $loopState__temp5 = item.id.toString();
+        var $loopState__temp6 = item.id.toString();
         return _extends({}, item, {
-          $loopState__temp5: $loopState__temp5
+          $loopState__temp6: $loopState__temp6
         });
       });
 
@@ -121,6 +122,7 @@ var BodyCont = function (_BaseComponent) {
         anonymousState__temp: anonymousState__temp,
         anonymousState__temp2: anonymousState__temp2,
         anonymousState__temp3: anonymousState__temp3,
+        anonymousState__temp4: anonymousState__temp4,
         loopArray0: loopArray0
       });
       return this.__state;
