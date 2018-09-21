@@ -47,8 +47,21 @@ export default class list extends Component {
 		let style = {
 			paddingTop:`${height}px`
 		}
+		let titleStyle = {
+			color:'#000'
+		}
+		
+		let titleCStyle = {
+			color:'rgba(102,102,102,1)'
+		}
 		if(type === 'sch') {
 			style = {}
+			titleStyle = {
+				color:'#fff'
+			}
+			titleCStyle = {
+				color:'#ccc'
+			}
 		}
 		return (
 			<View className='list-content' style={style}>
@@ -58,8 +71,8 @@ export default class list extends Component {
 							<View className='item' onClick={this.goToBody.bind(this, item.id)} key={item.id.toString()}>
 								<Image className='img' src={item.thumbnail} mode='aspectFit' />
 								<View className='text-wrap'>
-									<View className='title'>{item.title}</View>
-									<View className='desc'>{item.remarks || item.title}</View>
+									<View className='title' style={titleStyle}>{item.title}</View>
+									<View className='desc' style={titleCStyle}>{item.remarks || item.title}</View>
 								</View>
 							</View>
 						);

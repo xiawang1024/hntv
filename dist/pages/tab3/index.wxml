@@ -1,21 +1,25 @@
 <block>
-    <view class="list-wrap">
-        <view style="{{anonymousState__temp}}" class="title">
-            <text>搜索</text>
-        </view>
-        <view class="sch-wrap">
-            <at-icon value="search" __triggerObserer="{{ _triggerObserer }}" size="16"
-            color="#ccc" className="icon-sch"></at-icon>
-            <input value="{{inputValue}}" type="text" placeholder="搜索" confirm-type="search"
-            focus="{{true}}" class="ipt-sch" bindconfirm="inputConfirm" bindinput="inputHandler"
-            />
-            <view class="icon-close-wrap" bindtap="clearIptValue">
-                <at-icon value="close-circle" __triggerObserer="{{ _triggerObserer }}"
-                size="16" color="#ccc" className="icon-close"></at-icon>
+    <view class="sch-list-wrap" style="{{anonymousState__temp}}">
+        <image src="{{anonymousState__temp2}}" style="{{anonymousState__temp3}}"
+        />
+        <view class="sch-bd">
+            <view style="{{anonymousState__temp4}}" class="title">
+                <text>搜索</text>
             </view>
+            <view class="sch-wrap">
+                <at-icon value="search" __triggerObserer="{{ _triggerObserer }}" size="16"
+                color="#ccc" className="icon-sch"></at-icon>
+                <input value="{{inputValue}}" type="text" placeholder="搜索" confirm-type="search"
+                focus="{{true}}" class="ipt-sch" bindconfirm="inputConfirm" bindinput="inputHandler"
+                />
+                <view class="icon-close-wrap" bindtap="clearIptValue">
+                    <at-icon value="close-circle" __triggerObserer="{{ _triggerObserer }}"
+                    size="16" color="#ccc" className="icon-close"></at-icon>
+                </view>
+            </view>
+            <block wx:if="{{schList.length > 0}}">
+                <list type="sch" __triggerObserer="{{ _triggerObserer }}" dataList="{{schList}}"></list>
+            </block>
         </view>
-        <block wx:if="{{schList.length > 0}}">
-            <list type="sch" __triggerObserer="{{ _triggerObserer }}" dataList="{{schList}}"></list>
-        </block>
     </view>
 </block>

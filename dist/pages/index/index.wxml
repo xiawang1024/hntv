@@ -15,11 +15,11 @@
         </view>
         <view class="body-wrap">
             <view>
-                <image class="border-radius" src="{{anonymousState__temp4}}" mode="aspectFit"
+                <image class="border-radius" src="{{anonymousState__temp4}}" style="{{anonymousState__temp5}}"
                 />
             </view>
             <view class="model-wrap">
-                <view class="item" bindtap="onClickHandler" wx:key="{{item.$loopState__temp6}}"
+                <view class="item" bindtap="onClickHandler" wx:key="{{item.$loopState__temp7}}"
                 wx:for="{{loopArray1}}" wx:for-item="item" data-e-onClickHandler-so="this"
                 data-e-onClickHandler-a-a="{{item.id}}">
                     <image class="icon" src="{{item.icon}}" mode="aspectFit" />
@@ -28,7 +28,7 @@
             </view>
             <scroll-view class="scrollview" scroll-x="{{true}}" lower-threshold="20"
             upper-threshold="20">
-                <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp8}}"
+                <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp9}}"
                 wx:for="{{loopArray2}}" wx:for-item="item" wx:for-index="index" data-e-onGoToPlayer-so="this"
                 data-e-onGoToPlayer-a-a="{{item.id}}" />
             </scroll-view>

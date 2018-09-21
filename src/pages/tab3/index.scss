@@ -1,3 +1,12 @@
+.sch-list-wrap{
+	.sch-bd{
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+	}
+}
 .sch-wrap {
 	width: 90%;
 	height: 70px;
@@ -12,6 +21,7 @@
 	box-sizing: border-box;
 	.title{
 		font-size:34px;
+		color:#fff;
 	}
 	.icon-sch {
 		width: 30px;
@@ -21,6 +31,7 @@
 		flex: 1;
 		padding-left: 6px;
 		font-size: 28px;
+		color:#fff;
 	}
 	.icon-close-wrap {
 		width: 50px;

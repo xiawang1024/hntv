@@ -67,7 +67,7 @@ var Index = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp4", "loopArray0", "loopArray1", "loopArray2", "modelData", "statusBarHeight", "titleBarHeight", "videosList", "swipeList"], _this.onShareAppMessage = function () {}, _this.fetchSwipeData = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp4", "anonymousState__temp5", "loopArray0", "loopArray1", "loopArray2", "modelData", "statusBarHeight", "titleBarHeight", "videosList", "swipeList"], _this.onShareAppMessage = function () {}, _this.fetchSwipeData = function () {
       (0, _index3.getSwipeData)().then(function (res) {
         var data = res.data.data;
 
@@ -159,6 +159,7 @@ var Index = function (_BaseComponent) {
       var statusBarHeight = this.__state.statusBarHeight;
       var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", top: statusBarHeight + "px" });
       var anonymousState__temp4 = "/pages/index/border-radius.png";
+      var anonymousState__temp5 = (0, _index.internal_inline_style)({ width: '100%' });
 
       var loopArray0 = this.__state.swipeList.map(function (item, index) {
         var $loopState__temp3 = item.id.toString();
@@ -168,22 +169,23 @@ var Index = function (_BaseComponent) {
       });
 
       var loopArray1 = modelData.map(function (item) {
-        var $loopState__temp6 = item.id.toString();
+        var $loopState__temp7 = item.id.toString();
         return _extends({}, item, {
-          $loopState__temp6: $loopState__temp6
+          $loopState__temp7: $loopState__temp7
         });
       });
 
       var loopArray2 = this.__state.videosList.map(function (item, index) {
-        var $loopState__temp8 = item.id.toString();
+        var $loopState__temp9 = item.id.toString();
         return _extends({}, item, {
-          $loopState__temp8: $loopState__temp8
+          $loopState__temp9: $loopState__temp9
         });
       });
 
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp,
         anonymousState__temp4: anonymousState__temp4,
+        anonymousState__temp5: anonymousState__temp5,
         loopArray0: loopArray0,
         loopArray1: loopArray1,
         loopArray2: loopArray2,

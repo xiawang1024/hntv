@@ -142,7 +142,7 @@ export default class Index extends Component {
 				</View>
 				<View className='body-wrap'>
 					<View>
-						<Image className='border-radius' src={require('./border-radius.png')} mode='aspectFit' />
+						<Image className='border-radius' src={require('./border-radius.png')}  style={{width:'100%'}}/>
 					</View>
 					<View className='model-wrap'>
 						{modelData.map((item) => {
