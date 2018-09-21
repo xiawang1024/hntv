@@ -68,7 +68,7 @@ export default class list extends Component {
 					{this.state.dataList.map((item) => {
 						return (
 							<View className='item' key={item.id.toString()} onClick={this.goToBody.bind(this, item.id)}>
-								<Image className='cover' src={item.thumbnail} />
+								<Image className='cover' src={item.thumbnail}/>								
 							</View>
 						);
 					})}
