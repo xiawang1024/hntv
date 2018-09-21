@@ -22,7 +22,7 @@
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around;
-  border: 1rpx solid #ccc;
+  border: 1rpx solid #fff;
   border-radius: 35rpx;
   padding: 8rpx 10rpx;
   -webkit-box-sizing: border-box;

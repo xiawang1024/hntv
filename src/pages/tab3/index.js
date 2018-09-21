@@ -9,7 +9,8 @@ import { get as getGlobalData } from '../../global_data';
 
 export default class list extends Component {
 	config = {
-		navigationBarTitleText: '河南都市频道广告推广'
+		navigationBarTitleText: '河南都市频道广告推广',
+		navigationBarTextStyle:'white'
 	};
 	constructor(props) {
 		super(props);
@@ -87,7 +88,7 @@ export default class list extends Component {
 		let height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10
 		return (
 			<View className='sch-list-wrap' style={{ height: `${screenHeight}px`, width: `${screenWidth}px` }}>
-				<Image src={require('./bg.png')} style={{ height: `${screenHeight}px`, width: `${screenWidth}px` }}/>
+				<Image src={require('./bg.jpg')} style={{ height: `${screenHeight}px`, width: `${screenWidth}px` }}/>
 				{/* <Head title='搜索' type='tab' /> */}
 				<View className='sch-bd'>
 					<View style={{ height: `${titleBarHeight}px`, paddingTop: `${statusBarHeight}px`,display:'flex',justifyContent: 'center',alignItems: 'center',color:'#fff' }} className='title'>
@@ -95,19 +96,19 @@ export default class list extends Component {
 					</View>
 					
 					<View className='sch-wrap'>
-						<AtIcon value='search' size='16' color='#ccc' className='icon-sch' />
+						<AtIcon value='search' size='16' color='#fff' className='icon-sch' />
 						<Input
 							value={this.state.inputValue}
 							type='text'
 							placeholder='搜索'
 							confirmType='search'
 							focus
-							className='ipt-sch'
+							className='ipt-sch'							
 							onConfirm={this.inputConfirm}
 							onInput={this.inputHandler}
 						/>
 						<View className='icon-close-wrap' onClick={this.clearIptValue}>
-							<AtIcon value='close-circle' size='16' color='#ccc' className='icon-close' />
+							<AtIcon value='close-circle' size='16' color='#fff' className='icon-close' />
 						</View>
 					</View>
 					{this.state.schList.length > 0 && <List type='sch' dataList={this.state.schList} />}

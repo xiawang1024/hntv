@@ -132,7 +132,7 @@ var list = function (_BaseComponent) {
 
       var height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10;
       var anonymousState__temp = (0, _index.internal_inline_style)({ height: screenHeight + "px", width: screenWidth + "px" });
-      var anonymousState__temp2 = "/pages/tab3/bg.png";
+      var anonymousState__temp2 = "/pages/tab3/bg.jpg";
       var anonymousState__temp3 = (0, _index.internal_inline_style)({ height: screenHeight + "px", width: screenWidth + "px" });
       var anonymousState__temp4 = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", paddingTop: statusBarHeight + "px", display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#fff' });
       Object.assign(this.__state, {
