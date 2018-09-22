@@ -157,9 +157,14 @@ var Index = function (_BaseComponent) {
 
       var titleBarHeight = this.__state.titleBarHeight;
       var statusBarHeight = this.__state.statusBarHeight;
-      var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", top: statusBarHeight + "px" });
+      var anonymousState__temp = (0, _index.internal_inline_style)({
+        height: titleBarHeight + "px",
+        top: statusBarHeight + "px"
+      });
       var anonymousState__temp4 = "/pages/index/border-radius.png";
-      var anonymousState__temp5 = (0, _index.internal_inline_style)({ width: '100%' });
+      var anonymousState__temp5 = (0, _index.internal_inline_style)({
+        width: '100%'
+      });
 
       var loopArray0 = this.__state.swipeList.map(function (item, index) {
         var $loopState__temp3 = item.id.toString();
@@ -199,7 +204,7 @@ var Index = function (_BaseComponent) {
 }(_index.Component);
 
 Index.properties = {};
-Index.$$events = ["goToBody", "onClickHandler", "onGoToPlayer"];
+Index.$$events = ["goToBody", "onClickHandler"];
 exports.default = Index;
 
 Component(require('../../npm/@tarojs/taro-weapp/index.js').default.createComponent(Index, true));

@@ -28,9 +28,9 @@
             </view>
             <scroll-view class="scrollview" scroll-x="{{true}}" lower-threshold="20"
             upper-threshold="20">
-                <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp9}}"
-                wx:for="{{loopArray2}}" wx:for-item="item" wx:for-index="index" data-e-onGoToPlayer-so="this"
-                data-e-onGoToPlayer-a-a="{{item.id}}" />
+                <image class="item" bindtap="goToBody" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp9}}"
+                wx:for="{{loopArray2}}" wx:for-item="item" wx:for-index="index" data-e-goToBody-so="this"
+                data-e-goToBody-a-a="{{item.id}}" />
             </scroll-view>
         </view>
     </view>
