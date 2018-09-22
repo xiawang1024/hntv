@@ -157,14 +157,9 @@ var Index = function (_BaseComponent) {
 
       var titleBarHeight = this.__state.titleBarHeight;
       var statusBarHeight = this.__state.statusBarHeight;
-      var anonymousState__temp = (0, _index.internal_inline_style)({
-        height: titleBarHeight + "px",
-        top: statusBarHeight + "px"
-      });
+      var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", top: statusBarHeight + "px" });
       var anonymousState__temp4 = "/pages/index/border-radius.png";
-      var anonymousState__temp5 = (0, _index.internal_inline_style)({
-        width: '100%'
-      });
+      var anonymousState__temp5 = (0, _index.internal_inline_style)({ width: '100%' });
 
       var loopArray0 = this.__state.swipeList.map(function (item, index) {
         var $loopState__temp3 = item.id.toString();
