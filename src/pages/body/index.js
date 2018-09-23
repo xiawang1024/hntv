@@ -15,17 +15,17 @@ export default class list extends Component {
 			title: '',
 			html: null,
 			cover: '',
-			type:'body'
+			type: 'body'
 		};
 	}
 	onShareAppMessage = () => {};
 	componentWillMount() {}
 
 	componentDidMount() {
-		let { articleId,type } = this.$router.params;
-		this.fetchArticle(articleId,type);
+		let { articleId, type } = this.$router.params;
+		this.fetchArticle(articleId, type);
 	}
-	fetchArticle = (id,type) => {
+	fetchArticle = (id, type) => {
 		getArticleData(id).then((res) => {
 			let { data } = res.data;
 			this.setState({
@@ -46,10 +46,15 @@ export default class list extends Component {
 	render() {
 		console.log(this.state.html);
 		return (
-			<View className='body-wrap'>
+			<View className="body-wrap">
 				{this.state.html &&
 				this.state.title && (
-					<BodyCont article={this.state.html} title={this.state.title} cover={this.state.cover} type={this.state.type}/>
+					<BodyCont
+						article={this.state.html}
+						title={this.state.title}
+						cover={this.state.cover}
+						type={this.state.type}
+					/>
 				)}
 			</View>
 		);
