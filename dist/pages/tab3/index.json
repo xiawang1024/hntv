@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "at-icon": "../../../npm/taro-ui/dist/weapp/components/icon/index",
-    "list": "../../components/list/index"
-  },
-  "navigationBarTitleText": "河南都市频道广告推广",
-  "navigationBarTextStyle": "white"
-}
