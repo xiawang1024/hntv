@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -67,7 +65,10 @@ var Index = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp4", "anonymousState__temp5", "loopArray0", "loopArray1", "loopArray2", "modelData", "statusBarHeight", "titleBarHeight", "videosList", "swipeList"], _this.onShareAppMessage = function () {}, _this.fetchSwipeData = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp4", "anonymousState__temp5", "loopArray0", "loopArray1", "loopArray2", "modelData", "statusBarHeight", "titleBarHeight", "videosList", "swipeList"], _this.config = {
+      navigationBarTitleText: '河南都市频道广告推广',
+      disableScroll: true
+    }, _this.onShareAppMessage = function () {}, _this.fetchSwipeData = function () {
       (0, _index3.getSwipeData)().then(function (res) {
         var data = res.data.data;
 
@@ -154,6 +155,7 @@ var Index = function (_BaseComponent) {
     value: function _createData() {
       this.__state = arguments[0] || this.state || {};
       this.__props = arguments[1] || this.props || {};
+      ;
 
       var titleBarHeight = this.__state.titleBarHeight;
       var statusBarHeight = this.__state.statusBarHeight;
@@ -162,24 +164,36 @@ var Index = function (_BaseComponent) {
       var anonymousState__temp5 = (0, _index.internal_inline_style)({ width: '100%' });
 
       var loopArray0 = this.__state.swipeList.map(function (item, index) {
-        var $loopState__temp3 = item.id.toString();
-        return _extends({}, item, {
-          $loopState__temp3: $loopState__temp3
-        });
+        item = {
+          $original: (0, _index.internal_get_original)(item)
+        };
+        var $loopState__temp3 = item.$original.id.toString();
+        return {
+          $loopState__temp3: $loopState__temp3,
+          $original: item.$original
+        };
       });
 
       var loopArray1 = modelData.map(function (item) {
-        var $loopState__temp7 = item.id.toString();
-        return _extends({}, item, {
-          $loopState__temp7: $loopState__temp7
-        });
+        item = {
+          $original: (0, _index.internal_get_original)(item)
+        };
+        var $loopState__temp7 = item.$original.id.toString();
+        return {
+          $loopState__temp7: $loopState__temp7,
+          $original: item.$original
+        };
       });
 
       var loopArray2 = this.__state.videosList.map(function (item, index) {
-        var $loopState__temp9 = item.id.toString();
-        return _extends({}, item, {
-          $loopState__temp9: $loopState__temp9
-        });
+        item = {
+          $original: (0, _index.internal_get_original)(item)
+        };
+        var $loopState__temp9 = item.$original.id.toString();
+        return {
+          $loopState__temp9: $loopState__temp9,
+          $original: item.$original
+        };
       });
 
       Object.assign(this.__state, {

@@ -1,36 +1,25 @@
 <block>
     <view class="index">
-        <view class="title-wrap" style="{{anonymousState__temp}}">
-            <text class="title">河南都市丨垂直创新2019攻略</text>
+        <view class="title-wrap" style="{{anonymousState__temp}}"><text class="title">河南都市丨垂直创新2019攻略</text>
         </view>
         <view class="swiper-wrap">
-            <swiper class="swiper" indicator-active-color="#ff2399" circular="{{true}}"
-            autoplay="{{true}}" duration="300">
-                <swiper-item bindtap="goToBody" wx:for="{{loopArray0}}" wx:for-item="item"
-                wx:for-index="index" data-e-goToBody-so="this" data-e-goToBody-a-a="{{item.id}}">
-                    <image wx:key="{{item.$loopState__temp3}}" class="banner" mode="aspectFit"
-                    src="{{item.thumbnail}}" />
+            <swiper class="swiper" indicator-active-color="#ff2399" circular="{{true}}" autoplay="{{true}}" duration="300">
+                <swiper-item bindtap="goToBody" wx:for="{{loopArray0}}" wx:for-item="item" wx:for-index="index" data-e-tap-so="this" data-e-tap-a-a="{{item.$original.id}}">
+                    <image wx:key="$loopState__temp3" class="banner" mode="aspectFit" src="{{item.$original.thumbnail}}"></image>
                 </swiper-item>
             </swiper>
         </view>
         <view class="body-wrap">
             <view>
-                <image class="border-radius" src="{{anonymousState__temp4}}" style="{{anonymousState__temp5}}"
-                />
+                <image class="border-radius" src="{{anonymousState__temp4}}" style="{{anonymousState__temp5}}"></image>
             </view>
             <view class="model-wrap">
-                <view class="item" bindtap="onClickHandler" wx:key="{{item.$loopState__temp7}}"
-                wx:for="{{loopArray1}}" wx:for-item="item" data-e-onClickHandler-so="this"
-                data-e-onClickHandler-a-a="{{item.id}}">
-                    <image class="icon" src="{{item.icon}}" mode="aspectFit" />
-                    <text class="text">{{item.text}}</text>
+                <view class="item" bindtap="onClickHandler" wx:key="$loopState__temp7" wx:for="{{loopArray1}}" wx:for-item="item" data-e-tap-so="this" data-e-tap-a-a="{{item.$original.id}}">
+                    <image class="icon" src="{{item.$original.icon}}" mode="aspectFit"></image><text class="text">{{item.$original.text}}</text>
                 </view>
             </view>
-            <scroll-view class="scrollview" scroll-x="{{true}}" lower-threshold="20"
-            upper-threshold="20">
-                <image class="item" bindtap="onGoToPlayer" src="{{item.thumbnail}}" wx:key="{{item.$loopState__temp9}}"
-                wx:for="{{loopArray2}}" wx:for-item="item" wx:for-index="index" data-e-onGoToPlayer-so="this"
-                data-e-onGoToPlayer-a-a="{{item.id}}" />
+            <scroll-view class="scrollview" scroll-x="{{true}}" lower-threshold="20" upper-threshold="20">
+                <image class="item" bindtap="onGoToPlayer" src="{{item.$original.thumbnail}}" wx:key="$loopState__temp9" wx:for="{{loopArray2}}" wx:for-item="item" wx:for-index="index" data-e-tap-so="this" data-e-tap-a-a="{{item.$original.id}}"></image>
             </scroll-view>
         </view>
     </view>
