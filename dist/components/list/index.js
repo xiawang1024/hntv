@@ -92,15 +92,32 @@ var list = function (_BaseComponent) {
       var style = {
         paddingTop: height + "px"
       };
+      var titleStyle = {
+        color: '#000'
+      };
+
+      var titleCStyle = {
+        color: 'rgba(102,102,102,1)'
+      };
       if (type === 'sch') {
         style = {};
+        titleStyle = {
+          color: '#fff'
+        };
+        titleCStyle = {
+          color: '#ccc'
+        };
       }
       var anonymousState__temp = (0, _index.internal_inline_style)(style);
 
       var loopArray0 = this.__props.dataList.map(function (item) {
         var $loopState__temp3 = item.id.toString();
+        var $loopState__temp5 = (0, _index.internal_inline_style)(titleStyle);
+        var $loopState__temp7 = (0, _index.internal_inline_style)(titleCStyle);
         return _extends({}, item, {
-          $loopState__temp3: $loopState__temp3
+          $loopState__temp3: $loopState__temp3,
+          $loopState__temp5: $loopState__temp5,
+          $loopState__temp7: $loopState__temp7
         });
       });
 

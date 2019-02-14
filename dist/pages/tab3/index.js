@@ -38,7 +38,7 @@ var list = function (_BaseComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "inputValue", "schList", "statusBarHeight", "titleBarHeight"], _this.onShareAppMessage = function () {}, _this.inputConfirm = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = list.__proto__ || Object.getPrototypeOf(list)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "anonymousState__temp4", "inputValue", "schList", "statusBarHeight", "titleBarHeight", "screenHeight", "screenWidth"], _this.onShareAppMessage = function () {}, _this.inputConfirm = function () {
       _this.fetchSchList();
     }, _this.inputHandler = function (e) {
       var inputValue = e.detail.value;
@@ -87,7 +87,9 @@ var list = function (_BaseComponent) {
         inputValue: '',
         schList: [],
         statusBarHeight: 0,
-        titleBarHeight: 0
+        titleBarHeight: 0,
+        screenHeight: 0,
+        screenWidth: 0
       };
     }
   }, {
@@ -98,9 +100,13 @@ var list = function (_BaseComponent) {
     value: function componentDidMount() {
       var statusBarHeight = (0, _global_data.get)('statusBarHeight');
       var titleBarHeight = (0, _global_data.get)('titleBarHeight');
+      var screenHeight = (0, _global_data.get)('screenHeight');
+      var screenWidth = (0, _global_data.get)('screenWidth');
       this.setState({
         statusBarHeight: statusBarHeight,
-        titleBarHeight: titleBarHeight
+        titleBarHeight: titleBarHeight,
+        screenHeight: screenHeight,
+        screenWidth: screenWidth
       });
     }
   }, {
@@ -120,12 +126,20 @@ var list = function (_BaseComponent) {
 
       var _state = this.__state,
           titleBarHeight = _state.titleBarHeight,
-          statusBarHeight = _state.statusBarHeight;
+          statusBarHeight = _state.statusBarHeight,
+          screenHeight = _state.screenHeight,
+          screenWidth = _state.screenWidth;
 
       var height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10;
-      var anonymousState__temp = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", paddingTop: statusBarHeight + "px", display: 'flex', justifyContent: 'center', alignItems: 'center' });
+      var anonymousState__temp = (0, _index.internal_inline_style)({ height: screenHeight + "px", width: screenWidth + "px" });
+      var anonymousState__temp2 = "/pages/tab3/bg.jpg";
+      var anonymousState__temp3 = (0, _index.internal_inline_style)({ height: screenHeight + "px", width: screenWidth + "px" });
+      var anonymousState__temp4 = (0, _index.internal_inline_style)({ height: titleBarHeight + "px", paddingTop: statusBarHeight + "px", display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#fff' });
       Object.assign(this.__state, {
-        anonymousState__temp: anonymousState__temp
+        anonymousState__temp: anonymousState__temp,
+        anonymousState__temp2: anonymousState__temp2,
+        anonymousState__temp3: anonymousState__temp3,
+        anonymousState__temp4: anonymousState__temp4
       });
       return this.__state;
     }

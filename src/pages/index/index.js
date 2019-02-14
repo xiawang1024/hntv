@@ -39,7 +39,8 @@ const modelData = [
 
 export default class Index extends Component {
 	config = {
-		navigationBarTitleText: '河南都市频道广告推广'
+		navigationBarTitleText: '河南都市频道广告推广',
+		disableScroll:true
 	};
 	constructor(props) {
 		super(props);
@@ -130,7 +131,7 @@ export default class Index extends Component {
 									<Image
 										key={item.id.toString()}
 										className='banner'
-										mode='aspectFill'
+										mode='aspectFit'
 										src={item.thumbnail}
 										// src={require('./banner.png')}
 									/>
@@ -141,7 +142,7 @@ export default class Index extends Component {
 				</View>
 				<View className='body-wrap'>
 					<View>
-						<Image className='border-radius' src={require('./border-radius.png')} mode='aspectFit' />
+						<Image className='border-radius' src={require('./border-radius.png')}  style={{width:'100%'}}/>
 					</View>
 					<View className='model-wrap'>
 						{modelData.map((item) => {
@@ -151,13 +152,13 @@ export default class Index extends Component {
 									onClick={this.onClickHandler.bind(this, item.id)}
 									key={item.id.toString()}
 								>
-									<Image className='icon' src={item.icon} />
+									<Image className='icon' src={item.icon} mode='aspectFit'/>
 									<Text className='text'>{item.text}</Text>
 								</View>
 							);
 						})}
 					</View>
-					<View className='line-h' />
+					{/* <View className='line-h' /> */}
 					<ScrollView className='scrollview' scrollX lowerThreshold='20' upperThreshold='20'>
 						{this.state.videosList.map((item, index) => {
 							return (

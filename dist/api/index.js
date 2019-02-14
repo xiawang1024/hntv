@@ -19,7 +19,7 @@ var Base_URL = 'https://a.weixin.hndt.com/ktvcms/api?';
  * @param {*} pagesize 每页数量
  */
 var getSwipeData = function getSwipeData() {
-  var pagesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 4;
+  var pagesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 10;
   var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 4;
   var page = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
   return _index2.default.request({
@@ -33,7 +33,7 @@ var getSwipeData = function getSwipeData() {
  * @param {*} page 页码
  */
 var getVideosList = function getVideosList() {
-  var pagesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 10;
+  var pagesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 20;
   var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 15;
   var page = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
   return _index2.default.request({

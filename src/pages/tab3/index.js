@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import { View ,Image} from '@tarojs/components';
 import { AtIcon } from 'taro-ui';
 import List from '../../components/list/index';
 import Head from '../../components/head/index';
@@ -9,7 +9,8 @@ import { get as getGlobalData } from '../../global_data';
 
 export default class list extends Component {
 	config = {
-		navigationBarTitleText: '河南都市频道广告推广'
+		navigationBarTitleText: '河南都市频道广告推广',
+		navigationBarTextStyle:'white'
 	};
 	constructor(props) {
 		super(props);
@@ -17,7 +18,9 @@ export default class list extends Component {
 			inputValue: '',
 			schList: [],
 			statusBarHeight: 0,
-			titleBarHeight: 0
+			titleBarHeight: 0,
+			screenHeight: 0,
+			screenWidth: 0,
 		};
 	}
 	componentWillMount() {}
@@ -25,9 +28,13 @@ export default class list extends Component {
 	componentDidMount() {
 		let statusBarHeight = getGlobalData('statusBarHeight');
 		let titleBarHeight = getGlobalData('titleBarHeight');
+		let screenHeight = getGlobalData('screenHeight');
+		let screenWidth = getGlobalData('screenWidth');
 		this.setState({
 			statusBarHeight,
-			titleBarHeight
+			titleBarHeight,
+			screenHeight,
+			screenWidth
 		});
 	}
 
@@ -77,32 +84,35 @@ export default class list extends Component {
 		});
 	};
 	render() {
-		let { titleBarHeight, statusBarHeight } = this.state;
+		let { titleBarHeight, statusBarHeight,screenHeight,screenWidth } = this.state;
 		let height = parseInt(titleBarHeight) + parseInt(statusBarHeight) + 10
 		return (
-			<View className='list-wrap'>
+			<View className='sch-list-wrap' style={{ height: `${screenHeight}px`, width: `${screenWidth}px` }}>
+				<Image src={require('./bg.jpg')} style={{ height: `${screenHeight}px`, width: `${screenWidth}px` }}/>
 				{/* <Head title='搜索' type='tab' /> */}
-				<View style={{ height: `${titleBarHeight}px`, paddingTop: `${statusBarHeight}px`,display:'flex',justifyContent: 'center',alignItems: 'center' }} className='title'>
-					<Text>搜索</Text>
-				</View>
-				
-				<View className='sch-wrap'>
-					<AtIcon value='search' size='16' color='#ccc' className='icon-sch' />
-					<Input
-						value={this.state.inputValue}
-						type='text'
-						placeholder='搜索'
-						confirmType='search'
-						focus
-						className='ipt-sch'
-						onConfirm={this.inputConfirm}
-						onInput={this.inputHandler}
-					/>
-					<View className='icon-close-wrap' onClick={this.clearIptValue}>
-						<AtIcon value='close-circle' size='16' color='#ccc' className='icon-close' />
+				<View className='sch-bd'>
+					<View style={{ height: `${titleBarHeight}px`, paddingTop: `${statusBarHeight}px`,display:'flex',justifyContent: 'center',alignItems: 'center',color:'#fff' }} className='title'>
+						<Text>搜索</Text>
 					</View>
+					
+					<View className='sch-wrap'>
+						<AtIcon value='search' size='16' color='#fff' className='icon-sch' />
+						<Input
+							value={this.state.inputValue}
+							type='text'
+							placeholder='搜索'
+							confirmType='search'
+							focus
+							className='ipt-sch'							
+							onConfirm={this.inputConfirm}
+							onInput={this.inputHandler}
+						/>
+						<View className='icon-close-wrap' onClick={this.clearIptValue}>
+							<AtIcon value='close-circle' size='16' color='#fff' className='icon-close' />
+						</View>
+					</View>
+					{this.state.schList.length > 0 && <List type='sch' dataList={this.state.schList} />}
 				</View>
-				{this.state.schList.length > 0 && <List type='sch' dataList={this.state.schList} />}
 			</View>
 		);
 	}
