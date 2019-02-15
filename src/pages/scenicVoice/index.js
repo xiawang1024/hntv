@@ -6,6 +6,7 @@ import { VoiceList, Scenic } from './mockData'
 
 export default class ScenicVoice extends Component {
   config = {
+    enablePullDownRefresh: true,
     backgroundColor: '#f7f7f7'
   }
   constructor(props) {
@@ -64,7 +65,7 @@ export default class ScenicVoice extends Component {
             </View>
             <View className='m-info'>
               <Text className='name'>河南广播</Text>
-              <Text className='score'>得分：8分</Text>
+              <Text className='score host'>主持人</Text>
             </View>
           </View>
         </View>
