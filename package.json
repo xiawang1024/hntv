@@ -1,8 +1,8 @@
 {
-  "name": "hntv2",
+  "name": "car999",
   "version": "1.0.0",
   "private": true,
-  "description": "都市频道小程序",
+  "description": "Talk河南",
   "scripts": {
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",

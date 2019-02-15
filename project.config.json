@@ -2,7 +2,7 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "hntv2",
 	"description": "都市频道小程序",
-	"appid": "wx6b6d2350307c78be",
+	"appid": "wxb3586ec1ed9aee02",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
