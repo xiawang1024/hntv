@@ -7,6 +7,7 @@ import Data from './mockData'
 export default class ScenicList extends Component {
   config = {
     navigationBarTitleText: '河南风景区',
+    navigationBarBackgroundColor: '#fff',
     backgroundColor: '#f7f7f7'
   }
   constructor(props) {
@@ -24,7 +25,11 @@ export default class ScenicList extends Component {
 
   componentDidHide() {}
 
-  onReachBottom() {}
+  onReachBottom() {
+    console.log('------------------------------------')
+    console.log('loading more')
+    console.log('------------------------------------')
+  }
 
   render() {
     return (
