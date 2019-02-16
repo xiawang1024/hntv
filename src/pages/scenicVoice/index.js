@@ -7,6 +7,7 @@ import { VoiceList, Scenic } from './mockData'
 import { formatTime } from './utils'
 
 const AudioCtx = Taro.createInnerAudioContext()
+const Recorder = Taro.getRecorderManager()
 export default class ScenicVoice extends Component {
   config = {
     enablePullDownRefresh: true,
@@ -17,7 +18,8 @@ export default class ScenicVoice extends Component {
     this.state = {
       isPlayCurrent: false,
       playIndex: -2,
-      percentList: []
+      percentList: [],
+      pkStatus: true
     }
   }
   onShareAppMessage = () => {}
@@ -113,6 +115,54 @@ export default class ScenicVoice extends Component {
       return [ 'u-btn', 'start' ].join(' ')
     }
   }
+  pkVoice = () => {
+    console.log('------------------------------------')
+    console.log(11)
+    console.log('------------------------------------')
+    this.setState({
+      pkStatus: false
+    })
+    this.startRecorder()
+  }
+  cancelPk = () => {
+    console.log('------------------------------------')
+    console.log(22)
+    console.log('------------------------------------')
+    this.setState({
+      pkStatus: true
+    })
+    this.stopRecorder()
+  }
+
+  startRecorder = () => {
+    const options = {
+      sampleRate: 44100,
+      encodeBitRate: 192000,
+      format: 'aac'
+    }
+
+    Recorder.start(options)
+    this.onStopRecorder()
+  }
+  stopRecorder = () => {
+    Recorder.stop()
+  }
+  onStopRecorder = () => {
+    Recorder.onStop((res) => {
+      console.log('------------------------------------')
+      console.log(res)
+      console.log('------------------------------------')
+      Taro.showLoading({ title: '正在PK，请稍等' }).then((res) => {
+        console.log('pking')
+        /**
+         * 异步上传
+         */
+        setTimeout(() => {
+          Taro.hideLoading()
+        }, 2000)
+      })
+    })
+  }
   render() {
     let { percentList } = this.state
     return (
@@ -189,7 +239,16 @@ export default class ScenicVoice extends Component {
           ))}
         </View>
         <View className='pk-btn'>
-          <View className='btn'>PK</View>
+          <View className='btn'>
+            <Text className='status'>{this.state.pkStatus ? 'PK' : '松开结束录音'}</Text>
+            {this.state.pkStatus ? <Text className='tips'>（长按录音）</Text> : null}
+            <View
+              className='btn-mark'
+              onTouchStart={this.pkVoice}
+              onTouchEnd={this.cancelPk}
+              onTouchCancel={this.cancelPk}
+            />
+          </View>
         </View>
         {/* <Score /> */}
       </View>
