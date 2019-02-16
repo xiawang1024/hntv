@@ -28,7 +28,11 @@ export default class ScenicVoice extends Component {
       isShowScore: false,
       scoreInfo: null,
       isShowAuth: false,
-      scenic: {}
+      scenic: {},
+      currentPage: 1,
+      totalPage: null,
+      dataList: [],
+      isMore: true
     }
   }
   onShareAppMessage = () => {}
@@ -59,7 +63,44 @@ export default class ScenicVoice extends Component {
     this.fetVoiceList(id)
   }
   fetVoiceList = (id) => {
-    getScenicVoiceList(id)
+    let { currentPage, dataList } = this.state
+    getScenicVoiceList(currentPage, 5, id).then((res) => {
+      let { data, success } = res.data
+      // console.log('------------------------------------')
+      // console.log(data)
+      // console.log('------------------------------------')
+      if (success) {
+        let isMore = true
+        if (data.content.length < 5) {
+          isMore = false
+        }
+        this.setState({
+          totalPage: data.totalPage,
+          currentPage: ++currentPage,
+          dataList: dataList.concat(data.content),
+          isMore
+        })
+      }
+    })
+  }
+  onReachBottom() {
+    let { totalPage, currentPage } = this.state
+    if (currentPage > totalPage) {
+      // console.log('------------------------------------')
+      // console.log('no more')
+      // console.log('------------------------------------')
+      this.setState({
+        isMore: false
+      })
+    } else {
+      this.fetchData()
+      this.setState({
+        isMore: true
+      })
+      // console.log('------------------------------------')
+      // console.log('loading more')
+      // console.log('------------------------------------')
+    }
   }
 
   componentWillUnmount() {}
@@ -263,7 +304,7 @@ export default class ScenicVoice extends Component {
           <View className='item'>
             <View className='m-top'>
               <View className='m-avatar'>
-                <Image className='avatar' src='http://www.hndt.com/podcast/1111/res/xtmZ0Bee.png?1508751589195' />
+                <Image className='avatar' src={scenic.headImg} />
               </View>
               <View className='m-voice'>
                 <View className={this.playStatus(-1)} onClick={this.playHandler.bind(this, -1, scenic)} />
@@ -287,17 +328,17 @@ export default class ScenicVoice extends Component {
               </View>
             </View>
             <View className='m-info'>
-              <Text className='name'>河南广播</Text>
+              <Text className='name'>{scenic.nickname}</Text>
               <Text className='score host'>主持人</Text>
             </View>
           </View>
         </View>
         <View className='list-wrap'>
-          {VoiceList.map((item, index) => (
+          {this.state.dataList.map((item, index) => (
             <View className='item' key={item.id}>
               <View className='m-top'>
                 <View className='m-avatar'>
-                  <Image className='avatar' src='http://www.hndt.com/podcast/1111/res/xtmZ0Bee.png?1508751589195' />
+                  <Image className='avatar' src={item.headImg} />
                 </View>
                 <View className='m-voice'>
                   <View className={this.playStatus(index)} onClick={this.playHandler.bind(this, index, item)} />
@@ -322,10 +363,11 @@ export default class ScenicVoice extends Component {
               </View>
               <View className='m-info'>
                 <Text className='name'>{item.nickname}</Text>
-                <Text className='score'>{item.score}</Text>
+                <Text className='score'>得分：{item.score}分</Text>
               </View>
             </View>
           ))}
+          <View className='load-tips'>{this.state.isMore ? '加载中...' : '没有更多数据'}</View>
         </View>
         <View className='pk-btn'>
           <View className='btn'>

@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
 
-import Data from './mockData'
+// import Data from './mockData'
 
 import { getScenicList } from '../../api/index'
 
@@ -41,10 +41,15 @@ export default class ScenicList extends Component {
       // console.log(data)
       // console.log('------------------------------------')
       if (success) {
+        let isMore = true
+        if (data.content.length < 5) {
+          isMore = false
+        }
         this.setState({
           totalPage: data.totalPage,
           currentPage: ++currentPage,
-          dataList: dataList.concat(data.content)
+          dataList: dataList.concat(data.content),
+          isMore
         })
       }
     })

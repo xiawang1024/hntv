@@ -31,9 +31,13 @@ export const getScenicById = (id) =>
  * 获取单个景区留言
  * @param {*} id
  */
-export const getScenicVoiceList = (id) =>
+export const getScenicVoiceList = (pageNo, pageSize, scenicSpotId, sortBy = 'sort', order = 'DESC') =>
   Taro.request({
-    url: `${Base_URL}/scenicSpotVoices/${id}`
+    method: 'POST',
+    url: `${Base_URL}/scenicSpotVoices/q?pageNo=${pageNo}&pageSize=${pageSize}&sortBy=${sortBy}&order=${order}`,
+    data: {
+      scenicSpotId
+    }
   })
 /**
  * 创建景区留言
