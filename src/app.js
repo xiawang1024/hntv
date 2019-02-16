@@ -5,7 +5,7 @@ import './app.scss'
 
 class App extends Component {
   config = {
-    pages: [ 'pages/scenicList/index', 'pages/scenicVoice/index', 'pages/index/index' ],
+    pages: [ 'pages/index/index', 'pages/scenicList/index', 'pages/scenicVoice/index' ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',

@@ -1,12 +1,11 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 
-import { get as getGlobalData } from '../../global_data'
 import './index.scss'
 
 export default class Index extends Component {
   config = {
-    navigationBarTitleText: '私家车999',
+    navigationBarTitleText: 'Talk河南',
     disableScroll: true
   }
   constructor(props) {
@@ -31,8 +30,12 @@ export default class Index extends Component {
   render() {
     return (
       <View className='index'>
-        <Text>首页</Text>
-        <Button onClick={this.toScenicList}>我要PK</Button>
+        <Image
+          className='cover'
+          mode='aspectFill'
+          src='http://www.hndt.com/h5/999/cover.png'
+          onClick={this.toScenicList}
+        />
       </View>
     )
   }

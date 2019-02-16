@@ -21,7 +21,11 @@ export default class ScenicList extends Component {
       isMore: true
     }
   }
-  onShareAppMessage = () => {}
+  onShareAppMessage() {
+    return {
+      path: '/pages/index/index'
+    }
+  }
   componentWillMount() {}
 
   componentDidMount() {

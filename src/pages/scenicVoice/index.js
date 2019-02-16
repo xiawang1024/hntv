@@ -4,7 +4,7 @@ import './index.scss'
 import Score from '../../components/score/index'
 import Auth from '../../components/auth/index'
 
-import { VoiceList, Scenic } from './mockData'
+// import { VoiceList, Scenic } from './mockData'
 import { formatTime, randomPk } from './utils'
 
 import { set as setGlobalData } from '../../global_data'
@@ -35,7 +35,11 @@ export default class ScenicVoice extends Component {
       isMore: true
     }
   }
-  onShareAppMessage = () => {}
+  onShareAppMessage() {
+    return {
+      path: '/pages/index/index'
+    }
+  }
   componentWillMount() {}
 
   componentDidMount() {
