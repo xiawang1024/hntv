@@ -143,11 +143,12 @@ export default class ScenicVoice extends Component {
 
   componentDidHide() {}
   setAudioSrc = (src) => {
-    Taro.showLoading({ title: 'loading' })
     AudioCtx.src = src
     this.onAudioCanPlay()
     this.onAudioUpdate()
     this.onAudioEnd()
+    this.onAudioWait()
+    this.onAudioPlay()
   }
   audioPlay = () => {
     AudioCtx.play()
@@ -186,6 +187,17 @@ export default class ScenicVoice extends Component {
     percentList[playIndex + 1] = percent
     this.setState({ percentList })
   }
+  onAudioPlay = () => {
+    AudioCtx.onPlay(() => {
+      Taro.hideLoading()
+    })
+  }
+  onAudioWait = () => {
+    AudioCtx.onWaiting(() => {
+      Taro.showLoading({ title: 'loading' })
+    })
+  }
+
   resetPercent = (index) => {
     let { percentList } = this.state
     percentList.fill(0)
