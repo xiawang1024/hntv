@@ -15,6 +15,7 @@ const AudioCtx = Taro.createInnerAudioContext()
 const Recorder = Taro.getRecorderManager()
 export default class ScenicVoice extends Component {
   config = {
+    navigationBarTitleText: '河南风景区',
     backgroundColor: '#f7f7f7'
   }
   constructor(props) {
@@ -26,19 +27,38 @@ export default class ScenicVoice extends Component {
       pkStatus: true,
       isShowScore: false,
       scoreInfo: null,
-      isShowAuth: false
+      isShowAuth: false,
+      scenic: {}
     }
   }
   onShareAppMessage = () => {}
   componentWillMount() {}
 
   componentDidMount() {
-    Taro.setNavigationBarTitle({ title: '登封--嵩山少林风景区' }).then((_) => console.log(_))
     this.isAuth()
+    let { id } = this.$router.params
+    // console.log('------------------------------------')
+    // console.log(id)
+    // console.log('------------------------------------')
+    this.fetchData(id)
   }
 
   fetchData = (id) => {
-    getScenicById(id).then()
+    getScenicById(id).then((res) => {
+      let { data, success } = res.data
+      if (success) {
+        // console.log('------------------------------------')
+        // console.log(data)
+        // console.log('------------------------------------')
+        this.setState({
+          scenic: data
+        })
+        Taro.setNavigationBarTitle({ title: data.name })
+      }
+    })
+    this.fetVoiceList(id)
+  }
+  fetVoiceList = (id) => {
     getScenicVoiceList(id)
   }
 
@@ -233,20 +253,20 @@ export default class ScenicVoice extends Component {
     })
   }
   render() {
-    let { percentList } = this.state
+    let { percentList, scenic } = this.state
     return (
       <View className='voice-wrap'>
-        <View className='scenic-wrap' key={String(Scenic.id)}>
-          <Image className='cover' src={Scenic.imageUrl} />
-          <Text className='title'>{Scenic.name}</Text>
-          <Text className='desc'>{Scenic.comments}</Text>
+        <View className='scenic-wrap' key={String(scenic.id)}>
+          <Image className='cover' src={scenic.imageUrl} />
+          <Text className='title'>{scenic.name}</Text>
+          <Text className='desc'>{scenic.comments}</Text>
           <View className='item'>
             <View className='m-top'>
               <View className='m-avatar'>
                 <Image className='avatar' src='http://www.hndt.com/podcast/1111/res/xtmZ0Bee.png?1508751589195' />
               </View>
               <View className='m-voice'>
-                <View className={this.playStatus(-1)} onClick={this.playHandler.bind(this, -1, Scenic)} />
+                <View className={this.playStatus(-1)} onClick={this.playHandler.bind(this, -1, scenic)} />
                 <View className='u-progress'>
                   <Slider
                     step='1'

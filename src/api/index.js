@@ -11,15 +11,12 @@ const Base_URL = 'https://hudong.hndt.com/CAR999/app'
  * @param {*} order
  */
 // eslint-disable-next-line import/prefer-default-export
-export const getScenicList = (pageNo, pageSize, sortBy = 'sort', order = 'DESC') =>
+export const getScenicList = (pageNo, pageSize, sortBy = 'sort', order = 'DESC', name = '') =>
   Taro.request({
     method: 'POST',
-    url: `${Base_URL}/scenicSpots/q`,
+    url: `${Base_URL}/scenicSpots/q?pageNo=${pageNo}&pageSize=${pageSize}&sortBy=${sortBy}&order=${order}`,
     data: {
-      pageNo,
-      pageSize,
-      sortBy,
-      order
+      name
     }
   })
 /**
