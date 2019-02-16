@@ -6,7 +6,7 @@ export const VoiceList = [
     nickname: '河南广播',
     scenicSpotId: '1',
     score: 9.5,
-    voiceUrl: 'http://www.hndt.com/brand/612/201711/27/1918987/res/VgYmGgaO.mp3?1511745891713'
+    voiceUrl: 'http://www.hndt.com/h5/voice/1.mp3'
   },
   {
     createDate: '2019-02-15T04:53:31.031Z',
@@ -15,7 +15,7 @@ export const VoiceList = [
     nickname: '河南广播',
     scenicSpotId: '1',
     score: 9.5,
-    voiceUrl: 'http://www.hndt.com/brand/612/201711/27/1918987/res/VgYmGgaO.mp3?1511745891713'
+    voiceUrl: 'http://www.hndt.com/h5/voice/2.mp3'
   },
   {
     createDate: '2019-02-15T04:53:31.031Z',
@@ -24,7 +24,7 @@ export const VoiceList = [
     nickname: '河南广播',
     scenicSpotId: '1',
     score: 9.5,
-    voiceUrl: 'http://www.hndt.com/brand/612/201711/27/1918987/res/VgYmGgaO.mp3?1511745891713'
+    voiceUrl: 'http://www.hndt.com/h5/voice/3.mp3'
   }
 ]
 export const Scenic = {
@@ -34,5 +34,5 @@ export const Scenic = {
   imageUrl: 'http://www.hndt.com/carrier/20181213/80/2752219282561142732.jpg',
   name: '登封--嵩山少林风景区',
   sort: 0,
-  voiceUrl: 'string'
+  voiceUrl: 'http://www.hndt.com/h5/voice/4.mp3'
 }
