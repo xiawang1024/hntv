@@ -93,9 +93,7 @@ export default class ScenicVoice extends Component {
   onPullDownRefresh() {
     // Taro.showLoading({ title: '刷新中...' })
     let { id } = this.state
-    this.setState({
-      currentPage: 1
-    })
+
     getScenicVoiceList(1, 5, id).then((res) => {
       let { data, success } = res.data
       // console.log('------------------------------------')
@@ -109,6 +107,7 @@ export default class ScenicVoice extends Component {
         this.setState({
           totalPage: data.totalPage,
           dataList: data.content,
+          currentPage: 2,
           isMore
         })
         Taro.stopPullDownRefresh()
@@ -119,7 +118,7 @@ export default class ScenicVoice extends Component {
   }
   onReachBottom() {
     let { totalPage, currentPage } = this.state
-    if (currentPage >= totalPage) {
+    if (currentPage > totalPage) {
       // console.log('------------------------------------')
       // console.log('no more')
       // console.log('------------------------------------')
