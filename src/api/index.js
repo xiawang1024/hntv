@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { get as getGlobalData } from '../global_data'
 
-const Base_URL = 'https://hudong.hndt.com/app/CAR999/app'
+const Base_URL = 'https://hudong.hndt.com/CAR999/app'
 
 /**
  * 获取景区列表
@@ -48,14 +48,14 @@ export const getScenicVoiceList = (id) =>
  * @param {*} id
  * @param {*} createDate
  */
-export const createScenicVoice = (scenicSpotId, voiceUrl, score, headImg, nickname, id = '', createDate) => {
+export const createScenicVoice = (scenicSpotId, voiceUrl, score, headImg, nickname, createDate) => {
   let userInfo = getGlobalData('userInfo')
   headImg = userInfo.avatarUrl
   nickname = userInfo.nickName
 
-  createDate = Date.parse(new Date())
-  Taro.request({
-    url: `${Base_URL}/scenicSpotVoices/`,
+  createDate = `${Date.parse(new Date())}`
+  return Taro.request({
+    url: `${Base_URL}/scenicSpotVoices`,
     method: 'POST',
     data: {
       scenicSpotId,
@@ -63,7 +63,6 @@ export const createScenicVoice = (scenicSpotId, voiceUrl, score, headImg, nickna
       score,
       headImg,
       nickname,
-      id,
       createDate
     }
   })
