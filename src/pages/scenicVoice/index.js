@@ -16,7 +16,8 @@ const Recorder = Taro.getRecorderManager()
 export default class ScenicVoice extends Component {
   config = {
     navigationBarTitleText: '河南风景区',
-    backgroundColor: '#f7f7f7'
+    backgroundColor: '#f7f7f7',
+    enablePullDownRefresh: true
   }
   constructor(props) {
     super(props)
@@ -32,7 +33,8 @@ export default class ScenicVoice extends Component {
       currentPage: 1,
       totalPage: null,
       dataList: [],
-      isMore: true
+      isMore: true,
+      id: null
     }
   }
   onShareAppMessage() {
@@ -45,6 +47,7 @@ export default class ScenicVoice extends Component {
   componentDidMount() {
     this.isAuth()
     let { id } = this.$router.params
+    this.setState({ id })
     // console.log('------------------------------------')
     // console.log(id)
     // console.log('------------------------------------')
@@ -87,9 +90,36 @@ export default class ScenicVoice extends Component {
       }
     })
   }
+  onPullDownRefresh() {
+    // Taro.showLoading({ title: '刷新中...' })
+    let { id } = this.state
+    this.setState({
+      currentPage: 1
+    })
+    getScenicVoiceList(1, 5, id).then((res) => {
+      let { data, success } = res.data
+      // console.log('------------------------------------')
+      // console.log(data)
+      // console.log('------------------------------------')
+      if (success) {
+        let isMore = true
+        if (data.content.length < 5) {
+          isMore = false
+        }
+        this.setState({
+          totalPage: data.totalPage,
+          dataList: data.content,
+          isMore
+        })
+        Taro.stopPullDownRefresh()
+        // Taro.hideLoading()
+      }
+    })
+    console.log('up')
+  }
   onReachBottom() {
     let { totalPage, currentPage } = this.state
-    if (currentPage > totalPage) {
+    if (currentPage >= totalPage) {
       // console.log('------------------------------------')
       // console.log('no more')
       // console.log('------------------------------------')
@@ -97,7 +127,8 @@ export default class ScenicVoice extends Component {
         isMore: false
       })
     } else {
-      this.fetchData()
+      let { id } = this.state
+      this.fetVoiceList(id)
       this.setState({
         isMore: true
       })
@@ -138,7 +169,7 @@ export default class ScenicVoice extends Component {
     AudioCtx.onTimeUpdate(() => {
       let { currentTime, duration } = AudioCtx
 
-      let percent = (currentTime / duration * 100) | 0
+      let percent = Math.ceil(currentTime / duration * 100)
       this.setAudioPercent({ percent, currentTime: formatTime(currentTime), duration: formatTime(duration) })
     })
   }
@@ -239,9 +270,11 @@ export default class ScenicVoice extends Component {
             // console.log(voiceSrc)
             // console.log('------------------------------------')
             let { scoreInfo } = this.state
-            createScenicVoice('1', voiceSrc, scoreInfo.score).then((voice) => {
+            let { id } = this.state
+            createScenicVoice(id, voiceSrc, scoreInfo.score).then((voice) => {
               // eslint-disable-next-line no-shadow
               let { data } = voice
+              console.log()
               if (data.success) {
                 setTimeout(() => {
                   Taro.hideLoading()
@@ -297,6 +330,7 @@ export default class ScenicVoice extends Component {
       isShowAuth: false
     })
   }
+
   render() {
     let { percentList, scenic } = this.state
     return (
