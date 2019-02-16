@@ -8,6 +8,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   .m-wrap {
+    position: relative;
     width: 634px;
     height: 832px;
     margin: 120px auto;
@@ -46,6 +47,25 @@
           }
         }
       }
+      .u-share {
+        position: absolute;
+        top: 510px;
+        left: 102px;
+        width: 430px;
+        height: 90px;
+        border-radius: 90px;
+        color: #d53b1b;
+        background: linear-gradient(#ffef59, #ffc009);
+      }
+    }
+    .u-close {
+      position: absolute;
+      left: 281px;
+      bottom: 0;
+      width: 72px;
+      height: 72px;
+      background: url('./icon/ic_close.png') center center no-repeat;
+      background-size: contain;
     }
   }
 }

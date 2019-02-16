@@ -4,13 +4,12 @@ import './index.scss'
 import Score from '../../components/score/index'
 
 import { VoiceList, Scenic } from './mockData'
-import { formatTime } from './utils'
+import { formatTime, randomPk } from './utils'
 
 const AudioCtx = Taro.createInnerAudioContext()
 const Recorder = Taro.getRecorderManager()
 export default class ScenicVoice extends Component {
   config = {
-    enablePullDownRefresh: true,
     backgroundColor: '#f7f7f7'
   }
   constructor(props) {
@@ -19,7 +18,9 @@ export default class ScenicVoice extends Component {
       isPlayCurrent: false,
       playIndex: -2,
       percentList: [],
-      pkStatus: true
+      pkStatus: true,
+      isShowScore: false,
+      scoreInfo: null
     }
   }
   onShareAppMessage = () => {}
@@ -27,6 +28,7 @@ export default class ScenicVoice extends Component {
 
   componentDidMount() {
     Taro.setNavigationBarTitle({ title: '登封--嵩山少林风景区' }).then((_) => console.log(_))
+    randomPk()
   }
 
   componentWillUnmount() {}
@@ -154,13 +156,34 @@ export default class ScenicVoice extends Component {
       console.log('------------------------------------')
       Taro.showLoading({ title: '正在PK，请稍等' }).then((res) => {
         console.log('pking')
+        this.initScore()
         /**
          * 异步上传
          */
         setTimeout(() => {
           Taro.hideLoading()
+          this.showScore()
         }, 2000)
       })
+    })
+  }
+  initScore = () => {
+    let scoreInfo = randomPk()
+    console.log('------------------------------------')
+    console.log(scoreInfo)
+    console.log('------------------------------------')
+    this.setState({
+      scoreInfo
+    })
+  }
+  showScore = () => {
+    this.setState({
+      isShowScore: true
+    })
+  }
+  onCloseScore = () => {
+    this.setState({
+      isShowScore: false
     })
   }
   render() {
@@ -250,7 +273,7 @@ export default class ScenicVoice extends Component {
             />
           </View>
         </View>
-        {/* <Score /> */}
+        {this.state.isShowScore ? <Score scoreInfo={this.state.scoreInfo} onCloseScore={this.onCloseScore} /> : null}
       </View>
     )
   }
