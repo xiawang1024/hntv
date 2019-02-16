@@ -29,7 +29,7 @@
         flex: 0 0 50px;
         width: 50px;
         height: 50px;
-        margin: 0 20px;
+        margin: 0 30px 0 20px;
 
         &.start {
           background: url('./icon/ic_start.png') center center no-repeat;
@@ -42,6 +42,7 @@
       }
       .u-progress {
         flex: 1;
+
         .time-wrap {
           display: flex;
           justify-content: space-between;

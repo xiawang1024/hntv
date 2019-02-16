@@ -77,9 +77,6 @@ export default class ScenicVoice extends Component {
     return percentList
   }
   playHandler = (index, item, event) => {
-    console.log('------------------------------------')
-    console.log(item)
-    console.log('------------------------------------')
     this.setAudioSrc(item.voiceUrl)
     /**
      * play 状态改变
