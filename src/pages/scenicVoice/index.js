@@ -143,6 +143,7 @@ export default class ScenicVoice extends Component {
 
   componentDidHide() {}
   setAudioSrc = (src) => {
+    Taro.showLoading({ title: 'loading' })
     AudioCtx.src = src
     this.onAudioCanPlay()
     this.onAudioUpdate()
@@ -155,7 +156,9 @@ export default class ScenicVoice extends Component {
     AudioCtx.pause()
   }
   onAudioCanPlay = () => {
-    AudioCtx.onCanplay(() => {})
+    AudioCtx.onCanplay(() => {
+      Taro.hideLoading()
+    })
   }
   onAudioEnd = () => {
     AudioCtx.onEnded(() => {
@@ -167,8 +170,11 @@ export default class ScenicVoice extends Component {
   onAudioUpdate = () => {
     AudioCtx.onTimeUpdate(() => {
       let { currentTime, duration } = AudioCtx
-
-      let percent = Math.ceil(currentTime / duration * 100)
+      let percent = ((currentTime | 0) / (duration | 0) * 100) | 0
+      console.log(currentTime, duration, percent)
+      if (percent === 100) {
+        AudioCtx.offTimeUpdate()
+      }
       this.setAudioPercent({ percent, currentTime: formatTime(currentTime), duration: formatTime(duration) })
     })
   }
@@ -347,7 +353,7 @@ export default class ScenicVoice extends Component {
                 <View className={this.playStatus(-1)} onClick={this.playHandler.bind(this, -1, scenic)} />
                 <View className='u-progress'>
                   <Slider
-                    step='1'
+                    step='0.1'
                     value={percentList[0].percent}
                     min='0'
                     max='100'
@@ -381,7 +387,7 @@ export default class ScenicVoice extends Component {
                   <View className={this.playStatus(index)} onClick={this.playHandler.bind(this, index, item)} />
                   <View className='u-progress'>
                     <Slider
-                      step='1'
+                      step='0.1'
                       value={percentList[index + 1].percent}
                       min='0'
                       max='100'
