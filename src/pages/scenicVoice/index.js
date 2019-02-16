@@ -2,9 +2,12 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image, Slider } from '@tarojs/components'
 import './index.scss'
 import Score from '../../components/score/index'
+import Auth from '../../components/auth/index'
 
 import { VoiceList, Scenic } from './mockData'
 import { formatTime, randomPk } from './utils'
+
+import { get as getGlobalData } from './global_data'
 
 const AudioCtx = Taro.createInnerAudioContext()
 const Recorder = Taro.getRecorderManager()
@@ -20,7 +23,8 @@ export default class ScenicVoice extends Component {
       percentList: [],
       pkStatus: true,
       isShowScore: false,
-      scoreInfo: null
+      scoreInfo: null,
+      isShowAuth: false
     }
   }
   onShareAppMessage = () => {}
@@ -28,7 +32,7 @@ export default class ScenicVoice extends Component {
 
   componentDidMount() {
     Taro.setNavigationBarTitle({ title: '登封--嵩山少林风景区' }).then((_) => console.log(_))
-    randomPk()
+    this.isAuth()
   }
 
   componentWillUnmount() {}
@@ -186,6 +190,25 @@ export default class ScenicVoice extends Component {
       isShowScore: false
     })
   }
+  isAuth = () => {
+    Taro.getSetting().then((res) => {
+      if (res.authSetting['scope.userInfo']) {
+        Taro.getUserInfo().then((info) => console.log(info))
+      } else {
+        this.openAuth()
+      }
+    })
+  }
+  openAuth = () => {
+    this.setState({
+      isShowAuth: true
+    })
+  }
+  onCloseAuth = () => {
+    this.setState({
+      isShowAuth: false
+    })
+  }
   render() {
     let { percentList } = this.state
     return (
@@ -274,6 +297,7 @@ export default class ScenicVoice extends Component {
           </View>
         </View>
         {this.state.isShowScore ? <Score scoreInfo={this.state.scoreInfo} onCloseScore={this.onCloseScore} /> : null}
+        {this.state.isShowAuth ? <Auth onCloseAuth={this.onCloseAuth} /> : null}
       </View>
     )
   }
