@@ -2,6 +2,8 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, OpenData, Button } from '@tarojs/components'
 import './index.scss'
 
+import { set as setGlobalData } from '../../global_data'
+
 export default class Auth extends Component {
   config = {}
 
@@ -19,6 +21,7 @@ export default class Auth extends Component {
 
     if (detail.userInfo) {
       onCloseAuth()
+      setGlobalData('userInfo', detail.userInfo)
     } else {
       /**
        * 拒绝授权

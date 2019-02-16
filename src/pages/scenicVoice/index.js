@@ -7,7 +7,7 @@ import Auth from '../../components/auth/index'
 import { VoiceList, Scenic } from './mockData'
 import { formatTime, randomPk } from './utils'
 
-import { get as getGlobalData } from './global_data'
+import { set as setGlobalData } from '../../global_data'
 
 const AudioCtx = Taro.createInnerAudioContext()
 const Recorder = Taro.getRecorderManager()
@@ -193,7 +193,9 @@ export default class ScenicVoice extends Component {
   isAuth = () => {
     Taro.getSetting().then((res) => {
       if (res.authSetting['scope.userInfo']) {
-        Taro.getUserInfo().then((info) => console.log(info))
+        Taro.getUserInfo().then((detail) => {
+          setGlobalData('userInfo', detail.userInfo)
+        })
       } else {
         this.openAuth()
       }
