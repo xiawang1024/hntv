@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image, Slider } from '@tarojs/components'
 import './index.scss'
+import Score from '../../components/score/index'
 
 import { VoiceList, Scenic } from './mockData'
 
@@ -12,7 +13,9 @@ export default class ScenicVoice extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      playStatus: 'start'
+      isPlayCurrent: false,
+      playIndex: -2,
+      percentList: []
     }
   }
   onShareAppMessage = () => {}
@@ -27,10 +30,45 @@ export default class ScenicVoice extends Component {
   componentDidShow() {}
 
   componentDidHide() {}
-  playStatus = () => {
-    return [ 'u-btn', this.state.playStatus ].join(' ')
+  resetPercent = (index) => {
+    let { percentList } = this.state
+    percentList.fill(0)
+    percentList[index + 1] = 20
+    return percentList
+  }
+  playHandler = (index) => {
+    this.setState((prevState) => {
+      let { playIndex, isPlayCurrent } = prevState
+      if (index === playIndex) {
+        return {
+          playIndex: index,
+          isPlayCurrent: !isPlayCurrent
+        }
+      } else {
+        let percentList = this.resetPercent(index)
+
+        return {
+          playIndex: index,
+          isPlayCurrent: false,
+          percentList
+        }
+      }
+    })
+  }
+  playStatus = (index) => {
+    let { playIndex, isPlayCurrent } = this.state
+    if (playIndex === index) {
+      if (!isPlayCurrent) {
+        return [ 'u-btn', 'stop' ].join(' ')
+      } else {
+        return [ 'u-btn', 'start' ].join(' ')
+      }
+    } else {
+      return [ 'u-btn', 'start' ].join(' ')
+    }
   }
   render() {
+    let { percentList } = this.state
     return (
       <View className='voice-wrap'>
         <View className='scenic-wrap' key={String(Scenic.id)}>
@@ -43,13 +81,13 @@ export default class ScenicVoice extends Component {
                 <Image className='avatar' src='http://www.hndt.com/podcast/1111/res/xtmZ0Bee.png?1508751589195' />
               </View>
               <View className='m-voice'>
-                <View className={this.playStatus()} />
+                <View className={this.playStatus(-1)} onClick={this.playHandler.bind(this, -1)} />
                 <View className='u-progress'>
                   <Slider
                     step='1'
-                    value='100'
-                    min='50'
-                    max='200'
+                    value={percentList[0]}
+                    min='0'
+                    max='100'
                     blockSize='12'
                     blockColor='#31ace7'
                     backgroundColor='#cccccc'
@@ -70,20 +108,20 @@ export default class ScenicVoice extends Component {
           </View>
         </View>
         <View className='list-wrap'>
-          {VoiceList.map((item) => (
+          {VoiceList.map((item, index) => (
             <View className='item' key={item.id}>
               <View className='m-top'>
                 <View className='m-avatar'>
                   <Image className='avatar' src='http://www.hndt.com/podcast/1111/res/xtmZ0Bee.png?1508751589195' />
                 </View>
                 <View className='m-voice'>
-                  <View className={this.playStatus()} />
+                  <View className={this.playStatus(index)} onClick={this.playHandler.bind(this, index)} />
                   <View className='u-progress'>
                     <Slider
                       step='1'
-                      value='100'
-                      min='50'
-                      max='200'
+                      value={percentList[index + 1]}
+                      min='0'
+                      max='100'
                       blockSize='12'
                       blockColor='#31ace7'
                       backgroundColor='#cccccc'
@@ -107,6 +145,7 @@ export default class ScenicVoice extends Component {
         <View className='pk-btn'>
           <View className='btn'>PK</View>
         </View>
+        {/* <Score /> */}
       </View>
     )
   }
