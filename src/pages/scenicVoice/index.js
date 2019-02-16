@@ -9,6 +9,8 @@ import { formatTime, randomPk } from './utils'
 
 import { set as setGlobalData } from '../../global_data'
 
+import { uploadVoice, createScenicVoice, getScenicById, getScenicVoiceList } from '../../api/index'
+
 const AudioCtx = Taro.createInnerAudioContext()
 const Recorder = Taro.getRecorderManager()
 export default class ScenicVoice extends Component {
@@ -24,7 +26,8 @@ export default class ScenicVoice extends Component {
       pkStatus: true,
       isShowScore: false,
       scoreInfo: null,
-      isShowAuth: false
+      isShowAuth: false,
+      voiceSrc: ''
     }
   }
   onShareAppMessage = () => {}
@@ -122,18 +125,12 @@ export default class ScenicVoice extends Component {
     }
   }
   pkVoice = () => {
-    console.log('------------------------------------')
-    console.log(11)
-    console.log('------------------------------------')
     this.setState({
       pkStatus: false
     })
     this.startRecorder()
   }
   cancelPk = () => {
-    console.log('------------------------------------')
-    console.log(22)
-    console.log('------------------------------------')
     this.setState({
       pkStatus: true
     })
@@ -156,18 +153,31 @@ export default class ScenicVoice extends Component {
   onStopRecorder = () => {
     Recorder.onStop((res) => {
       console.log('------------------------------------')
-      console.log(res)
+      console.log(res.tempFilePath)
       console.log('------------------------------------')
-      Taro.showLoading({ title: '正在PK，请稍等' }).then((res) => {
+      let { tempFilePath } = res
+      Taro.showLoading({ title: '正在PK，请稍等' }).then(() => {
         console.log('pking')
         this.initScore()
         /**
          * 异步上传
          */
-        setTimeout(() => {
-          Taro.hideLoading()
-          this.showScore()
-        }, 2000)
+        uploadVoice(tempFilePath).then((file) => {
+          let { data, statusCode } = file
+          if (statusCode === 200) {
+            let voiceSrc = `http://${data}`
+            console.log('------------------------------------')
+            console.log(voiceSrc)
+            console.log('------------------------------------')
+            let { scoreInfo } = this.state
+            createScenicVoice('1', voiceSrc, scoreInfo.score)
+          }
+
+          setTimeout(() => {
+            Taro.hideLoading()
+            this.showScore()
+          }, 1000)
+        })
       })
     })
   }
@@ -194,6 +204,9 @@ export default class ScenicVoice extends Component {
     Taro.getSetting().then((res) => {
       if (res.authSetting['scope.userInfo']) {
         Taro.getUserInfo().then((detail) => {
+          console.log('------------------------------------')
+          console.log(detail.userInfo)
+          console.log('------------------------------------')
           setGlobalData('userInfo', detail.userInfo)
         })
       } else {

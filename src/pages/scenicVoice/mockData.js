@@ -14,8 +14,8 @@ export const VoiceList = [
     id: '11',
     nickname: '河南广播',
     scenicSpotId: '1',
-    score: 9.5,
-    voiceUrl: 'http://www.hndt.com/h5/voice/2.mp3'
+    score: 8.5,
+    voiceUrl: 'http://brick.hndt.com/group1/M00/00/0F/CgEDFFxnuvSAYqNSAACtdCUgDUc120.m4a'
   },
   {
     createDate: '2019-02-15T04:53:31.031Z',
