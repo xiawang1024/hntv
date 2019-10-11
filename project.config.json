@@ -1,5 +1,5 @@
 {
-	"miniprogramRoot": "./dist",
+	"miniprogramRoot": "dist/",
 	"projectname": "%E6%B2%B3%E5%8D%97%E9%83%BD%E5%B8%82",
 	"description": "河南都市丨垂直创新2019攻略",
 	"appid": "wx6b6d2350307c78be",
@@ -11,6 +11,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.0",
+	"libVersion": "2.8.3",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {}
 }

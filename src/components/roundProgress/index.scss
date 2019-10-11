@@ -1,0 +1,51 @@
+.progress_box {
+  position: absolute;
+  z-index: 1024;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 450px;
+  height: 450px;
+  margin: auto;
+  // 这里的宽高是必须大于等于canvas圆环的直径 否则绘制到盒子外面就看不见了
+  // 一开始设置 width:440rpx; height:440rpx; 发现 在360X640分辨率的设备，下绘制的圆环跑盒子外去了
+  // 小程序使用rpx单位适配 ，但是canvas绘制的是px单位的。所以只能用px单位绘制的圆环在盒子内显示
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.progress_bg {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+}
+
+.progress_canvas {
+  width: 220px;
+  height: 220px;
+}
+
+.progress_text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.progress_info {
+  font-size: 32px;
+  padding-left: 16px;
+  letter-spacing: 2px
+}
+
+.progress_dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fb9126;
+}
