@@ -4,7 +4,7 @@
  * @Company: hNdt
  * @Author: xiaWang1024
  * @Date: 2019-07-04 14:57:09
- * @LastEditTime: 2019-10-11 16:30:32
+ * @LastEditTime: 2019-10-14 08:56:16
  */
 import Taro, { Component } from '@tarojs/taro';
 import { View, Canvas, Text } from '@tarojs/components';
@@ -17,7 +17,7 @@ const RoundSize = 60; //圆环半径
 export default class RoundProgress extends Component {
   static defaultProps = {
     percent: 0,
-    textDesc?: ''
+    textDesc: ''
   };
   componentWillMount() { }
 

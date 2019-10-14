@@ -4,7 +4,7 @@
  * @Company: hNdt
  * @Author: xiaWang1024
  * @Date: 2019-10-11 15:38:44
- * @LastEditTime: 2019-10-11 16:29:12
+ * @LastEditTime: 2019-10-14 08:53:55
  */
 import Taro, { Component } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
@@ -13,6 +13,8 @@ import RoundProgress from '../../components/roundProgress/index';
 import './index.scss';
 import { getArticleList, getDocList } from '../../api/index';
 import { get as getGlobalData } from '../../global_data';
+
+
 
 export default class list extends Component {
   config = {
