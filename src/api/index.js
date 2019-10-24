@@ -4,14 +4,14 @@
  * @Company: hNdt
  * @Author: xiaWang1024
  * @Date: 2019-10-11 14:42:12
- * @LastEditTime: 2019-10-11 16:21:04
+ * @LastEditTime: 2019-10-23 18:10:46
  */
 import Taro from '@tarojs/taro';
 import { Base64 } from 'js-base64';
 const Base_URL = 'https://a.weixin.hndt.com/ktvcms/api?';
 const DZ_URL = 'https://pubmob.dianzhenkeji.com'
 
-const getDocList = (pageNo = 1, pageSize = 20) => Taro.request({
+const getDocList = (pageNo = 1, pageSize = 40) => Taro.request({
   url: `${DZ_URL}/cms/articles`,
   data: {
     pageNo,
@@ -36,7 +36,7 @@ const getSwipeData = (pagesize = 10, id = 4, page = 1) =>
  * @param {*} id 分类id
  * @param {*} page 页码
  */
-const getVideosList = (pagesize = 20, id = 15, page = 1) =>
+const getVideosList = (pagesize = 50, id = 15, page = 1) =>
   Taro.request({
     url: `${Base_URL}method=queryContentByCategory&id=${id}&page=${page}&pagesize=${pagesize}`
   });

@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Version: 0.0.1
+ * @Company: hNdt
+ * @Author: xiaWang1024
+ * @Date: 2019-10-11 15:38:44
+ * @LastEditTime: 2019-10-21 10:47:52
+ */
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components';
 import { getVideosList, getSwipeData } from '../../api/index.js';
@@ -18,7 +26,7 @@ const modelData = [
   {
     id: 3,
     icon: require('../../icons/model-2.png'),
-    text: '综艺季播'
+    text: '综艺定制'
   },
   {
     id: 4,
