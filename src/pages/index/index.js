@@ -11,7 +11,7 @@ import { View, Text, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/compo
 import { getVideosList, getSwipeData } from '../../api/index.js';
 import { get as getGlobalData } from '../../global_data';
 import './index.scss';
-
+degugger()
 const modelData = [
   {
     id: 1,
