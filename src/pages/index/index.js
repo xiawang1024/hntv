@@ -4,14 +4,13 @@
  * @Company: hNdt
  * @Author: xiaWang1024
  * @Date: 2019-10-11 15:38:44
- * @LastEditTime: 2019-10-21 10:47:52
+ * @LastEditTime: 2019-11-27 17:10:48
  */
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components';
 import { getVideosList, getSwipeData } from '../../api/index.js';
 import { get as getGlobalData } from '../../global_data';
 import './index.scss';
-degugger()
 const modelData = [
   {
     id: 1,
@@ -47,7 +46,7 @@ const modelData = [
 
 export default class Index extends Component {
   config = {
-    navigationBarTitleText: '河南都市频道广告推广',
+    navigationBarTitleText: '河南都市频道',
     disableScroll: true
   };
   constructor(props) {
@@ -129,7 +128,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <View className='title-wrap' style={{ height: `${titleBarHeight}px`, top: `${statusBarHeight}px` }}>
-          <Text className='title'>河南都市丨垂直创新2019攻略</Text>
+          <Text className='title'>河南都市｜创新攻略</Text>
         </View>
         <View className='swiper-wrap'>
           <Swiper className='swiper' indicatorActiveColor='#ff2399' circular autoplay duration='300'>

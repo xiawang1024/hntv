@@ -4,7 +4,7 @@
  * @Company: hNdt
  * @Author: xiaWang1024
  * @Date: 2019-10-11 15:38:44
- * @LastEditTime: 2019-10-11 15:38:44
+ * @LastEditTime: 2019-11-27 17:07:47
  */
 import Taro, { Component } from '@tarojs/taro';
 import Index from './pages/index';
